@@ -1,5 +1,5 @@
 {
-  "name": "@umbraco/playwright-models",
+  "name": "@umbraco/acceptance-test-models",
   "private": false,
   "version": "1.0.0",
   "description": "Builders and models for Umbraco Sites",
