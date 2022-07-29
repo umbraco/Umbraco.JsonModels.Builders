@@ -1,5 +1,5 @@
 {
-  "name": "@umbraco/umbracomodels",
+  "name": "@umbraco/playwright-models",
   "version": "1.0.0",
   "description": "Builders and models for Umbraco Sites",
   "types": "index.d.ts",
