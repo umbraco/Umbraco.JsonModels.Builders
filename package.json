@@ -1,8 +1,8 @@
 {
   "name": "@umbraco/playwright-models",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Builders and models for Umbraco Sites",
-  "main": "lib/index.js",
+  "main": "lib/index.ts",
   "files": [
     "lib/**/*"
   ],
