@@ -6,6 +6,7 @@
     "lib": ["es2017", "dom", "dom.iterable"],
     "esModuleInterop": false,
     "declaration": true,
+    "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,11 +22,10 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "outDir": "./lib",
     "composite": true,
     "strictPropertyInitialization": false,
     "noImplicitAny": false
   },
-  "include": ["src"],
+  "include": ["lib"],
   "exclude": ["node_modules"]
 }
