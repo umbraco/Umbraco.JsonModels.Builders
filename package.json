@@ -2,9 +2,10 @@
   "name": "@umbraco/playwright-models",
   "version": "4.0.1",
   "description": "Builders and models for Umbraco Sites",
-  "main": "lib/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "scripts": {
     "build": "tsc"
@@ -29,6 +30,7 @@
     "faker": "^4.1.0"
   },
   "devDependencies": {
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "tslib": "^2.4.0"
   }
 }
