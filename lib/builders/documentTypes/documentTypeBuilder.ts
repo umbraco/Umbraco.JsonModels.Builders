@@ -95,7 +95,7 @@ export class DocumentTypeBuilder {
   }
 
   build() {
-    const key = this.key || faker.random.uuid();
+    const key = this.key || faker.random().uuid();
     const name = this.name || key;
     const alias = this.alias || AliasHelper.toSafeAlias(name);
     const parentId = this.parentId || -1;
