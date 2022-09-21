@@ -3,7 +3,6 @@ import * as camelize from 'camelize';
 
 export class DocumentTypePropertyBuilder {
   parentBuilder;
-
   alias;
   value;
   allowCultureVariant;
@@ -30,6 +29,10 @@ export class DocumentTypePropertyBuilder {
   }
   withValue(value) {
     this.value = value;
+    return this;
+  }
+  withCultureVariant(allowCultureVariant){
+    this.allowCultureVariant = allowCultureVariant;
     return this;
   }
   done() {
