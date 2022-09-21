@@ -1,5 +1,5 @@
 import DocumentTypeGroupBuilder from "./documentTypeGroupBuilder";
-import faker from 'faker';
+import * as faker from 'faker';
 
 export default class DocumentTypeTabBuilder extends DocumentTypeGroupBuilder { 
     documentTypeGroupBuilders;

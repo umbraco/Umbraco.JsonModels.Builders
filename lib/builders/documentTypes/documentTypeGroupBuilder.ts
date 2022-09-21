@@ -1,5 +1,5 @@
-import faker from 'faker';
-import camelize from 'camelize';
+import * as faker from 'faker';
+import * as camelize from 'camelize';
 import { FormPickerDocumentTypePropertyBuilder } from './properties/formPickerDocumentTypePropertyBuilder';
 import { TextBoxDocumentTypePropertyBuilder } from './properties/textBoxDocumentTypePropertyBuilder';
 import { DropDownDocumentTypePropertyBuilder } from './properties/dropDownDocumentTypePropertyBuilder';

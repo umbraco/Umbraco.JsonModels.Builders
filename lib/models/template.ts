@@ -1,5 +1,5 @@
-import faker from 'faker';
-import camelize from 'camelize';
+import * as faker from 'faker';
+import * as camelize from 'camelize';
 
 /**
  * Used to generate a new template

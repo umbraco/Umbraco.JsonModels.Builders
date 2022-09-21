@@ -1,5 +1,5 @@
 import { Stylesheet } from '../../models';
-import faker from 'faker';
+import * as faker from 'faker';
 
 export class StylesheetBuilder {
   constructor(private stylesheet: Stylesheet = new Stylesheet()) {}

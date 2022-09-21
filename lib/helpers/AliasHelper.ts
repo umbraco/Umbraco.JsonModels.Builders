@@ -1,4 +1,4 @@
-import camelize from 'camelize';
+import * as camelize from 'camelize';
 
 export class AliasHelper {
   /**
