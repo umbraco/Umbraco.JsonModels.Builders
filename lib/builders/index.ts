@@ -22,4 +22,5 @@ export { DomainPropertyBuilder} from './domain/domainPropertyBuilder'
 export { UserBuilder} from './user/userBuilder'
 export { ApprovedColorPickerDataTypeBuilder } from './dataTypes';
 export { CheckBoxListDataTypeBuilder } from './dataTypes';
+export {ScriptBuilder} from './scriptbuilder';
 
