@@ -20,4 +20,6 @@ export { MediaPropertyBuilder} from './media/mediaPropertyBuilder'
 export { DomainBuilder} from './domain/domainBuilder'
 export { DomainPropertyBuilder} from './domain/domainPropertyBuilder'
 export { UserBuilder} from './user/userBuilder'
+export { ApprovedColorPickerDataTypeBuilder } from './dataTypes';
+export { CheckBoxListDataTypeBuilder } from './dataTypes';
 
