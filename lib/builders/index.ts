@@ -14,3 +14,10 @@ export { PartialViewBuilder} from './partialViews/partialViewBuilder'
 export { PackageBuilder} from './packages/packageBuilder'
 export { MacroBuilder } from './macroBuilder';
 export { GridDataTypeBuilder } from './dataTypes'
+export { MediaBuilder} from './media/mediaBuilder'
+export { MediaFileBuilder} from './media/mediaFileBuilder'
+export { MediaPropertyBuilder} from './media/mediaPropertyBuilder'
+export { DomainBuilder} from './domain/domainBuilder'
+export { DomainPropertyBuilder} from './domain/domainPropertyBuilder'
+export { UserBuilder} from './user/userBuilder'
+
