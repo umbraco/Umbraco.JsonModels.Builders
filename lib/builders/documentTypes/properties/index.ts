@@ -4,3 +4,6 @@ export { DropDownDocumentTypePropertyBuilder } from './dropDownDocumentTypePrope
 export { ContentPickerPropertyBuilder } from './contentPickerTypePropertyBuilder';
 export { RichTextDocumentTypePropertyEditor } from './richTextDocumentTypePropertyBuilder';
 export { CustomDocumentTypePropertyBuilder } from './customDocumentTypePropertyBuilder';
+export { ApprovedColorPickerDataTypeBuilder } from './approvedColorPickerTypeDataTypeBuilder';
+export { UrlPickerPropertyBuilder } from './urlPickerTypePropertyBuilder';
+export { DocumentTypePropertyBuilder } from './documentTypePropertyBuilder';
