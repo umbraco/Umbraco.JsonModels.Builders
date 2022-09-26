@@ -9,7 +9,7 @@ export class DomainBuilder {
         this.domainPropertyBuilder = [];
     }
 
-    withNodeId(nodeId) {
+    withNodeId(nodeId: number | null) {
         this.nodeId = nodeId;
         return this;
     }

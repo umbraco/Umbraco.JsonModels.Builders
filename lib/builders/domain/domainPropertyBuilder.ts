@@ -7,12 +7,12 @@
         this.parentBuilder = parentBuilder;
     }
 
-    withName(name) {
+    withEndpoint(name: string) {
         this.name = name;
         return this;
     }
 
-    withLang(lang) {
+    withLanguageId(lang: number | null) {
         this.lang = lang;
         return this;
     }
