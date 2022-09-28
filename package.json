@@ -1,6 +1,6 @@
 {
-  "name": "@umbraco/playwright-models",
-  "version": "5.0.0",
+  "name": "@umbraco/json-models-builders",
+  "version": "1.0.0",
   "description": "Builders and models for Umbraco Sites",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umbraco/umbraco-playwright-testhelpers.git"
+    "url": "git+https://github.com/umbraco/Umbraco.JsonModels.Builders.git"
   },
   "keywords": [
     "umbraco",
@@ -22,9 +22,9 @@
   "author": "Umbraco",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/umbraco/umbraco-playwright-testhelpers/issues"
+    "url": "https://github.com/umbraco/Umbraco.JsonModels.Builders/issues"
   },
-  "homepage": "https://github.com/umbraco/umbraco-playwright-testhelpers#readme",
+  "homepage": "https://github.com/umbraco/Umbraco.JsonModels.Builders#readme",
   "dependencies": {
     "camelize": "^1.0.0",
     "faker": "^4.1.0"
