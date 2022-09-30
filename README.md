@@ -1,6 +1,46 @@
 # Umbraco.JsonModels.Builder
-This package contains the models and builders for the Umbraco backoffice!
+Umbraco.JsonModels.Builder is a package made for use with Umbraco.
+This package is meant to contain all the Umbraco backoffice models, and their corresponding builders. If you see any model/builder missing, please create an issue / open a PR for it yourself, we would love your contribution!
 
+## What even is a builder?
+Before we even get started, lets talk about what a builder is. We are using the [Builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) here.
+The builder is a class that creates a model, but you yourself can then use that builder to tweak the different properties.
+If you take a look at the `DocumentTypeBuilder` you will see all these properties:
+
+```
+compositeContentTypes;
+isContainer;
+allowAsRoot;
+allowedTemplates;
+allowedContentTypes;
+alias;
+description;
+thumbnail;
+name;
+id;
+icon;
+trashed;
+key;
+parentId;
+path;
+allowCultureVariant;
+isElement;
+defaultTemplate;
+lockedCompositeContentTypes: any[];
+historyCleanupPreventCleanup;
+historyCleanupKeepAllVersionsNewerThanDays;
+historyCleanupKeepLatestVersionPerDayForDays;
+documentTypeGroupBuilders;
+documentTypeHistoryCleanupBuilder;
+```
+
+This looks very daunting, what types are these properties, what values do you fill out? You could imagine this being a big process, every time you needed to create a document type.
+Well the builder handles setting all of this for you! So all you would need to do, when using a builder to create a document type is: 
+```
+const documentType = new DocumentTypeBuilder()
+      .build();
+```
+The builder will then fill out all the properties with default values!
 ## Prerequisites
 This project was made with Node V16, so the minimum requirement is node `16.17.1`
 
@@ -15,8 +55,13 @@ You can then use the imported builder to build a model:
 
 ```
 const documentType = new DocumentTypeBuilder()
+      .build();
+```
+
+If you want to configure a property, like giving the document type a specific name, there are different methods for that, for changing the name, you can call the `withName()` method like so:
+```
+const documentType = new DocumentTypeBuilder()
       .withName("My document type")
-      .withAllowAsRoot(true)
       .build();
 ```
 
