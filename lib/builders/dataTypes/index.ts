@@ -6,3 +6,4 @@ export { GridDataTypeBuilder } from './gridDataTypeBuilder';
 export { ApprovedColorPickerDataTypeBuilder} from './approvedColorPickerTypeDataTypeBuilder';
 export { CheckBoxListDataTypeBuilder} from './checkBoxListDataTypeBuilder';
 export { DataTypeBuilder} from './dataTypeBuilder';
+export { BlockListDataTypeBuilder} from './blockListDataTypeBuilder';
