@@ -17,12 +17,12 @@ export class BlockListBlocksBuilder {
     this.parentBuilder = parentBuilder;
   }
 
-  withBackgroundColor(backGroundColor) {
+  withBackgroundColor(backGroundColor: string) {
     this.backgroundColor = backGroundColor;
     return this;
   }
 
-  withContentElementTypeKey(contentElementTypeKey) {
+  withContentElementTypeKey(contentElementTypeKey: string) {
     this.contentElementTypeKey = contentElementTypeKey;
     return this;
   }
@@ -38,7 +38,7 @@ export class BlockListBlocksBuilder {
   }
 
 
-  withIconColor(iconColor) {
+  withIconColor(iconColor: string) {
     this.iconColor = iconColor;
     return this;
   }
@@ -48,22 +48,22 @@ export class BlockListBlocksBuilder {
     return this;
   }
 
-  withSettingsElementTypeKey(settingsElementTypeKey) {
+  withSettingsElementTypeKey(settingsElementTypeKey: string) {
     this.settingsElementTypeKey = settingsElementTypeKey;
     return this;
   }
 
-  withStylesheet(stylesheet) {
+  withStylesheet(stylesheet: string) {
     this.stylesheet = stylesheet;
     return this;
   }
 
-  withThumbnail(thumbnail) {
+  withThumbnail(thumbnail: string) {
     this.thumbnail = thumbnail;
     return this;
   }
 
-  withView(view) {
+  withView(view: string) {
     this.view = view;
     return this;
   }
