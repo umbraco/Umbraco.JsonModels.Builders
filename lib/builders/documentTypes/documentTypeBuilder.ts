@@ -94,6 +94,11 @@ export class DocumentTypeBuilder {
     return this;
   }
 
+  withIsAnElementType(isElement){
+    this.isElement = isElement
+    return this;
+  }
+
   build() {
     const key = this.key || faker.random.uuid();
     const name = this.name || key;
