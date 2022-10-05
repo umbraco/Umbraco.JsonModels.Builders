@@ -33,6 +33,7 @@ export class DocumentTypeBuilder {
   constructor() {
     this.isContainer = false;
     this.allowAsRoot = false;
+    this.isElement = false;
     this.documentTypeGroupBuilders = [];
     this.allowedContentTypes = [];
     this.documentTypeHistoryCleanupBuilder = [];
@@ -94,8 +95,8 @@ export class DocumentTypeBuilder {
     return this;
   }
 
-  withIsAnElementType(isElement){
-    this.isElement = isElement
+  AsElementType(){
+    this.isElement = true
     return this;
   }
 
@@ -125,7 +126,7 @@ export class DocumentTypeBuilder {
       parentId: parentId,
       path: path,
       allowCultureVariant: this.allowCultureVariant || false,
-      isElement: this.isElement || false,
+      isElement: this.isElement,
       defaultTemplate: this.defaultTemplate || null,
       lockedCompositeContentTypes: this.lockedCompositeContentTypes || null,
       groups: this.documentTypeGroupBuilders.map((builder) => {
