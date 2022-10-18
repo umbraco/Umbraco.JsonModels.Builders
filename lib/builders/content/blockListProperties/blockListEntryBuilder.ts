@@ -15,11 +15,13 @@
 
   withContentTypeKey(contentTypeKey: string) {
     this.contentTypeKey = contentTypeKey;
+    this.contentUdi = this.getContentUdi();
     return this;
   }
 
   withSettingsTypeKey(settingsTypeKey: string) {
     this.settingsTypeKey = settingsTypeKey;
+    this.settingUdi = this.getSettingUdi();
     return this;
   }
 
@@ -46,57 +48,68 @@
   }
 
   buildContent() {
-    const result = {
-      contentTypeKey: this.contentTypeKey || null,
-      udi: this.getContentUdi()
-    }
-    
-    for (const contentProperty in this.contentProperties) {
-      Object.defineProperty(result, contentProperty['alias'],
-        {
-          value: contentProperty['value'],
-          configurable: true,
-          writable: true,
-          enumerable: true
-        });
-    }
-    return result;
-  }
-
-  buildSetting() {
-
-    let result;
-    
-    if(this.settingsTypeKey != null) {
-      result = {
-
-        contentTypeKey: this.settingsTypeKey || null,
-        udi: this.getSettingUdi()
+    if (this.contentTypeKey != null) {
+      const result = {
+        contentTypeKey: this.contentTypeKey,
+        udi: this.getContentUdi()
       }
-
-      for (const settingProperty in this.settingsProperties) {
-        Object.defineProperty(result, settingProperty['alias'],
+      for (let contentProperty of this.contentProperties) {
+        Object.defineProperty(result, contentProperty.alias,
           {
-            value: settingProperty['value'],
+            value: contentProperty.value,
             configurable: true,
             writable: true,
             enumerable: true
           });
       }
+      return result;
+    } else {
+      return {
+        contentTypeKey: this.contentTypeKey,
+        udi: this.getContentUdi()
+      };
     }
-    
-    return result;
+  }
+
+  buildSetting() {
+    if (this.settingsTypeKey != null) {
+      const result = {
+        contentTypeKey: this.settingsTypeKey,
+        udi: this.getSettingUdi()
+      }
+
+      for (let settingProperty of this.settingsProperties) {
+        Object.defineProperty(result, settingProperty.alias,
+          {
+            value: settingProperty.value,
+            configurable: true,
+            writable: true,
+            enumerable: true
+          });
+      }
+      return result;
+    } else {
+      return {};
+    }
   }
 
   buildLayout() {
-    return {
-      'Umbraco.BlockList': {
-        contentUdi: this.contentUdi || null,
-        settingsUdi: this.settingUdi || null
-      },
-      // contentUdi: this.getContentUdi(),
-      // settingsUdi: this.getSettingUdi()
+    let result;
+    if (this.contentUdi != null && this.settingUdi != null) {
+      result = {
+        contentUdi: this.contentUdi,
+        settingsUdi: this.settingUdi
+      }
+    } else if (this.settingUdi != null && this.contentUdi == null) {
+      result = {
+        settingsUdi: this.settingUdi
+      }
+    } else if (this.contentUdi != null && this.settingUdi == null) {
+      result = {
+        contentUdi: this.contentUdi
+      }
     }
+    return result;
   }
 
   getContentUdi() {
