@@ -1,5 +1,8 @@
+import {BlockListValueBuilder} from "./blockListProperties";
+
 export class ContentVariantPropertyBuilder {
   parentBuilder;
+  blockListValueBuilder;
 
   id;
   alias;
@@ -19,15 +22,32 @@ export class ContentVariantPropertyBuilder {
     return this;
   }
 
+  addBlockListValue() {
+    const builder = new BlockListValueBuilder(this);
+
+    this.blockListValueBuilder = builder;
+
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
 
   build() {
+
+    let value = null;
+
+    if (this.value != null) {
+      value = this.value;
+    } else {
+      value = this.blockListValueBuilder.build();
+    }
+
     return {
       id: this.id || 0,
       alias: this.alias || null,
-      value: this.value || null,
+      value: value || null,
     };
   }
 }

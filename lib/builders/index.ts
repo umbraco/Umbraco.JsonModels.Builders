@@ -24,5 +24,7 @@ export { UserBuilder} from './user/userBuilder'
 export { StylesheetBuilder } from './stylesheets/stylesheetBuilder';
 export { MacroBuilder } from './macroBuilder';
 export { ScriptBuilder } from './scriptbuilder';
+export {BlockListEntryBuilder} from './content/blockListProperties/blockListEntryBuilder';
+export {BlockListValueBuilder} from './content/blockListProperties/blockListValueBuilder';
 
 

@@ -1,5 +1,5 @@
 import * as faker from 'faker';
-import { ContentVariantPropertyBuilder } from './contentVariantPropertyBuilder';
+import {ContentVariantPropertyBuilder} from './contentVariantPropertyBuilder';
 
 export class ContentVariantBuilder {
   parentBuilder;
@@ -25,22 +25,27 @@ export class ContentVariantBuilder {
 
     return builder;
   }
+  
   withCulture(culture) {
     this.culture = culture;
     return this;
   }
+
   withPublish(publish) {
     this.publish = publish;
     return this;
   }
+
   withSave(save) {
     this.save = save;
     return this;
   }
+
   withName(name) {
     this.name = name;
     return this;
   }
+
   done() {
     return this.parentBuilder;
   }
@@ -51,7 +56,7 @@ export class ContentVariantBuilder {
     return {
       name,
       id: this.id || 0,
-      properties: this.contentVariantPropertyBuilders.map((builder) => {
+      properties : this.contentVariantPropertyBuilders.map((builder) => {
         return builder.build();
       }),
       culture: this.culture || null,
