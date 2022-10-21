@@ -1,6 +1,5 @@
 import * as faker from 'faker';
 import {ContentVariantPropertyBuilder} from './contentVariantPropertyBuilder';
-import {BlockListPropertyBuilder} from "./blockListProperties";
 
 export class ContentVariantBuilder {
   parentBuilder;
@@ -13,12 +12,10 @@ export class ContentVariantBuilder {
   expireDate;
 
   contentVariantPropertyBuilders;
-  blockListTypePropertyBuilder;
 
   constructor(parentBuilder) {
     this.parentBuilder = parentBuilder;
     this.contentVariantPropertyBuilders = [];
-    this.blockListTypePropertyBuilder = [];
   }
 
   addProperty() {
@@ -28,15 +25,7 @@ export class ContentVariantBuilder {
 
     return builder;
   }
-
-  addBlockListProperty() {
-    const builder = new BlockListPropertyBuilder(this);
-
-    this.blockListTypePropertyBuilder.push(builder);
-
-    return builder;
-  }
-
+  
   withCulture(culture) {
     this.culture = culture;
     return this;
@@ -64,22 +53,12 @@ export class ContentVariantBuilder {
   build() {
     const name = this.name || faker.random.uuid();
 
-    let properties = null;
-
-    if (this.contentVariantPropertyBuilders.length > 0) {
-      properties = this.contentVariantPropertyBuilders.map((builder) => {
-        return builder.build();
-      });
-    } else {
-      properties = this.blockListTypePropertyBuilder.map((builder) => {
-        return builder.build();
-      });
-    }
-
     return {
       name,
       id: this.id || 0,
-      properties: properties,
+      properties : this.contentVariantPropertyBuilders.map((builder) => {
+        return builder.build();
+      }),
       culture: this.culture || null,
       publish: this.publish || false,
       save: this.save || false,
