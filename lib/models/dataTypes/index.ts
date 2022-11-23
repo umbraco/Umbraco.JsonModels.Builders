@@ -8,3 +8,4 @@ export { DropDownDataType } from './dropDownDataType';
 export { GridDataType } from './gridDataType';
 export { ApprovedColourPickerDataType } from './approvedColourPickerDataType';
 export {BlockListDataType} from './blockListDataType';
+export {BlockGridDataType} from './blockGridDataType';

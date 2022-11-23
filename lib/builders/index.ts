@@ -27,4 +27,8 @@ export { ScriptBuilder } from './scriptbuilder';
 export {BlockListEntryBuilder} from './content/blockListProperties/blockListEntryBuilder';
 export {BlockListValueBuilder} from './content/blockListProperties/blockListValueBuilder';
 
+export { BlockGridBlocksBuilder } from './dataTypes/blockGridBuilders/blockGridBlocksBuilder';
+export { BlockGridAreasBuilder } from './dataTypes/blockGridBuilders/blockGridAreasBuilder';
+export { BlockGridSpecifiedAllowanceBuilder } from './dataTypes/blockGridBuilders/blockGridSpecifiedAllowanceBuilder';
+export { BlockGridBlockGroupBuilder } from './dataTypes/blockGridBuilders/blockGridBlockGroupBuilder';
 
