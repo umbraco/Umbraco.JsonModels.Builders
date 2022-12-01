@@ -21,10 +21,10 @@ export class BlockGridBlocksBuilder {
   editorSize;
   forceHideContentEditorInOverlay;
   groupKey;
-  area;
 
   constructor(parentBuilder: BlockGridDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
+    this.blockGridAreasBuilder = [];
     this.columnSpanOptions = [];
   }
 
@@ -65,7 +65,7 @@ export class BlockGridBlocksBuilder {
     // this.parentBuilder.getGroupKey(groupName)
     const builder = new BlockGridAreasBuilder(this);
 
-    this.blockGridAreasBuilder = builder;
+    this.blockGridAreasBuilder.push(builder);
 
     return builder;
   }
@@ -120,27 +120,16 @@ export class BlockGridBlocksBuilder {
     return this;
   }
 
-  // It should create a GUID
   withGroupName(groupName) {
     this.groupKey = this.parentBuilder.getBlockGroupGUID(groupName);
-    // console.log(this.parentBuilder.getBlockGroupGUID(groupName));
-    // console.log('withGroupName');
-    // console.log(this.groupKey);
     return this;
   }
-
-  // withGroupKey(groupKey) {
-  //   this.parentBuilder.
-  //   this.groupKey = groupKey;
-  //   return this;
-  // }
 
   done() {
     return this.parentBuilder;
   }
 
   build() {
-
     // Need to have this if otherwise it will always return true even though it is false
     if(this.allowAtRoot == null){
       this.allowAtRoot = true;
@@ -157,7 +146,10 @@ export class BlockGridBlocksBuilder {
       rowMinSpan: this.rowMinSpan || 1,
       rowMaxSpan: this.rowMaxSpan || 1,
       areaGridColumns: this.areaGridColumns || null,
-      areas: this.blockGridAreasBuilder.build() || null,
+      // areas: this.blockGridAreasBuilder.build() || null,
+      areas: this.blockGridAreasBuilder.map((builder) => {
+        return builder.build();
+      }) || null,
       backgroundColor: this.backgroundColor || null,
       iconColor: this.iconColor || null,
       thumbnail: this.thumbnail || null,
