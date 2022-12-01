@@ -14,6 +14,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
   layoutStylesheet;
   createLabel;
   blockGridGroups;
+  blockGridGroupValue;
 
   constructor(protected blockGridDataType: BlockGridDataType = new BlockGridDataType()) {
     super(blockGridDataType);
@@ -32,7 +33,6 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
     return builder;
   }
 
-  // When a group is added, it should create an GUID for the group, the GUID is then needed on the blocks that are gonna be in the group.  
   addBlockGroups(blockGridBlockGroupBuilder?: BlockGridBlockGroupBuilder) {
     const builder =
       blockGridBlockGroupBuilder === null || blockGridBlockGroupBuilder === undefined
@@ -41,28 +41,22 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
     this.blockGridBlockGroupsBuilder.push(builder);
 
-    console.log(this.blockGridBlockGroupsBuilder);
-    console.log(builder.parentBuilder.blockGridBlockGroupsBuilder);
-    console.log(builder.parentBuilder);
-    console.log(builder);
-
     return builder;
   }
 
-  // Is called before the builder so the groupValue is not populated yet.
+  // Is used for getting the correct BlockGroupGUID to the correct Block Element.
   getBlockGroupGUID(groupName: string) {
-    const groupValue = {
+    this.blockGridGroupValue = {
       key: 'blockGroups',
       value: this.blockGridBlockGroupsBuilder.map((builder) => {
         return builder.build();
       }),
     };
-
-    for (let value of groupValue.value) {
-        if (value.name == groupName) {
-          return value.groupKey;
-        }
+    for (let value of this.blockGridGroupValue.value) {
+      if (value.name == groupName) {
+        return value.key;
       }
+    }
   }
 
   withMax(max: number) {
@@ -102,43 +96,6 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
   build() {
 
-    // const testere = {
-    //   key: 'blockGroups',
-    //   value: this.blockGridBlockGroupsBuilder.map((builder) => {
-    //     return builder.build();
-    //   }),
-    // };
-    // this.preValues.push(testere);
-    //
-    // const groupValue = {
-    //   key: 'blockGroups',
-    //   value: this.blockGridBlockGroupsBuilder.map((builder) => {
-    //     return builder.build();
-    //   }),
-    // };
-    //
-    // for (let value of groupValue.value) {
-    //   if (value.name == 'testGroups') {
-    //     // return value.groupKey;
-    //     console.log('of');
-    //   }
-    // }
-    //
-    // for (let i = 0; i < groupValue.value.length; i++) {
-    //
-    //   if (groupValue.value[i].name == 'testGroups') {
-    //     console.log('i');
-    // return groupValue.value[i].groupKey;
-    //   }
-    // }
-
-
-    // console.log(groupValue);
-    // console.log(groupValue.value);
-    // console.log(groupValue.value.name);
-    // console.log(groupValue.value[0].name);
-
-
     const blockPrevalue = {
       key: 'blocks',
       value: this.blockGridBlockBuilder.map((builder) => {
@@ -147,13 +104,15 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
     };
     this.preValues.push(blockPrevalue);
 
-    const blockGroupsPrevalue = {
-      key: 'blockGroups',
-      value: this.blockGridBlockGroupsBuilder.map((builder) => {
-        return builder.build();
-      }),
-    };
-    this.preValues.push(blockGroupsPrevalue);
+    // Checks if any groups have been added
+    if (this.blockGridGroupValue == null) {
+      this.blockGridGroupValue = {
+        key: 'blockGroups',
+        value: null
+      };
+    }
+    // Pushes the groups
+    this.preValues.push(this.blockGridGroupValue);
 
     // Add min-max Amount of blocks
     this.preValues.push({

@@ -21,6 +21,7 @@ export class BlockGridBlocksBuilder {
   editorSize;
   forceHideContentEditorInOverlay;
   groupKey;
+  area;
 
   constructor(parentBuilder: BlockGridDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -28,40 +29,34 @@ export class BlockGridBlocksBuilder {
   }
 
   addColumnSpanOptions(columnSpan: number) {
-    this.columnSpanOptions.map(
+    this.columnSpanOptions.push(
       {
-        columnSpan: columnSpan
+        "columnSpan": columnSpan
       });
     return this;
   }
-
-  //
-  // withColumnSpanOptions(columnSpanOptions){
-  //   this.columnSpanOptions = columnSpanOptions;
-  //   return this;
-  // }
-
-  withAllowAtRoot(allowAtRoot) {
+  
+  withAllowAtRoot(allowAtRoot : boolean) {
     this.allowAtRoot = allowAtRoot;
     return this;
   }
 
-  withAllowInAreas(allowInAreas) {
+  withAllowInAreas(allowInAreas: boolean) {
     this.allowInAreas = allowInAreas;
     return this;
   }
 
-  withRowMinSpan(rowMinSpan) {
+  withRowMinSpan(rowMinSpan: number) {
     this.rowMinSpan = rowMinSpan;
     return this;
   }
 
-  withRowMaxSpan(rowMaxSpan) {
+  withRowMaxSpan(rowMaxSpan: number) {
     this.rowMaxSpan = rowMaxSpan;
     return this;
   }
 
-  withAreaGridColumns(areaGridColumns) {
+  withAreaGridColumns(areaGridColumns: number) {
     this.areaGridColumns = areaGridColumns;
     return this;
   }
@@ -75,64 +70,65 @@ export class BlockGridBlocksBuilder {
     return builder;
   }
 
-  withBackgroundColor(backgroundColor) {
+  withBackgroundColor(backgroundColor: string) {
     this.backgroundColor = backgroundColor;
     return this;
   }
 
-  withIconColor(iconColor) {
+  withIconColor(iconColor: string) {
     this.iconColor = iconColor;
     return this;
   }
 
-  withThumbnail(thumbnail) {
+  withThumbnail(thumbnail: string) {
     this.thumbnail = thumbnail;
     return this;
   }
 
-  withContentElementTypeKey(contentElementTypeKey) {
+  withContentElementTypeKey(contentElementTypeKey: string) {
     this.contentElementTypeKey = contentElementTypeKey;
     return this;
   }
 
-  withSettingsElementTypeKey(settingsElementTypeKey) {
+  withSettingsElementTypeKey(settingsElementTypeKey: string) {
     this.settingsElementTypeKey = settingsElementTypeKey;
     return this;
   }
 
-  withView(view) {
+  withView(view: string) {
     this.view = view;
     return this;
   }
 
-  withStylesheet(stylesheet) {
+  withStylesheet(stylesheet: string) {
     this.stylesheet = stylesheet;
     return this;
   }
 
-  withLabel(label) {
+  withLabel(label:string) {
     this.label = label;
     return this;
   }
 
-  withEditorSize(editorSize) {
+  withEditorSize(editorSize: string) {
     this.editorSize = editorSize;
     return this;
   }
 
-  withForceHideContentEditorInOverlay(forceHideContentEditorInOverlay) {
+  withForceHideContentEditorInOverlay(forceHideContentEditorInOverlay: boolean) {
     this.forceHideContentEditorInOverlay = forceHideContentEditorInOverlay;
     return this;
   }
 
   // It should create a GUID
-  withGroupName(groupName){
+  withGroupName(groupName) {
     this.groupKey = this.parentBuilder.getBlockGroupGUID(groupName);
     // console.log(this.parentBuilder.getBlockGroupGUID(groupName));
-    console.log(this.groupKey);
+    // console.log('withGroupName');
+    // console.log(this.groupKey);
     return this;
   }
-  
+
   // withGroupKey(groupKey) {
   //   this.parentBuilder.
   //   this.groupKey = groupKey;
@@ -145,20 +141,23 @@ export class BlockGridBlocksBuilder {
 
   build() {
 
-    let area = null;
+    // Need to have this if otherwise it will always return true even though it is false
+    if(this.allowAtRoot == null){
+      this.allowAtRoot = true;
+    }
 
-    if (this.blockGridAreasBuilder != null) {
-      area = this.blockGridAreasBuilder.build();
+    if(this.allowInAreas == null){
+      this.allowInAreas = true;
     }
     
     return {
       columnSpanOptions: this.columnSpanOptions || null,
-      allowAtRoot: this.allowAtRoot || true,
-      allowInAreas: this.allowInAreas || true,
+      allowAtRoot: this.allowAtRoot,
+      allowInAreas: this.allowInAreas,
       rowMinSpan: this.rowMinSpan || 1,
       rowMaxSpan: this.rowMaxSpan || 1,
       areaGridColumns: this.areaGridColumns || null,
-      areas: area,
+      areas: this.blockGridAreasBuilder.build() || null,
       backgroundColor: this.backgroundColor || null,
       iconColor: this.iconColor || null,
       thumbnail: this.thumbnail || null,

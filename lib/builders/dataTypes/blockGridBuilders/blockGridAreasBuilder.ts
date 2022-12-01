@@ -16,14 +16,15 @@ export class BlockGridAreasBuilder {
     this.blockGridSpecifiedAllowanceBuilder = [];
   }
 
-  withKey(key: string) {
-    this.key = key;
+  addAreaKey() {
+    const crypto = require('crypto');
+    this.key = crypto.randomUUID();
     return this;
   }
 
   withAlias(alias: string) {
     this.alias = alias;
-    return alias;
+    return this;
   }
 
   withColumnSpan(columnSpan: number) {
@@ -62,6 +63,9 @@ export class BlockGridAreasBuilder {
   }
 
   build() {
+    
+    console.log(this.key);
+    
     return {
       key: this.key || null,
       alias: this.alias || "",
