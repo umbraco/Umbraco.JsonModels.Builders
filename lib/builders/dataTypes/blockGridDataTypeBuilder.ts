@@ -96,6 +96,16 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
   build() {
 
+    // Since the method getBlockGroupGUID is only called when a group is used by an element, we need to make sure to check if a group actually exists before building, and if it exists, it is added to the blockGroupValue
+    if (this.blockGridGroupValue == null) {
+      this.blockGridGroupValue = {
+        key: 'blockGroups',
+        value: this.blockGridBlockGroupsBuilder.map((builder) => {
+          return builder.build();
+        }),
+      };
+    }
+
     const blockPrevalue = {
       key: 'blocks',
       value: this.blockGridBlockBuilder.map((builder) => {
