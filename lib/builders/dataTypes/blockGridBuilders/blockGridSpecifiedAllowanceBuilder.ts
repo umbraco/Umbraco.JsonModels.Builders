@@ -1,9 +1,9 @@
-﻿export class BlockGridSpecifiedAllowanceBuilder {
+﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
+
+export class BlockGridSpecifiedAllowanceBuilder {
   parentBuilder;
   elementTypeKey;
   groupKey;
-  min;
-  max;
   minAllowed;
   maxAllowed;
 
@@ -16,18 +16,9 @@
     return this;
   }
 
-  withGroupKey(groupKey: string) {
-    this.groupKey = groupKey;
-    return this;
-  }
-
-  withMin(min: number) {
-    this.min = min;
-    return this;
-  }
-
-  withMax(max: number) {
-    this.max = max;
+  withGroupName(groupName: string) {
+    const blockGridDataTypeBuilder = new BlockGridDataTypeBuilder();
+    this.groupKey = blockGridDataTypeBuilder.getBlockGroupGUID(groupName);
     return this;
   }
 
@@ -49,8 +40,6 @@
     return {
       elementTypeKey: this.elementTypeKey || null,
       groupKey: this.groupKey || null,
-      min: this.min || 0,
-      max: this.max || 0,
       minAllowed: this.minAllowed || null,
       maxAllowed: this.maxAllowed || null
     };

@@ -35,8 +35,8 @@ export class BlockGridBlocksBuilder {
       });
     return this;
   }
-  
-  withAllowAtRoot(allowAtRoot : boolean) {
+
+  withAllowAtRoot(allowAtRoot: boolean) {
     this.allowAtRoot = allowAtRoot;
     return this;
   }
@@ -62,11 +62,8 @@ export class BlockGridBlocksBuilder {
   }
 
   addArea() {
-    // this.parentBuilder.getGroupKey(groupName)
     const builder = new BlockGridAreasBuilder(this);
-
     this.blockGridAreasBuilder.push(builder);
-
     return builder;
   }
 
@@ -105,7 +102,7 @@ export class BlockGridBlocksBuilder {
     return this;
   }
 
-  withLabel(label:string) {
+  withLabel(label: string) {
     this.label = label;
     return this;
   }
@@ -120,7 +117,7 @@ export class BlockGridBlocksBuilder {
     return this;
   }
 
-  withGroupName(groupName) {
+  withGroupName(groupName: string) {
     this.groupKey = this.parentBuilder.getBlockGroupGUID(groupName);
     return this;
   }
@@ -131,14 +128,14 @@ export class BlockGridBlocksBuilder {
 
   build() {
     // Need to have this if otherwise it will always return true even though it is false
-    if(this.allowAtRoot == null){
+    if (this.allowAtRoot == null) {
       this.allowAtRoot = true;
     }
 
-    if(this.allowInAreas == null){
+    if (this.allowInAreas == null) {
       this.allowInAreas = true;
     }
-    
+
     return {
       columnSpanOptions: this.columnSpanOptions || null,
       allowAtRoot: this.allowAtRoot,
@@ -146,14 +143,13 @@ export class BlockGridBlocksBuilder {
       rowMinSpan: this.rowMinSpan || 1,
       rowMaxSpan: this.rowMaxSpan || 1,
       areaGridColumns: this.areaGridColumns || null,
-      // areas: this.blockGridAreasBuilder.build() || null,
       areas: this.blockGridAreasBuilder.map((builder) => {
         return builder.build();
       }) || null,
       backgroundColor: this.backgroundColor || null,
       iconColor: this.iconColor || null,
       thumbnail: this.thumbnail || null,
-      contentElementTypeKey: this.contentElementTypeKey || null,
+      contentElementTypeKey: this.contentElementTypeKey,
       settingsElementTypeKey: this.settingsElementTypeKey || null,
       view: this.view || null,
       stylesheet: this.stylesheet || null,

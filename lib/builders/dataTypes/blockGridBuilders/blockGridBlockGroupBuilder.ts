@@ -18,11 +18,11 @@
 
   build() {
     const crypto = require('crypto');
-    
-    if(this.key == null){
+
+    if (this.key == null) {
       this.key = crypto.randomUUID();
     }
-    
+
     return {
       key: this.key,
       name: this.name || null
