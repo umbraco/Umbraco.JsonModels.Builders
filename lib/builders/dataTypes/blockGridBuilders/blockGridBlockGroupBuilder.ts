@@ -1,9 +1,11 @@
-﻿export class BlockGridBlockGroupBuilder {
+﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
+
+export class BlockGridBlockGroupBuilder {
   parentBuilder
   key;
   name;
 
-  constructor(parentBuilder) {
+  constructor(parentBuilder: BlockGridDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 

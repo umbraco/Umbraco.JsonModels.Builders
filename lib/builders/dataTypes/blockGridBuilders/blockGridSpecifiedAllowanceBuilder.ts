@@ -1,4 +1,4 @@
-﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
+﻿import {BlockGridAreasBuilder} from "./blockGridAreasBuilder";
 
 export class BlockGridSpecifiedAllowanceBuilder {
   parentBuilder;
@@ -6,8 +6,8 @@ export class BlockGridSpecifiedAllowanceBuilder {
   groupKey;
   minAllowed;
   maxAllowed;
-
-  constructor(parentBuilder) {
+  
+  constructor(parentBuilder: BlockGridAreasBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
@@ -15,10 +15,9 @@ export class BlockGridSpecifiedAllowanceBuilder {
     this.elementTypeKey = elementTypeKey;
     return this;
   }
-
+  
   withGroupName(groupName: string) {
-    const blockGridDataTypeBuilder = new BlockGridDataTypeBuilder();
-    this.groupKey = blockGridDataTypeBuilder.getBlockGroupGUID(groupName);
+    this.groupKey = this.parentBuilder.parentBuilder.parentBuilder.getBlockGroupGUID(groupName);
     return this;
   }
 

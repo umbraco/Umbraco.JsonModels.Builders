@@ -1,5 +1,5 @@
 ﻿import {BlockGridSpecifiedAllowanceBuilder} from "./blockGridSpecifiedAllowanceBuilder";
-
+import {BlockGridBlocksBuilder} from "./blockGridBlocksBuilder";
 export class BlockGridAreasBuilder {
   parentBuilder;
   key;
@@ -11,7 +11,7 @@ export class BlockGridAreasBuilder {
   blockGridSpecifiedAllowanceBuilder;
   createLabel;
 
-  constructor(parentBuilder) {
+  constructor(parentBuilder: BlockGridBlocksBuilder) {
     this.parentBuilder = parentBuilder;
     this.blockGridSpecifiedAllowanceBuilder = [];
   }
@@ -41,9 +41,13 @@ export class BlockGridAreasBuilder {
     return this;
   }
 
-  addSpecifiedAllowance() {
-    const builder = new BlockGridSpecifiedAllowanceBuilder(this);
+  addSpecifiedAllowance(blockGridSpecifiedAllowanceBuilder?: BlockGridSpecifiedAllowanceBuilder) {
+    const builder =
+      blockGridSpecifiedAllowanceBuilder === null || blockGridSpecifiedAllowanceBuilder === undefined
+        ? new BlockGridSpecifiedAllowanceBuilder(this)
+        : blockGridSpecifiedAllowanceBuilder;
     this.blockGridSpecifiedAllowanceBuilder.push(builder);
+    
     return builder;
   }
 
@@ -59,7 +63,7 @@ export class BlockGridAreasBuilder {
   build() {
     const crypto = require('crypto');
     this.key = crypto.randomUUID();
-    
+
     return {
       key: this.key || null,
       alias: this.alias || "",
