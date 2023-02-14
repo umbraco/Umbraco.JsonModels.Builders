@@ -1,5 +1,6 @@
 import * as faker from 'faker';
 import {ContentVariantPropertyBuilder} from './contentVariantPropertyBuilder';
+import {ContentBuilder} from "./contentBuilder";
 
 export class ContentVariantBuilder {
   parentBuilder;
@@ -13,7 +14,7 @@ export class ContentVariantBuilder {
 
   contentVariantPropertyBuilders;
 
-  constructor(parentBuilder) {
+  constructor(parentBuilder: ContentBuilder) {
     this.parentBuilder = parentBuilder;
     this.contentVariantPropertyBuilders = [];
   }
@@ -56,7 +57,7 @@ export class ContentVariantBuilder {
     return {
       name,
       id: this.id || 0,
-      properties : this.contentVariantPropertyBuilders.map((builder) => {
+      properties: this.contentVariantPropertyBuilders.map((builder) => {
         return builder.build();
       }),
       culture: this.culture || null,
