@@ -69,12 +69,12 @@ export class BlockGridLayoutBuilder {
 
   build() {
     return {
-      contentUdi: this.contentUdi,
+      contentUdi: this.contentUdi || null,
       areas: this.blockGridAreaBuilder.map((builder) => {
         return builder.build();
       }),
-      columnSpan: this.columnSpan,
-      rowSpan: this.rowSpan
+      columnSpan: this.columnSpan || 12,
+      rowSpan: this.rowSpan || 1
     };
   }
 }
