@@ -7,3 +7,4 @@ export { CustomDocumentTypePropertyBuilder } from './customDocumentTypePropertyB
 export { ApprovedColorPickerDataTypeBuilder } from './approvedColorPickerTypeDataTypeBuilder';
 export { UrlPickerPropertyBuilder } from './urlPickerTypePropertyBuilder';
 export { DocumentTypePropertyBuilder } from './documentTypePropertyBuilder';
+export { MediaPickerDocumentTypePropertyBuilder } from './mediaPickerDocumentTypePropertyBuilder';
