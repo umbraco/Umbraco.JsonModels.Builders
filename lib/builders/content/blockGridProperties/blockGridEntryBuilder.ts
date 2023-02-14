@@ -1,4 +1,6 @@
-﻿export class BlockGridEntryBuilder {
+﻿import {BlockGridValueBuilder} from "./blockGridValueBuilder";
+
+export class BlockGridEntryBuilder {
   parentBuilder;
   contentTypeKey;
   settingsTypeKey;
@@ -6,22 +8,34 @@
   settingsProperties;
   contentUdi;
   settingUdi;
+  contentDataList;
+  settingDataList;
 
-  constructor(parentBuilder) {
+  constructor(parentBuilder: BlockGridValueBuilder, contentDataList, settingDataList) {
     this.parentBuilder = parentBuilder;
     this.contentProperties = [];
     this.settingsProperties = [];
+    this.contentDataList = contentDataList;
+    this.settingDataList = settingDataList;
   }
 
   withContentTypeKey(contentTypeKey: string) {
     this.contentTypeKey = contentTypeKey;
     this.contentUdi = this.getContentUdi();
+    this.contentDataList.push({
+      contentTypeKey: this.contentTypeKey,
+      contentUdi: this.contentUdi
+    });
     return this;
   }
 
   withSettingsTypeKey(settingsTypeKey: string) {
     this.settingsTypeKey = settingsTypeKey;
     this.settingUdi = this.getSettingUdi();
+    this.settingDataList.push({
+      settingsTypeKey: this.settingsTypeKey,
+      settingUdi: this.settingUdi
+    });
     return this;
   }
 
@@ -43,10 +57,6 @@
     return this;
   }
 
-  done() {
-    return this.parentBuilder;
-  }
-
   buildContent() {
     if (this.contentTypeKey != null) {
       const result = {
@@ -64,10 +74,7 @@
       }
       return result;
     } else {
-      return {
-        contentTypeKey: this.contentTypeKey,
-        udi: this.getContentUdi()
-      };
+      return undefined;
     }
   }
 
@@ -77,7 +84,6 @@
         contentTypeKey: this.settingsTypeKey,
         udi: this.getSettingUdi()
       }
-
       for (let settingProperty of this.settingsProperties) {
         Object.defineProperty(result, settingProperty.alias,
           {
@@ -89,27 +95,8 @@
       }
       return result;
     } else {
-      return {};
+      return undefined;
     }
-  }
-
-  buildLayout() {
-    let result;
-    if (this.contentUdi != null && this.settingUdi != null) {
-      result = {
-        contentUdi: this.contentUdi,
-        settingsUdi: this.settingUdi
-      }
-    } else if (this.settingUdi != null && this.contentUdi == null) {
-      result = {
-        settingsUdi: this.settingUdi
-      }
-    } else if (this.contentUdi != null && this.settingUdi == null) {
-      result = {
-        contentUdi: this.contentUdi
-      }
-    }
-    return result;
   }
 
   getContentUdi() {
@@ -132,11 +119,14 @@
     return "umb://element/" + (guid.replace(/-/g, ""));
   }
 
+  done() {
+    return this.parentBuilder;
+  }
+
   build() {
     return {
-      layout: this.buildLayout(),
       contentData: this.buildContent(),
       settingsData: this.buildSetting()
-    }
+    };
   }
 }
