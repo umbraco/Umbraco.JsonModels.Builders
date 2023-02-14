@@ -1,5 +1,6 @@
 ﻿import {BlockGridSpecifiedAllowanceBuilder} from "./blockGridSpecifiedAllowanceBuilder";
 import {BlockGridBlocksBuilder} from "./blockGridBlocksBuilder";
+
 export class BlockGridAreasBuilder {
   parentBuilder;
   key;
@@ -14,6 +15,11 @@ export class BlockGridAreasBuilder {
   constructor(parentBuilder: BlockGridBlocksBuilder) {
     this.parentBuilder = parentBuilder;
     this.blockGridSpecifiedAllowanceBuilder = [];
+  }
+
+  withKey(key: string) {
+    this.key = key;
+    return this;
   }
 
   withAlias(alias: string) {
@@ -47,7 +53,6 @@ export class BlockGridAreasBuilder {
         ? new BlockGridSpecifiedAllowanceBuilder(this)
         : blockGridSpecifiedAllowanceBuilder;
     this.blockGridSpecifiedAllowanceBuilder.push(builder);
-    
     return builder;
   }
 
