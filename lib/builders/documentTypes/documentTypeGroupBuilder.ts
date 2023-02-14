@@ -4,7 +4,7 @@ import { FormPickerDocumentTypePropertyBuilder } from './properties/formPickerDo
 import { TextBoxDocumentTypePropertyBuilder } from './properties/textBoxDocumentTypePropertyBuilder';
 import { DropDownDocumentTypePropertyBuilder } from './properties/dropDownDocumentTypePropertyBuilder';
 import { ContentPickerPropertyBuilder } from './properties/contentPickerTypePropertyBuilder';
-import { RichTextDocumentTypePropertyEditor, CustomDocumentTypePropertyBuilder } from './properties';
+import {RichTextDocumentTypePropertyEditor, CustomDocumentTypePropertyBuilder, MediaPickerDocumentTypePropertyBuilder} from './properties';
 import { UrlPickerPropertyBuilder } from './properties/urlPickerTypePropertyBuilder';
 
 
@@ -74,6 +74,12 @@ export default class DocumentTypeGroupBuilder {
     return builder;
   }
 
+  addImagePickerProperty() {
+    const builder = new MediaPickerDocumentTypePropertyBuilder(this);
+    this.documentTypeGroupPropertyBuilders.push(builder);
+    return builder;
+  }
+  
   addCustomProperty(id) {
     const builder = new CustomDocumentTypePropertyBuilder(this, id);
     this.documentTypeGroupPropertyBuilders.push(builder);
