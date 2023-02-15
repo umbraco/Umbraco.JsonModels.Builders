@@ -17,7 +17,7 @@ export class MediaFileBuilder {
     }
 
     withPath(path) {
-        this.buffer = fs.readFileSync("./fixtures/mediaLibrary/"+ path);
+        this.buffer = fs.readFileSync("./fixtures/"+ path);
         return this;
     }
     
@@ -25,7 +25,6 @@ export class MediaFileBuilder {
         return {
             name: this.name,
             mimeType: this.mimeType || "image/png",
-            //Should be deleted
             path: this.path,
             buffer: this.buffer
         };
