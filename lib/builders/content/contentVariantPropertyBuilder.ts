@@ -1,14 +1,16 @@
 import {BlockListValueBuilder} from "./blockListProperties";
+import {BlockGridValueBuilder} from "./blockGridProperties";
+import {ContentVariantBuilder} from "./contentVariantBuilder";
 
 export class ContentVariantPropertyBuilder {
   parentBuilder;
   blockListValueBuilder;
-
+  blockGridValueBuilder;
   id;
   alias;
   value;
 
-  constructor(parentBuilder) {
+  constructor(parentBuilder: ContentVariantBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
@@ -30,6 +32,13 @@ export class ContentVariantPropertyBuilder {
     return builder;
   }
 
+  addBlockGridValue() {
+    const builder = new BlockGridValueBuilder(this);
+
+    this.blockGridValueBuilder = builder;
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -41,7 +50,12 @@ export class ContentVariantPropertyBuilder {
     if (this.value != null) {
       value = this.value;
     } else {
-      value = this.blockListValueBuilder.build();
+
+      if (this.blockListValueBuilder != null) {
+        value = this.blockListValueBuilder.build();
+      } else if (this.blockGridValueBuilder != null) {
+        value = this.blockGridValueBuilder.build();
+      }
     }
 
     return {
