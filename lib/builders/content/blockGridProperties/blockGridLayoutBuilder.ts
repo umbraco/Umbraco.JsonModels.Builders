@@ -74,7 +74,8 @@ export class BlockGridLayoutBuilder {
         return builder.build();
       }),
       columnSpan: this.columnSpan || 12,
-      rowSpan: this.rowSpan || 1
+      rowSpan: this.rowSpan || 1,
+      settingsUdi: this.settingsUdi || null
     };
   }
 }

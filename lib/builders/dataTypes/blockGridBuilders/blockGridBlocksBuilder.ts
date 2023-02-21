@@ -21,6 +21,7 @@ export class BlockGridBlocksBuilder {
   editorSize;
   forceHideContentEditorInOverlay;
   groupKey;
+  inlineEditing;
 
   constructor(parentBuilder: BlockGridDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -121,6 +122,11 @@ export class BlockGridBlocksBuilder {
     this.groupKey = this.parentBuilder.getBlockGroupGUID(groupName);
     return this;
   }
+  
+  withInlineEditing(inlineEditing: boolean){
+    this.inlineEditing = inlineEditing;
+    return this;
+  }
 
   done() {
     return this.parentBuilder;
@@ -142,7 +148,7 @@ export class BlockGridBlocksBuilder {
       allowInAreas: this.allowInAreas,
       rowMinSpan: this.rowMinSpan || 1,
       rowMaxSpan: this.rowMaxSpan || 1,
-      areaGridColumns: this.areaGridColumns || null,
+      areaGridColumns: this.areaGridColumns || 12,
       areas: this.blockGridAreasBuilder.map((builder) => {
         return builder.build();
       }) || null,
@@ -155,6 +161,7 @@ export class BlockGridBlocksBuilder {
       stylesheet: this.stylesheet || null,
       label: this.label || "",
       editorSize: this.editorSize || "medium",
+      inlineEditing: this.inlineEditing || false,
       forceHideContentEditorInOverlay: this.forceHideContentEditorInOverlay || false,
       groupKey: this.groupKey || null
     };
