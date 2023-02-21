@@ -1,4 +1,5 @@
 ﻿import {BlockGridValueBuilder} from "./blockGridValueBuilder";
+import {BlockGridImageBuilder} from "./blockGridImageBuilder";
 
 export class BlockGridEntryBuilder {
   parentBuilder;
@@ -10,6 +11,7 @@ export class BlockGridEntryBuilder {
   settingUdi;
   contentDataList;
   settingDataList;
+  blockGridImageBuilder;
 
   constructor(parentBuilder: BlockGridValueBuilder, contentDataList, settingDataList) {
     this.parentBuilder = parentBuilder;
@@ -17,6 +19,7 @@ export class BlockGridEntryBuilder {
     this.settingsProperties = [];
     this.contentDataList = contentDataList;
     this.settingDataList = settingDataList;
+    this.blockGridImageBuilder = [];
   }
 
   withContentTypeKey(contentTypeKey: string) {
@@ -57,11 +60,29 @@ export class BlockGridEntryBuilder {
     return this;
   }
 
+  addImage() {
+    const builder = new BlockGridImageBuilder(this);
+    this.blockGridImageBuilder.push(builder);
+    return builder;
+  }
+
   buildContent() {
     if (this.contentTypeKey != null) {
-      const result = {
-        contentTypeKey: this.contentTypeKey,
-        udi: this.getContentUdi()
+      let result;
+      
+      if (this.blockGridImageBuilder.length > 0) {
+        result = {
+          contentTypeKey: this.contentTypeKey,
+          udi: this.getContentUdi(),
+          image: this.blockGridImageBuilder.map((builder) => {
+            return builder.build();
+          })
+        }
+      } else {
+        result = {
+          contentTypeKey: this.contentTypeKey,
+          udi: this.getContentUdi()
+        }
       }
       for (let contentProperty of this.contentProperties) {
         Object.defineProperty(result, contentProperty.alias,
@@ -80,9 +101,22 @@ export class BlockGridEntryBuilder {
 
   buildSetting() {
     if (this.settingsTypeKey != null) {
-      const result = {
-        contentTypeKey: this.settingsTypeKey,
-        udi: this.getSettingUdi()
+
+      let result;
+
+      if (this.blockGridImageBuilder.length > 0) {
+        result = {
+          contentTypeKey: this.contentTypeKey,
+          udi: this.getContentUdi(),
+          image: this.blockGridImageBuilder.map((builder) => {
+            return builder.build();
+          })
+        }
+      } else {
+        result = {
+          contentTypeKey: this.settingsTypeKey,
+          udi: this.getSettingUdi()
+        }
       }
       for (let settingProperty of this.settingsProperties) {
         Object.defineProperty(result, settingProperty.alias,
