@@ -72,8 +72,8 @@ export class BlockGridAreasBuilder {
     return {
       key: this.key || null,
       alias: this.alias || "",
-      columnSpan: this.columnSpan || null,
-      rowSpan: this.rowSpan || null,
+      columnSpan: this.columnSpan || 12,
+      rowSpan: this.rowSpan || 1,
       minAllowed: this.minAllowed || null,
       maxAllowed: this.maxAllowed || null,
       specifiedAllowance: this.blockGridSpecifiedAllowanceBuilder.map((builder) => {
