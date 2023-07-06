@@ -8,3 +8,4 @@ export { CheckBoxListDataTypeBuilder} from './checkBoxListDataTypeBuilder';
 export { DataTypeBuilder} from './dataTypeBuilder';
 export { BlockListDataTypeBuilder} from './blockListDataTypeBuilder';
 export { BlockGridDataTypeBuilder} from './blockGridDataTypeBuilder';
+export { SliderDataTypeBuilder } from './sliderDataTypeBuilder';
