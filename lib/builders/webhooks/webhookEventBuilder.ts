@@ -4,7 +4,6 @@
     eventType: string;
     alias: string;
 
-
     constructor(parentBuilder) {
         this.parentBuilder = parentBuilder;
     }

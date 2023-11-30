@@ -19,7 +19,7 @@ export class WebhookBuilder {
     withKey(key: string) {
         this.key = key;
         return this;
-    };
+    }
 
     withName(name: string) {
         this.name = name;
