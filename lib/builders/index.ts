@@ -31,3 +31,6 @@ export { BlockGridBlocksBuilder } from './dataTypes/blockGridBuilders/blockGridB
 export { BlockGridAreasBuilder } from './dataTypes/blockGridBuilders/blockGridAreasBuilder';
 export { BlockGridSpecifiedAllowanceBuilder } from './dataTypes/blockGridBuilders/blockGridSpecifiedAllowanceBuilder';
 export { BlockGridBlockGroupBuilder } from './dataTypes/blockGridBuilders/blockGridBlockGroupBuilder';
+export { WebhookBuilder } from './webhooks/webhookBuilder';
+export { WebhookEventBuilder } from './webhooks/webhookEventBuilder';
+export { WebhookHeaderBuilder } from './webhooks/webhookHeaderBuilder';
