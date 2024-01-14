@@ -5,25 +5,25 @@ import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
 import {DocumentTypeAllowedTemplateIdBuilder} from "./documentTypeAllowedTemplateIdBuilder";
 
 export class DocumentTypeBuilder {
-  alias;
-  name;
-  description;
-  icon;
-  allowedAsRoot;
-  variesByCulture;
-  variesBySegment;
-  isElement;
-  documentTypePropertyBuilder;
-  documentTypeAllowedContentTypeBuilder;
-  documentTypeAllowedTemplateIdBuilder;
-  documentTypeCompositionBuilder;
-  documentTypeContainerBuilder;
-  id;
-  containerId;
-  defaultTemplateId;
-  preventCleanup;
-  keepAllVersionsNewerThanDays;
-  keepLatestVersionPerDayForDays;
+  alias: string;
+  name: string;
+  description: string;
+  icon: string;
+  allowedAsRoot: boolean;
+  variesByCulture: boolean;
+  variesBySegment: boolean;
+  isElement: boolean;
+  documentTypePropertyBuilder: DocumentTypePropertyBuilder[];
+  documentTypeAllowedContentTypeBuilder: DocumentTypeAllowedContentTypeBuilder[];
+  documentTypeAllowedTemplateIdBuilder: DocumentTypeAllowedTemplateIdBuilder[];
+  documentTypeCompositionBuilder: DocumentTypeCompositionBuilder[];
+  documentTypeContainerBuilder: DocumentTypeContainerBuilder[];
+  id: string;
+  containerId: string;
+  defaultTemplateId: string[];
+  preventCleanup: boolean;
+  keepAllVersionsNewerThanDays: number;
+  keepLatestVersionPerDayForDays: number;
 
   constructor() {
     this.documentTypePropertyBuilder = [];
@@ -94,7 +94,7 @@ export class DocumentTypeBuilder {
 
   }
 
-  addAllowedTemplateIds(templateId: string) {
+  addAllowedTemplateIds(templateId) {
     this.documentTypeAllowedTemplateIdBuilder.push(templateId);
     return this;
   }
@@ -103,16 +103,14 @@ export class DocumentTypeBuilder {
     const builder = new DocumentTypeCompositionBuilder(this);
     this.documentTypeCompositionBuilder.push(builder);
     return builder;
-
   }
-
 
   withContainerId(containerId: string) {
     this.containerId = containerId;
     return this;
   }
 
-  withId(id: number) {
+  withId(id: string) {
     this.id = id;
     return this;
   }
@@ -121,7 +119,6 @@ export class DocumentTypeBuilder {
     const builder = new DocumentTypeAllowedTemplateIdBuilder(this);
     this.documentTypeAllowedTemplateIdBuilder.push(builder);
     return builder;
-
   }
 
   withDefaultTemplateId(defaultTemplateId: string[]) {

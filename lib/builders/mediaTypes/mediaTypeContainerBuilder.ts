@@ -1,14 +1,14 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
+﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
 
-export class DocumentTypeContainerBuilder {
-  parentBuilder: DocumentTypeBuilder;
+export class MediaTypeContainerBuilder {
+  parentBuilder: MediaTypeBuilder;
   id: string;
   parentId: string;
   name: string;
   type: string;
   sortOrder: number;
 
-  constructor(parentBuilder: DocumentTypeBuilder) {
+  constructor(parentBuilder: MediaTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 

@@ -1,7 +1,7 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
+﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
 
-export class DocumentTypePropertyBuilder {
-  parentBuilder: DocumentTypeBuilder;
+export class MediaTypePropertyBuilder{
+  parentBuilder: MediaTypeBuilder;
   id: string;
   containerId: string;
   sortOrder: number;
@@ -17,7 +17,7 @@ export class DocumentTypePropertyBuilder {
   regExMessage: string;
   labelOnTop: boolean;
 
-  constructor(parentBuilder: DocumentTypeBuilder) {
+  constructor(parentBuilder: MediaTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
