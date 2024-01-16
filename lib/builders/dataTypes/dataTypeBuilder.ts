@@ -1,10 +1,9 @@
 ﻿export abstract class DataTypeBuilder {
-  $type = "DataTypeResponseModel";
   id: string;
   parentId: string;
   name: string;
-  propertyEditorAlias: string;
-  propertyEditorUiAlias: string;
+  editorAlias: string;
+  editorUiAlias: string;
 
   withName(name: string) {
     this.name = name;
@@ -27,12 +26,11 @@
       this.id = crypto.randomUUID();
     }
     return {
-      $type: this.$type,
+      editorAlias: this.editorAlias,
+      editorUiAlias: this.editorUiAlias,
       id: this.id,
-      parentId: this.parentId,
       name: this.name,
-      propertyEditorAlias: this.propertyEditorAlias,
-      propertyEditorUiAlias: this.propertyEditorUiAlias,
+      parentId: this.parentId,
       values: this.getValues()
     }
   };

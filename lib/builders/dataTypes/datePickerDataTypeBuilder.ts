@@ -6,8 +6,8 @@ export class DatePickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.propertyEditorAlias = "Umbraco.DateTime";
-    this.propertyEditorUiAlias = "";
+    this.editorAlias = "Umbraco.DateTime";
+    this.editorUiAlias = "Umb.PropertyEditorUi.DatePicker";
   }
 
   toOffsetTime(offsetTime: boolean) {

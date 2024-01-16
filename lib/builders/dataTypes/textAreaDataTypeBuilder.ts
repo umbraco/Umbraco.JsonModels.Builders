@@ -8,8 +8,8 @@ export class TextAreaDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.propertyEditorAlias = "Umbraco.TextArea";
-    this.propertyEditorUiAlias = "";
+    this.editorAlias = "Umbraco.TextArea";
+    this.editorUiAlias = "Umb.PropertyEditorUi.TextArea";
   }
 
   withMaxChars(maxChars: number) {

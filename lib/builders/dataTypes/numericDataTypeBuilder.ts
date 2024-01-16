@@ -8,8 +8,8 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.propertyEditorAlias = "Umbraco.Integer";
-    this.propertyEditorUiAlias = "";
+    this.editorAlias = "Umbraco.Integer";
+    this.editorUiAlias = "Umb.PropertyEditorUi.Integer";
   }
 
   withMin(min: number) {

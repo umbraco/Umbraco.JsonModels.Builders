@@ -1,6 +1,6 @@
 ﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
 
-export class MediaTypePropertyBuilder{
+export class MediaTypePropertyBuilder {
   parentBuilder: MediaTypeBuilder;
   id: string;
   containerId: string;
