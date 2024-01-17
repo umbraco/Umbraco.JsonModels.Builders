@@ -10,8 +10,8 @@ export class SliderDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.propertyEditorAlias = "Umbraco.Slider";
-    this.propertyEditorUiAlias = "Umb.PropertyEditorUi.Slider";
+    this.editorAlias = "Umbraco.Slider";
+    this.editorUiAlias = "Umb.PropertyEditorUi.Slider";
   }
 
   withMinValue(minValue: number) {
@@ -24,7 +24,7 @@ export class SliderDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  toEnableRange(enableRange: boolean) {
+  withEnableRange(enableRange: boolean) {
     this.enableRange = enableRange;
     return this;
   }

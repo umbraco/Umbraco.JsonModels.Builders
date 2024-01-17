@@ -24,7 +24,7 @@
     return this;
   }
 
-  toLoadContentChildNodes(contentLoadChildNodes: boolean) {
+  withLoadContentChildNodes(contentLoadChildNodes: boolean) {
     this.contentLoadChildNodes = contentLoadChildNodes;
     return this;
   }
@@ -34,7 +34,7 @@
     return this;
   }
 
-  toLoadMediaChildNodes(mediaLoadChildNodes: boolean) {
+  withLoadMediaChildNodes(mediaLoadChildNodes: boolean) {
     this.mediaLoadChildNodes = mediaLoadChildNodes;
     return this;
   }
