@@ -27,7 +27,7 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  toAllowDecimals(allowDecimals: boolean) {
+  withAllowDecimals(allowDecimals: boolean) {
     this.allowDecimals = allowDecimals;
     return this;
   }

@@ -24,7 +24,7 @@ export class SliderDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  toEnableRange(enableRange: boolean) {
+  withEnableRange(enableRange: boolean) {
     this.enableRange = enableRange;
     return this;
   }

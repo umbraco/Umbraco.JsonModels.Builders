@@ -10,7 +10,7 @@ export class DatePickerDataTypeBuilder extends DataTypeBuilder {
     this.editorUiAlias = "Umb.PropertyEditorUi.DatePicker";
   }
 
-  toOffsetTime(offsetTime: boolean) {
+  withOffsetTime(offsetTime: boolean) {
     this.offsetTime = offsetTime;
     return this;
   }
