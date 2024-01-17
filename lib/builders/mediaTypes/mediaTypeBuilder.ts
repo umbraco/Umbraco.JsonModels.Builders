@@ -90,7 +90,6 @@ export class MediaTypeBuilder {
     return builder;
   }
 
-
   withContainerId(containerId: string) {
     this.containerId = containerId;
     return this;

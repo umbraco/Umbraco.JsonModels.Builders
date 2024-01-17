@@ -77,9 +77,7 @@ export class DocumentTypeBuilder {
     const builder = new DocumentTypePropertyBuilder(this);
     this.documentTypePropertyBuilder.push(builder);
     return builder;
-
   }
-
 
   addContainers() {
     const builder = new DocumentTypeContainerBuilder(this);
@@ -91,7 +89,6 @@ export class DocumentTypeBuilder {
     const builder = new DocumentTypeAllowedContentTypeBuilder(this);
     this.documentTypeAllowedContentTypeBuilder.push(builder);
     return builder;
-
   }
 
   addAllowedTemplateIds(templateId) {
