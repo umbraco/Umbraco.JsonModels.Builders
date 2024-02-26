@@ -19,7 +19,6 @@ export class DocumentTypeBuilder {
   documentTypeCompositionBuilder: DocumentTypeCompositionBuilder[];
   documentTypeContainerBuilder: DocumentTypeContainerBuilder[];
   id: string;
-  containerId: string;
   defaultTemplateId: string[];
   preventCleanup: boolean;
   keepAllVersionsNewerThanDays: number;
@@ -103,11 +102,6 @@ export class DocumentTypeBuilder {
     return builder;
   }
 
-  withContainerId(containerId: string) {
-    this.containerId = containerId;
-    return this;
-  }
-
   withId(id: string) {
     this.id = id;
     return this;
@@ -148,7 +142,7 @@ export class DocumentTypeBuilder {
     return {
       alias: this.alias,
       name: this.name,
-      description: this.description || null,
+      description: this.description || "",
       icon: this.icon || "icon-document",
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
@@ -167,7 +161,6 @@ export class DocumentTypeBuilder {
         return builder.build();
       }) || [],
       id: this.id,
-      containerId: this.containerId || null,
       allowedTemplates: this.documentTypeAllowedTemplateIdBuilder.map((builder) => {
         return builder.build();
       }) || [],

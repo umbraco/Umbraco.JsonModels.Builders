@@ -117,9 +117,9 @@ export class DocumentTypePropertyBuilder {
       variesBySegment: this.variesBySegment || false,
       validation: {
         mandatory: this.mandatory || false,
-        mandatoryMessage: this.mandatoryMessage,
-        regEx: this.regEx,
-        regExMessage: this.regExMessage
+        mandatoryMessage: this.mandatoryMessage || null,
+        regEx: this.regEx || null,
+        regExMessage: this.regExMessage || null
       },
       appearance: {
         labelOnTop: this.labelOnTop || false
