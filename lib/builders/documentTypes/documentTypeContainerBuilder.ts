@@ -46,7 +46,7 @@ export class DocumentTypeContainerBuilder {
       id: this.id || null,
       parentId: this.parentId || null,
       name: this.name || "",
-      type: this.type || "",
+      type: this.type || "Group",
       sortOrder: this.sortOrder || 0
     };
   }

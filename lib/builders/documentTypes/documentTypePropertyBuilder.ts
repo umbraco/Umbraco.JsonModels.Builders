@@ -1,4 +1,4 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
+﻿import { DocumentTypeBuilder } from "./documentTypeBuilder";
 
 export class DocumentTypePropertyBuilder {
   parentBuilder: DocumentTypeBuilder;
@@ -12,7 +12,7 @@ export class DocumentTypePropertyBuilder {
   variesByCulture: boolean;
   variesBySegment: boolean;
   mandatory: boolean;
-  mandatoryMessage: string
+  mandatoryMessage: string;
   regEx: string;
   regExMessage: string;
   labelOnTop: boolean;
@@ -96,21 +96,30 @@ export class DocumentTypePropertyBuilder {
   }
 
   build() {
+    if (this.id == null) {
+      const crypto = require('crypto');
+      this.id = crypto.randomUUID();
+    }
+    
     return {
       id: this.id || null,
-      containerId: this.containerId || null,
+      container: {
+        id: this.containerId || null
+      },
       sortOrder: this.sortOrder || 0,
       alias: this.alias || "",
       name: this.name || "",
       description: this.description || "",
-      dataTypeId: this.dataTypeId || null,
+      dataType: {
+        id: this.dataTypeId || null
+      },
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
-      mandatory: this.mandatory || false,
       validation: {
-        mandatoryMessage: this.mandatoryMessage || "",
-        regEx: this.regEx || "",
-        regExMessage: this.regExMessage || ""
+        mandatory: this.mandatory || false,
+        mandatoryMessage: this.mandatoryMessage,
+        regEx: this.regEx,
+        regExMessage: this.regExMessage
       },
       appearance: {
         labelOnTop: this.labelOnTop || false

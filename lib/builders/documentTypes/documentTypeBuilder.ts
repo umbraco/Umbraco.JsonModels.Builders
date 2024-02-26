@@ -85,14 +85,15 @@ export class DocumentTypeBuilder {
     return builder;
   }
 
-  addAllowedContentTypes() {
+  addAllowedDocumentTypes() {
     const builder = new DocumentTypeAllowedContentTypeBuilder(this);
     this.documentTypeAllowedContentTypeBuilder.push(builder);
     return builder;
   }
 
-  addAllowedTemplateIds(templateId) {
-    this.documentTypeAllowedTemplateIdBuilder.push(templateId);
+  addAllowedTemplateIds() {
+    const builder = new DocumentTypeAllowedTemplateIdBuilder(this);
+    this.documentTypeAllowedTemplateIdBuilder.push(builder);
     return this;
   }
 
@@ -147,7 +148,7 @@ export class DocumentTypeBuilder {
     return {
       alias: this.alias,
       name: this.name,
-      description: this.description || "",
+      description: this.description || null,
       icon: this.icon || "icon-document",
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
@@ -159,7 +160,7 @@ export class DocumentTypeBuilder {
       containers: this.documentTypeContainerBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      allowedContentTypes: this.documentTypeAllowedContentTypeBuilder.map((builder) => {
+      allowedDocumentTypes: this.documentTypeAllowedContentTypeBuilder.map((builder) => {
         return builder.build();
       }) || [],
       compositions: this.documentTypeCompositionBuilder.map((builder) => {
@@ -167,7 +168,7 @@ export class DocumentTypeBuilder {
       }) || [],
       id: this.id,
       containerId: this.containerId || null,
-      allowedTemplatesIds: this.documentTypeAllowedTemplateIdBuilder.map((builder) => {
+      allowedTemplates: this.documentTypeAllowedTemplateIdBuilder.map((builder) => {
         return builder.build();
       }) || [],
       defaultTemplateId: this.defaultTemplateId || null,
@@ -176,6 +177,6 @@ export class DocumentTypeBuilder {
         keepAllVersionsNewerThanDays: this.keepAllVersionsNewerThanDays || null,
         keepLatestVersionPerDayForDays: this.keepLatestVersionPerDayForDays || null
       }
-    }
+    };
   }
 }

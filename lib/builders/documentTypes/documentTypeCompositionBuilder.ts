@@ -2,7 +2,7 @@
 
 export class DocumentTypeCompositionBuilder {
   parentBuilder: DocumentTypeBuilder;
-  id: string
+  id: string;
   compositionType: string;
 
   constructor(parentBuilder: DocumentTypeBuilder) {
