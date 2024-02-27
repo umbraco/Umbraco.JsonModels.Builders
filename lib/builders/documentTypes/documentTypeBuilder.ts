@@ -134,7 +134,7 @@ export class DocumentTypeBuilder {
   }
 
   build() {
-    if (this.id == null) {
+    if (!this.id) {
       const crypto = require('crypto');
       this.id = crypto.randomUUID();
     }

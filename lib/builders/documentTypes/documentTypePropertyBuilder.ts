@@ -96,13 +96,13 @@ export class DocumentTypePropertyBuilder {
   }
 
   build() {
-    if (this.id == null) {
+    if (!this.id) {
       const crypto = require('crypto');
       this.id = crypto.randomUUID();
     }
-    
+
     return {
-      id: this.id || null,
+      id: this.id,
       container: {
         id: this.containerId || null
       },
