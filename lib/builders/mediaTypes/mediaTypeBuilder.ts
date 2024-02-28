@@ -1,6 +1,6 @@
 ﻿import {MediaTypePropertyBuilder} from "./mediaTypePropertyBuilder";
 import {MediaTypeContainerBuilder} from "./mediaTypeContainerBuilder";
-import {MediaTypeAllowedContentTypeBuilder} from "./mediaTypeAllowedContentTypeBuilder";
+import {MediaTypeAllowedMediaTypeBuilder} from "./mediaTypeAllowedMediaTypeBuilder";
 import {MediaTypeCompositionBuilder} from "./mediaTypeCompositionBuilder";
 
 export class MediaTypeBuilder {
@@ -11,18 +11,20 @@ export class MediaTypeBuilder {
   allowedAsRoot: boolean;
   variesByCulture: boolean;
   variesBySegment: boolean;
+  collectionId: string;
   isElement: boolean;
   mediaTypePropertyBuilder: MediaTypePropertyBuilder[];
   mediaTypeContainerBuilder: MediaTypeContainerBuilder[];
-  mediaTypeAllowedContentTypeBuilder: MediaTypeAllowedContentTypeBuilder[];
+  mediaTypeAllowedMediaTypeBuilder: MediaTypeAllowedMediaTypeBuilder[];
   mediaTypeCompositionBuilder: MediaTypeCompositionBuilder[];
+  folderId: string;
   id: string;
   containerId: string;
 
   constructor() {
     this.mediaTypePropertyBuilder = [];
     this.mediaTypeContainerBuilder = [];
-    this.mediaTypeAllowedContentTypeBuilder = [];
+    this.mediaTypeAllowedMediaTypeBuilder = [];
     this.mediaTypeCompositionBuilder = [];
   }
 
@@ -79,8 +81,8 @@ export class MediaTypeBuilder {
   }
 
   addAllowedContentTypes() {
-    const builder = new MediaTypeAllowedContentTypeBuilder(this);
-    this.mediaTypeAllowedContentTypeBuilder.push(builder);
+    const builder = new MediaTypeAllowedMediaTypeBuilder(this);
+    this.mediaTypeAllowedMediaTypeBuilder.push(builder);
     return builder;
   }
 
@@ -107,13 +109,14 @@ export class MediaTypeBuilder {
     }
 
     return {
-      alias: this.alias,
-      name: this.name,
+      alias: this.alias || "",
+      name: this.name || "",
       description: this.description || "",
       icon: this.icon || "icon-document",
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
+      collection: this.collectionId ? {id: this.collectionId} : null,
       isElement: this.isElement || false,
       properties: this.mediaTypePropertyBuilder.map((builder) => {
         return builder.build();
@@ -121,13 +124,14 @@ export class MediaTypeBuilder {
       containers: this.mediaTypeContainerBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      allowedContentTypes: this.mediaTypeAllowedContentTypeBuilder.map((builder) => {
+      allowedMediaTypes: this.mediaTypeAllowedMediaTypeBuilder.map((builder) => {
         return builder.build();
       }) || [],
       compositions: this.mediaTypeCompositionBuilder.map((builder) => {
         return builder.build();
       }) || [],
       id: this.id,
+      folder: this.folderId ? {id: this.folderId} : null,
       containerId: this.containerId || null,
     }
   }
