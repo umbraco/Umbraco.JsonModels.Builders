@@ -1,4 +1,4 @@
-﻿import { DocumentTypeBuilder } from "./documentTypeBuilder";
+﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
 
 export class DocumentTypePropertyBuilder {
   parentBuilder: DocumentTypeBuilder;
