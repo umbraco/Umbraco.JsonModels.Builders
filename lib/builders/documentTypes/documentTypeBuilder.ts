@@ -1,8 +1,8 @@
 ﻿import {DocumentTypePropertyBuilder} from "./documentTypePropertyBuilder";
 import {DocumentTypeContainerBuilder} from "./documentTypeContainerBuilder";
-import {DocumentTypeAllowedContentTypeBuilder} from "./documentTypeAllowedContentTypeBuilder";
+import {DocumentTypeAllowedDocumentTypeBuilder} from "./documentTypeAllowedDocumentTypeBuilder";
 import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
-import {DocumentTypeAllowedTemplateIdBuilder} from "./documentTypeAllowedTemplateIdBuilder";
+import {DocumentTypeAllowedTemplateBuilder} from "./documentTypeAllowedTemplateBuilder";
 
 export class DocumentTypeBuilder {
   alias: string;
@@ -12,23 +12,24 @@ export class DocumentTypeBuilder {
   allowedAsRoot: boolean;
   variesByCulture: boolean;
   variesBySegment: boolean;
+  collectionId: string;
   isElement: boolean;
   documentTypePropertyBuilder: DocumentTypePropertyBuilder[];
-  documentTypeAllowedContentTypeBuilder: DocumentTypeAllowedContentTypeBuilder[];
-  documentTypeAllowedTemplateIdBuilder: DocumentTypeAllowedTemplateIdBuilder[];
+  documentTypeAllowedDocumentTypeBuilder: DocumentTypeAllowedDocumentTypeBuilder[];
+  documentTypeAllowedTemplateBuilder: DocumentTypeAllowedTemplateBuilder[];
   documentTypeCompositionBuilder: DocumentTypeCompositionBuilder[];
   documentTypeContainerBuilder: DocumentTypeContainerBuilder[];
   id: string;
-  containerId: string;
-  defaultTemplateId: string[];
+  folderId: string;
+  defaultTemplateId: string;
   preventCleanup: boolean;
   keepAllVersionsNewerThanDays: number;
   keepLatestVersionPerDayForDays: number;
 
   constructor() {
     this.documentTypePropertyBuilder = [];
-    this.documentTypeAllowedContentTypeBuilder = [];
-    this.documentTypeAllowedTemplateIdBuilder = [];
+    this.documentTypeAllowedDocumentTypeBuilder = [];
+    this.documentTypeAllowedTemplateBuilder = [];
     this.documentTypeCompositionBuilder = [];
     this.documentTypeContainerBuilder = [];
   }
@@ -73,38 +74,34 @@ export class DocumentTypeBuilder {
     return this;
   }
 
-  addProperties() {
+  addProperty() {
     const builder = new DocumentTypePropertyBuilder(this);
     this.documentTypePropertyBuilder.push(builder);
     return builder;
   }
 
-  addContainers() {
+  addContainer() {
     const builder = new DocumentTypeContainerBuilder(this);
     this.documentTypeContainerBuilder.push(builder);
     return builder;
   }
 
-  addAllowedContentTypes() {
-    const builder = new DocumentTypeAllowedContentTypeBuilder(this);
-    this.documentTypeAllowedContentTypeBuilder.push(builder);
+  addAllowedDocumentType() {
+    const builder = new DocumentTypeAllowedDocumentTypeBuilder(this);
+    this.documentTypeAllowedDocumentTypeBuilder.push(builder);
     return builder;
   }
 
-  addAllowedTemplateIds(templateId) {
-    this.documentTypeAllowedTemplateIdBuilder.push(templateId);
-    return this;
+  addAllowedTemplateId() {
+    const builder = new DocumentTypeAllowedTemplateBuilder(this);
+    this.documentTypeAllowedTemplateBuilder.push(builder);
+    return builder;
   }
 
-  addCompositions() {
+  addComposition() {
     const builder = new DocumentTypeCompositionBuilder(this);
     this.documentTypeCompositionBuilder.push(builder);
     return builder;
-  }
-
-  withContainerId(containerId: string) {
-    this.containerId = containerId;
-    return this;
   }
 
   withId(id: string) {
@@ -112,13 +109,7 @@ export class DocumentTypeBuilder {
     return this;
   }
 
-  addTemplateIds() {
-    const builder = new DocumentTypeAllowedTemplateIdBuilder(this);
-    this.documentTypeAllowedTemplateIdBuilder.push(builder);
-    return builder;
-  }
-
-  withDefaultTemplateId(defaultTemplateId: string[]) {
+  withDefaultTemplateId(defaultTemplateId: string) {
     this.defaultTemplateId = defaultTemplateId;
     return this;
   }
@@ -139,19 +130,20 @@ export class DocumentTypeBuilder {
   }
 
   build() {
-    if (this.id == null) {
+    if (!this.id) {
       const crypto = require('crypto');
       this.id = crypto.randomUUID();
     }
 
     return {
-      alias: this.alias,
-      name: this.name,
+      alias: this.alias || "",
+      name: this.name || "",
       description: this.description || "",
       icon: this.icon || "icon-document",
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
+      collection: this.collectionId ? {id: this.collectionId} : null,
       isElement: this.isElement || false,
       properties: this.documentTypePropertyBuilder.map((builder) => {
         return builder.build();
@@ -159,23 +151,23 @@ export class DocumentTypeBuilder {
       containers: this.documentTypeContainerBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      allowedContentTypes: this.documentTypeAllowedContentTypeBuilder.map((builder) => {
+      allowedDocumentTypes: this.documentTypeAllowedDocumentTypeBuilder.map((builder) => {
         return builder.build();
       }) || [],
       compositions: this.documentTypeCompositionBuilder.map((builder) => {
         return builder.build();
       }) || [],
       id: this.id,
-      containerId: this.containerId || null,
-      allowedTemplatesIds: this.documentTypeAllowedTemplateIdBuilder.map((builder) => {
+      folder: this.folderId ? {id: this.folderId} : null,
+      allowedTemplates: this.documentTypeAllowedTemplateBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      defaultTemplateId: this.defaultTemplateId || null,
+      defaultTemplate: this.defaultTemplateId ? {id: this.defaultTemplateId} : null,
       cleanup: {
         preventCleanup: this.preventCleanup || false,
         keepAllVersionsNewerThanDays: this.keepAllVersionsNewerThanDays || null,
         keepLatestVersionPerDayForDays: this.keepLatestVersionPerDayForDays || null
       }
-    }
+    };
   }
 }
