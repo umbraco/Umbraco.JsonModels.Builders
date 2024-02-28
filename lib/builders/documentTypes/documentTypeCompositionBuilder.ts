@@ -2,15 +2,15 @@
 
 export class DocumentTypeCompositionBuilder {
   parentBuilder: DocumentTypeBuilder;
-  id: string;
+  documentTypeId: string;
   compositionType: string;
 
   constructor(parentBuilder: DocumentTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
-  withId(id: string) {
-    this.id = id;
+  withDocumentTypeId(documentTypeId: string) {
+    this.documentTypeId = documentTypeId;
     return this;
   }
 
@@ -25,7 +25,9 @@ export class DocumentTypeCompositionBuilder {
 
   build() {
     return {
-      id: this.id || null,
+      documentType: {
+        id: this.documentTypeId || null
+      },
       compositionType: this.compositionType || "Composition"
     };
   }
