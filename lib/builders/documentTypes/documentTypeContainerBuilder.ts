@@ -7,7 +7,6 @@ export class DocumentTypeContainerBuilder {
   name: string;
   type: string;
   sortOrder: number;
-  parentObject: any;
 
   constructor(parentBuilder: DocumentTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -43,11 +42,9 @@ export class DocumentTypeContainerBuilder {
   }
 
   build() {
-    this.parentObject = this.parentId ? {id: this.parentId} : null;
-
     return {
       id: this.id || null,
-      parent: this.parentObject,
+      parent: this.parentId ? {id: this.parentId} : null,
       name: this.name || "",
       type: this.type || "Group",
       sortOrder: this.sortOrder || 0

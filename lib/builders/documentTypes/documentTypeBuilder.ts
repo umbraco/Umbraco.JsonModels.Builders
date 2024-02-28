@@ -13,7 +13,6 @@ export class DocumentTypeBuilder {
   variesByCulture: boolean;
   variesBySegment: boolean;
   collectionId: string;
-  collectionObject: any;
   isElement: boolean;
   documentTypePropertyBuilder: DocumentTypePropertyBuilder[];
   documentTypeAllowedDocumentTypeBuilder: DocumentTypeAllowedDocumentTypeBuilder[];
@@ -22,9 +21,7 @@ export class DocumentTypeBuilder {
   documentTypeContainerBuilder: DocumentTypeContainerBuilder[];
   id: string;
   folderId: string;
-  folderObject: any;
   defaultTemplateId: string;
-  defaultTemplateObject: any;
   preventCleanup: boolean;
   keepAllVersionsNewerThanDays: number;
   keepLatestVersionPerDayForDays: number;
@@ -138,10 +135,6 @@ export class DocumentTypeBuilder {
       this.id = crypto.randomUUID();
     }
 
-    this.defaultTemplateObject = this.defaultTemplateId ? {id: this.defaultTemplateId} : null;
-    this.collectionObject = this.collectionId ? {id: this.collectionId} : null;
-    this.folderObject = this.folderId ? {id: this.folderId} : null;
-
     return {
       alias: this.alias || "",
       name: this.name || "",
@@ -150,7 +143,7 @@ export class DocumentTypeBuilder {
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
-      collection: this.collectionObject || null,
+      collection: this.collectionId ? {id: this.collectionId} : null,
       isElement: this.isElement || false,
       properties: this.documentTypePropertyBuilder.map((builder) => {
         return builder.build();
@@ -165,11 +158,11 @@ export class DocumentTypeBuilder {
         return builder.build();
       }) || [],
       id: this.id,
-      folder: this.folderObject || null,
+      folder: this.folderId ? {id: this.folderId} : null,
       allowedTemplates: this.documentTypeAllowedTemplateBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      defaultTemplate: this.defaultTemplateObject || null,
+      defaultTemplate: this.defaultTemplateId ? {id: this.defaultTemplateId} : null,
       cleanup: {
         preventCleanup: this.preventCleanup || false,
         keepAllVersionsNewerThanDays: this.keepAllVersionsNewerThanDays || null,
