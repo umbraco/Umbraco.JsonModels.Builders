@@ -43,13 +43,7 @@ export class DocumentTypeContainerBuilder {
   }
 
   build() {
-    if (this.parentId !== null && this.parentId !== undefined) {
-      this.parentObject = {
-        id: this.parentId
-      };
-    } else {
-      this.parentObject = null;
-    }
+    this.parentObject = this.parentId ? {id: this.parentId} : null;
 
     return {
       id: this.id || null,
