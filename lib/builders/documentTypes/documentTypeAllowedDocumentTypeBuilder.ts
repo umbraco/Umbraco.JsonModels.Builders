@@ -1,6 +1,6 @@
 ﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
 
-export class DocumentTypeAllowedContentTypeBuilder {
+export class DocumentTypeAllowedDocumentTypeBuilder {
   parentBuilder: DocumentTypeBuilder;
   id: string;
   sortOrder: number;

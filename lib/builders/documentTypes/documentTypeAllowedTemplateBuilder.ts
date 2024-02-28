@@ -1,6 +1,6 @@
 ﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
 
-export class DocumentTypeAllowedTemplateIdBuilder {
+export class DocumentTypeAllowedTemplateBuilder {
   parentBuilder: DocumentTypeBuilder;
   id: string;
 
