@@ -1,8 +1,8 @@
 ﻿import {DocumentTypePropertyBuilder} from "./documentTypePropertyBuilder";
 import {DocumentTypeContainerBuilder} from "./documentTypeContainerBuilder";
-import {DocumentTypeAllowedContentTypeBuilder} from "./documentTypeAllowedContentTypeBuilder";
+import {DocumentTypeAllowedDocumentTypeBuilder} from "./documentTypeAllowedDocumentTypeBuilder";
 import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
-import {DocumentTypeAllowedTemplateIdBuilder} from "./documentTypeAllowedTemplateIdBuilder";
+import {DocumentTypeAllowedTemplateBuilder} from "./documentTypeAllowedTemplateBuilder";
 
 export class DocumentTypeBuilder {
   alias: string;
@@ -12,22 +12,27 @@ export class DocumentTypeBuilder {
   allowedAsRoot: boolean;
   variesByCulture: boolean;
   variesBySegment: boolean;
+  collectionId: string;
+  collectionObject: any;
   isElement: boolean;
   documentTypePropertyBuilder: DocumentTypePropertyBuilder[];
-  documentTypeAllowedContentTypeBuilder: DocumentTypeAllowedContentTypeBuilder[];
-  documentTypeAllowedTemplateIdBuilder: DocumentTypeAllowedTemplateIdBuilder[];
+  documentTypeAllowedDocumentTypeBuilder: DocumentTypeAllowedDocumentTypeBuilder[];
+  documentTypeAllowedTemplateBuilder: DocumentTypeAllowedTemplateBuilder[];
   documentTypeCompositionBuilder: DocumentTypeCompositionBuilder[];
   documentTypeContainerBuilder: DocumentTypeContainerBuilder[];
   id: string;
-  defaultTemplateId: string[];
+  folderId: string;
+  folderObject: any;
+  defaultTemplateId: string;
+  defaultTemplateObject: any;
   preventCleanup: boolean;
   keepAllVersionsNewerThanDays: number;
   keepLatestVersionPerDayForDays: number;
 
   constructor() {
     this.documentTypePropertyBuilder = [];
-    this.documentTypeAllowedContentTypeBuilder = [];
-    this.documentTypeAllowedTemplateIdBuilder = [];
+    this.documentTypeAllowedDocumentTypeBuilder = [];
+    this.documentTypeAllowedTemplateBuilder = [];
     this.documentTypeCompositionBuilder = [];
     this.documentTypeContainerBuilder = [];
   }
@@ -72,31 +77,31 @@ export class DocumentTypeBuilder {
     return this;
   }
 
-  addProperties() {
+  addProperty() {
     const builder = new DocumentTypePropertyBuilder(this);
     this.documentTypePropertyBuilder.push(builder);
     return builder;
   }
 
-  addContainers() {
+  addContainer() {
     const builder = new DocumentTypeContainerBuilder(this);
     this.documentTypeContainerBuilder.push(builder);
     return builder;
   }
 
-  addAllowedDocumentTypes() {
-    const builder = new DocumentTypeAllowedContentTypeBuilder(this);
-    this.documentTypeAllowedContentTypeBuilder.push(builder);
+  addAllowedDocumentType() {
+    const builder = new DocumentTypeAllowedDocumentTypeBuilder(this);
+    this.documentTypeAllowedDocumentTypeBuilder.push(builder);
     return builder;
   }
 
-  addAllowedTemplateIds() {
-    const builder = new DocumentTypeAllowedTemplateIdBuilder(this);
-    this.documentTypeAllowedTemplateIdBuilder.push(builder);
-    return this;
+  addAllowedTemplateId() {
+    const builder = new DocumentTypeAllowedTemplateBuilder(this);
+    this.documentTypeAllowedTemplateBuilder.push(builder);
+    return builder;
   }
 
-  addCompositions() {
+  addComposition() {
     const builder = new DocumentTypeCompositionBuilder(this);
     this.documentTypeCompositionBuilder.push(builder);
     return builder;
@@ -107,13 +112,7 @@ export class DocumentTypeBuilder {
     return this;
   }
 
-  addTemplateIds() {
-    const builder = new DocumentTypeAllowedTemplateIdBuilder(this);
-    this.documentTypeAllowedTemplateIdBuilder.push(builder);
-    return builder;
-  }
-
-  withDefaultTemplateId(defaultTemplateId: string[]) {
+  withDefaultTemplateId(defaultTemplateId: string) {
     this.defaultTemplateId = defaultTemplateId;
     return this;
   }
@@ -139,14 +138,19 @@ export class DocumentTypeBuilder {
       this.id = crypto.randomUUID();
     }
 
+    this.defaultTemplateObject = this.defaultTemplateId ? {id: this.defaultTemplateId} : null;
+    this.collectionObject = this.collectionId ? {id: this.collectionId} : null;
+    this.folderObject = this.folderId ? {id: this.folderId} : null;
+
     return {
-      alias: this.alias,
-      name: this.name,
+      alias: this.alias || "",
+      name: this.name || "",
       description: this.description || "",
       icon: this.icon || "icon-document",
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
+      collection: this.collectionObject || null,
       isElement: this.isElement || false,
       properties: this.documentTypePropertyBuilder.map((builder) => {
         return builder.build();
@@ -154,17 +158,18 @@ export class DocumentTypeBuilder {
       containers: this.documentTypeContainerBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      allowedDocumentTypes: this.documentTypeAllowedContentTypeBuilder.map((builder) => {
+      allowedDocumentTypes: this.documentTypeAllowedDocumentTypeBuilder.map((builder) => {
         return builder.build();
       }) || [],
       compositions: this.documentTypeCompositionBuilder.map((builder) => {
         return builder.build();
       }) || [],
       id: this.id,
-      allowedTemplates: this.documentTypeAllowedTemplateIdBuilder.map((builder) => {
+      folder: this.folderObject || null,
+      allowedTemplates: this.documentTypeAllowedTemplateBuilder.map((builder) => {
         return builder.build();
       }) || [],
-      defaultTemplateId: this.defaultTemplateId || null,
+      defaultTemplate: this.defaultTemplateObject || null,
       cleanup: {
         preventCleanup: this.preventCleanup || false,
         keepAllVersionsNewerThanDays: this.keepAllVersionsNewerThanDays || null,
