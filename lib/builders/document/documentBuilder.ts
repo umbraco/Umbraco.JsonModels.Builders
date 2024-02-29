@@ -6,7 +6,7 @@ export class DocumentBuilder {
   documentVariantBuilder: DocumentVariantBuilder[];
   id: string;
   parentId: string;
-  contentTypeId: string;
+  documentTypeId: string;
   templateId: string;
 
   constructor() {
@@ -36,8 +36,8 @@ export class DocumentBuilder {
     return this;
   }
 
-  withContentTypeId(contentTypeId: string) {
-    this.contentTypeId = contentTypeId;
+  withDocumentTypeId(documentTypeId: string) {
+    this.documentTypeId = documentTypeId;
     return this;
   }
 
@@ -47,22 +47,22 @@ export class DocumentBuilder {
   }
 
   build() {
-    if (this.id == null) {
+    if (!this.id) {
       const crypto = require('crypto');
       this.id = crypto.randomUUID();
     }
 
     return {
-      id: this.id,
-      parentId: this.parentId || null,
-      contentTypeId: this.contentTypeId || null,
-      templateId: this.templateId || null,
       values: this.documentValueBuilder.map((builder) => {
         return builder.build()
       }),
       variants: this.documentVariantBuilder.map((builder) => {
         return builder.build();
-      })
+      }),
+      id: this.id,
+      parent: this.parentId ? null : { id: this.parentId},
+      documentType: this.documentTypeId ? null : { id: this.documentTypeId},
+      template: this.templateId ? null : { id: this.templateId},
     };
   }
 }
