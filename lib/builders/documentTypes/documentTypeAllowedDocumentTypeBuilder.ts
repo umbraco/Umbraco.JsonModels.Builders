@@ -1,6 +1,6 @@
 ﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
 
-export class DocumentTypeAllowedContentTypeBuilder {
+export class DocumentTypeAllowedDocumentTypeBuilder {
   parentBuilder: DocumentTypeBuilder;
   id: string;
   sortOrder: number;
@@ -25,7 +25,9 @@ export class DocumentTypeAllowedContentTypeBuilder {
 
   build() {
     return {
-      id: this.id || null,
+      documentType: {
+        id: this.id || null
+      },
       sortOrder: this.sortOrder || 0
     };
   }

@@ -44,9 +44,9 @@ export class DocumentTypeContainerBuilder {
   build() {
     return {
       id: this.id || null,
-      parentId: this.parentId || null,
+      parent: this.parentId ? {id: this.parentId} : null,
       name: this.name || "",
-      type: this.type || "",
+      type: this.type || "Group",
       sortOrder: this.sortOrder || 0
     };
   }
