@@ -68,25 +68,25 @@ export class MediaTypeBuilder {
     return this;
   }
 
-  addProperties() {
+  addProperty() {
     const builder = new MediaTypePropertyBuilder(this);
     this.mediaTypePropertyBuilder.push(builder);
     return builder;
   }
 
-  addContainers() {
+  addContainer() {
     const builder = new MediaTypeContainerBuilder(this);
     this.mediaTypeContainerBuilder.push(builder);
     return builder;
   }
 
-  addAllowedContentTypes() {
+  addAllowedMediaType() {
     const builder = new MediaTypeAllowedMediaTypeBuilder(this);
     this.mediaTypeAllowedMediaTypeBuilder.push(builder);
     return builder;
   }
 
-  addCompositions() {
+  addComposition() {
     const builder = new MediaTypeCompositionBuilder(this);
     this.mediaTypeCompositionBuilder.push(builder);
     return builder;
@@ -132,7 +132,6 @@ export class MediaTypeBuilder {
       }) || [],
       id: this.id,
       folder: this.folderId ? {id: this.folderId} : null,
-      containerId: this.containerId || null,
     }
   }
 }
