@@ -96,18 +96,27 @@ export class MediaTypePropertyBuilder {
   }
 
   build() {
+    if (!this.id) {
+      const crypto = require('crypto');
+      this.id = crypto.randomUUID();
+    }
+    
     return {
-      id: this.id || null,
-      containerId: this.containerId || null,
+      id: this.id,
+      container: {
+        id: this.containerId || null
+      },
       sortOrder: this.sortOrder || 0,
       alias: this.alias || "",
       name: this.name || "",
       description: this.description || "",
-      dataTypeId: this.dataTypeId || null,
+      dataType: { 
+        id: this.dataTypeId || null
+      },
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,
-      mandatory: this.mandatory || false,
       validation: {
+        mandatory: this.mandatory || false,
         mandatoryMessage: this.mandatoryMessage || "",
         regEx: this.regEx || "",
         regExMessage: this.regExMessage || ""

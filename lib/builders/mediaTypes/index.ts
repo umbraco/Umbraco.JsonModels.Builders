@@ -1,5 +1,5 @@
 ﻿export {MediaTypeBuilder} from './mediaTypeBuilder';
-export {MediaTypeAllowedContentTypeBuilder} from './mediaTypeAllowedContentTypeBuilder';
+export {MediaTypeAllowedMediaTypeBuilder} from './mediaTypeAllowedMediaTypeBuilder';
 export {MediaTypeCompositionBuilder} from './mediaTypeCompositionBuilder';
 export {MediaTypeContainerBuilder} from './mediaTypeContainerBuilder';
 export {MediaTypePropertyBuilder} from './mediaTypePropertyBuilder';

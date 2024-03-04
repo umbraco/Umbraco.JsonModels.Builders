@@ -43,8 +43,8 @@ export class MediaTypeContainerBuilder {
 
   build() {
     return {
-      id: this.id || null,
-      parentId: this.parentId || null,
+      id: this.id || null,     
+      parent: this.parentId ? {id: this.parentId} : null,
       name: this.name || "",
       type: this.type || "",
       sortOrder: this.sortOrder || 0
