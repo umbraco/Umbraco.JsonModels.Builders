@@ -19,7 +19,6 @@ export class MediaTypeBuilder {
   mediaTypeCompositionBuilder: MediaTypeCompositionBuilder[];
   folderId: string;
   id: string;
-  containerId: string;
 
   constructor() {
     this.mediaTypePropertyBuilder = [];
@@ -90,11 +89,6 @@ export class MediaTypeBuilder {
     const builder = new MediaTypeCompositionBuilder(this);
     this.mediaTypeCompositionBuilder.push(builder);
     return builder;
-  }
-
-  withContainerId(containerId: string) {
-    this.containerId = containerId;
-    return this;
   }
 
   withId(id: string) {
