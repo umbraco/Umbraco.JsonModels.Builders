@@ -1,6 +1,6 @@
 ﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
 
-export class MediaTypeAllowedContentTypeBuilder {
+export class MediaTypeAllowedMediaTypeBuilder {
   parentBuilder: MediaTypeBuilder;
   id: string;
   sortOrder: number;
@@ -25,7 +25,9 @@ export class MediaTypeAllowedContentTypeBuilder {
 
   build() {
     return {
-      id: this.id || null,
+      mediaType: {
+        id: this.id || null
+      },
       sortOrder: this.sortOrder || 0
     };
   }

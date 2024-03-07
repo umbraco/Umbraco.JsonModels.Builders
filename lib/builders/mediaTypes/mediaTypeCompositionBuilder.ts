@@ -2,15 +2,15 @@
 
 export class MediaTypeCompositionBuilder {
   parentBuilder: MediaTypeBuilder;
-  id: string
+  mediaTypeId: string
   compositionType: string;
 
   constructor(parentBuilder: MediaTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
-  withId(id: string) {
-    this.id = id;
+  withMediaTypeId(mediaTypeId: string) {
+    this.mediaTypeId = mediaTypeId;
     return this;
   }
 
@@ -25,7 +25,9 @@ export class MediaTypeCompositionBuilder {
 
   build() {
     return {
-      id: this.id || null,
+      mediaType: {
+        id: this.mediaTypeId || null
+      },
       compositionType: this.compositionType || "Composition"
     };
   }
