@@ -60,9 +60,9 @@ export class DocumentBuilder {
         return builder.build();
       }),
       id: this.id,
-      parent: this.parentId ? null : { id: this.parentId},
-      documentType: this.documentTypeId ? null : { id: this.documentTypeId},
-      template: this.templateId ? null : { id: this.templateId},
+      parent: this.parentId ? { id: this.parentId} : null,
+      documentType: this.documentTypeId ? { id: this.documentTypeId} : null,
+      template: this.templateId ? { id: this.templateId} : null,
     };
   }
 }
