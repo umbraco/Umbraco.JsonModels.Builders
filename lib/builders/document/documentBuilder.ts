@@ -61,7 +61,7 @@ export class DocumentBuilder {
       }),
       id: this.id,
       parent: this.parentId ? { id: this.parentId} : null,
-      documentType: this.documentTypeId ? { id: this.documentTypeId},
+      documentType: { id: this.documentTypeId},
       template: this.templateId ? { id: this.templateId} : null,
     };
   }
