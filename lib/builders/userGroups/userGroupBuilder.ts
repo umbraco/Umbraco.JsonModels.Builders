@@ -89,7 +89,7 @@ export class UserGroupBuilder {
       mediaStartNode: this.mediaStartNodeId ? {id: this.mediaStartNodeId} : null,
       mediaRootAccess: this.mediaRootAccess || false,
       fallbackPermissions: this.fallbackPermissions || [],
-      permissions: this.userGroupPermissionBuilders.map((builder) => builder.build())
+      permissions: this.userGroupPermissionBuilders.map((builder) => builder.build() || [])
     };
   }
 }
