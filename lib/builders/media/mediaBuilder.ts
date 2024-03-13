@@ -2,26 +2,26 @@
 import {MediaVariantBuilder} from "./mediaVariantBuilder";
 
 export class MediaBuilder {
-  documentValueBuilder: MediaValueBuilder[];
-  documentVariantBuilder: MediaVariantBuilder[];
+  mediaValueBuilder: MediaValueBuilder[];
+  mediaVariantBuilders: MediaVariantBuilder[];
   id: string;
   parentId: string;
-  contentTypeId: string;
+  mediaTypeId: string;
 
   constructor() {
-    this.documentValueBuilder = [];
-    this.documentVariantBuilder = [];
+    this.mediaValueBuilder = [];
+    this.mediaVariantBuilders = [];
   }
 
   addValue() {
     const builder = new MediaValueBuilder(this);
-    this.documentValueBuilder.push(builder);
+    this.mediaValueBuilder.push(builder);
     return builder;
   }
 
   addVariant() {
     const builder = new MediaVariantBuilder(this);
-    this.documentVariantBuilder.push(builder);
+    this.mediaVariantBuilders.push(builder);
     return builder;
   }
 
@@ -35,27 +35,18 @@ export class MediaBuilder {
     return this;
   }
 
-  withContentTypeId(contentTypeId: string) {
-    this.contentTypeId = contentTypeId;
+  withMediaTypeId(mediaTypeId: string) {
+    this.mediaTypeId = mediaTypeId;
     return this;
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
-
     return {
-      id: this.id,
-      parentId: this.parentId || null,
-      contentTypeId: this.contentTypeId || null,
-      values: this.documentValueBuilder.map((builder) => {
-        return builder.build()
-      }),
-      variants: this.documentVariantBuilder.map((builder) => {
-        return builder.build();
-      })
+      values: this.mediaValueBuilder.map(builder => builder.build()),
+      variants: this.mediaVariantBuilders.map(builder => builder.build()),
+      id: this.id || null,
+      parent: this.parentId ? {id: this.parentId} : null,
+      mediaType: {id: this.mediaTypeId || null}
     };
   }
 }
