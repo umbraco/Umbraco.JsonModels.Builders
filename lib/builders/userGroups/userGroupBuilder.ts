@@ -77,7 +77,6 @@ export class UserGroupBuilder {
   }
 
   build() {
-
     return {
       name: this.name || "",
       icon: this.icon || "icon-bug",

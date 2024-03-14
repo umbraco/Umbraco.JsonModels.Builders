@@ -14,8 +14,8 @@ export class UserGroupPermissionBuilder {
     return this;
   }
 
-  withVerbs(verbs: string[]) {
-    this.verbs = verbs;
+  addVerbs(verbs: string) {
+    this.verbs.push(verbs);
     return this;
   }
 
