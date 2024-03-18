@@ -6,3 +6,5 @@ export * from './mediaTypes';
 export * from './media';
 export * from './users';
 export * from './userGroups';
+export * from './member';
+export * from './memberTypes';
