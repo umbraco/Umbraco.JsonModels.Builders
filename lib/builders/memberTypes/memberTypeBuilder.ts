@@ -1,6 +1,6 @@
-﻿import { MemberTypeCompositionBuilder } from "./memberTypeCompositionBuilder";
-import { MemberTypeContainerBuilder } from "./memberTypeContainerBuilder";
-import { MemberTypePropertyBuilder } from "./memberTypePropertyBuilder";
+﻿import {MemberTypeCompositionBuilder} from "./memberTypeCompositionBuilder";
+import {MemberTypeContainerBuilder} from "./memberTypeContainerBuilder";
+import {MemberTypePropertyBuilder} from "./memberTypePropertyBuilder";
 
 export class MemberTypeBuilder {
   alias: string;
