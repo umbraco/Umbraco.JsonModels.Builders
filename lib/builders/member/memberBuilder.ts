@@ -1,5 +1,5 @@
-﻿import {MemberVariantBuilder} from "./MemberVariantBuilder";
-import {MemberValueBuilder} from "./memberValueBuilder";
+﻿import {MemberValueBuilder} from "./memberValueBuilder";
+import {MemberVariantBuilder} from "./memberVariantBuilder";
 
 export class MemberBuilder {
   memberValueBuilder: MemberValueBuilder[];
