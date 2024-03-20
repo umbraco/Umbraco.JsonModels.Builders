@@ -1,11 +1,10 @@
 ﻿import {MemberBuilder} from "./memberBuilder";
 
-export class MemberValueBuilder {
+export class MemberVariantBuilder {
   parentBuilder: MemberBuilder;
   culture: string;
   segment: string;
-  alias: string;
-  value: string;
+  name: string;
 
   constructor(parentBuilder: MemberBuilder) {
     this.parentBuilder = parentBuilder;
@@ -21,13 +20,8 @@ export class MemberValueBuilder {
     return this;
   }
 
-  withAlias(alias: string) {
-    this.alias = alias;
-    return this;
-  }
-
-  withValue(value: string) {
-    this.value = value;
+  withName(name: string) {
+    this.name = name;
     return this;
   }
 
@@ -39,8 +33,7 @@ export class MemberValueBuilder {
     return {
       culture: this.culture || null,
       segment: this.segment || null,
-      alias: this.alias || null,
-      value: this.value || null
+      name: this.name || "",
     }
   };
 }

@@ -46,7 +46,7 @@ export class MemberTypeContainerBuilder {
       id: this.id || null,     
       parent: this.parentId ? {id: this.parentId} : null,
       name: this.name || "",
-      type: this.type || "",
+      type: this.type || "Group",
       sortOrder: this.sortOrder || 0
     };
   }

@@ -1,3 +1,3 @@
 ﻿export {MemberBuilder} from './memberBuilder';
-export {MemberValueBuilder} from './memberVariantBuilder';
-export {MemberVariantBuilder} from './memberValueBuilder';
+export {MemberVariantBuilder} from './MemberVariantBuilder';
+export {MemberValueBuilder} from './memberValueBuilder';

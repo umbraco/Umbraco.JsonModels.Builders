@@ -1,5 +1,5 @@
-﻿import {MemberVariantBuilder} from "./memberValueBuilder";
-import {MemberValueBuilder} from "./memberVariantBuilder";
+﻿import {MemberVariantBuilder} from "./MemberVariantBuilder";
+import {MemberValueBuilder} from "./memberValueBuilder";
 
 export class MemberBuilder {
   memberValueBuilder: MemberValueBuilder[];
@@ -74,10 +74,10 @@ export class MemberBuilder {
     return {
       values: this.memberValueBuilder.map((builder) => {
         return builder.build()
-      }),
+      }) || [],
       variants: this.memberVariantBuilder.map((builder) => {
         return builder.build();
-      }),
+      }) || [],
       id: this.id,
       email: this.email || "",
       username: this.username || "",
