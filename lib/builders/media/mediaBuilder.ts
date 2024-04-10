@@ -46,7 +46,7 @@ export class MediaBuilder {
       variants: this.mediaVariantBuilders.map(builder => builder.build()),
       id: this.id || null,
       parent: this.parentId ? {id: this.parentId} : null,
-      mediaType: {id: this.mediaTypeId || null}
+      mediaType: {id: this.mediaTypeId}
     };
   }
 }
