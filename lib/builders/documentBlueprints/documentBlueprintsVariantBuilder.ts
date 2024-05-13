@@ -34,6 +34,6 @@ export class DocumentBlueprintsVariantBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       name: this.name || null,
-    }
-  };
+    };
+  }
 }
