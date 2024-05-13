@@ -34,6 +34,6 @@ export class MemberVariantBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       name: this.name || "",
-    }
-  };
+    };
+  }
 }

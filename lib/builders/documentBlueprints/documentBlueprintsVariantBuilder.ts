@@ -1,12 +1,12 @@
-﻿import {DocumentBuilder} from "./documentBuilder";
+﻿import { DocumentBlueprintsBuilder } from "./documentBlueprintsBuilder";
 
-export class DocumentVariantBuilder {
-  parentBuilder: DocumentBuilder;
+export class DocumentBlueprintsVariantBuilder {
+  parentBuilder: DocumentBlueprintsBuilder;
   culture: string;
   segment: string;
   name: string;
 
-  constructor(parentBuilder: DocumentBuilder) {
+  constructor(parentBuilder: DocumentBlueprintsBuilder) {
     this.parentBuilder = parentBuilder;
   }
 

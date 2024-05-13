@@ -1,13 +1,13 @@
-﻿import {MediaBuilder} from "./mediaBuilder";
+﻿import { DocumentBlueprintsBuilder } from "./documentBlueprintsBuilder";
 
-export class MediaValueBuilder {
-  parentBuilder: MediaBuilder;
+export class DocumentBlueprintsValueBuilder {
+  parentBuilder: DocumentBlueprintsBuilder;
   culture: string;
   segment: string;
   alias: string;
   value: string;
 
-  constructor(parentBuilder: MediaBuilder) {
+  constructor(parentBuilder: DocumentBlueprintsBuilder) {
     this.parentBuilder = parentBuilder;
   }
 

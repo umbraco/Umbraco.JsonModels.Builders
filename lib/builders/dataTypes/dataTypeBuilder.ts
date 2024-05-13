@@ -32,8 +32,8 @@
       name: this.name,
       parentId: this.parentId,
       values: this.getValues()
-    }
-  };
+    };
+  }
 
   abstract getValues();
 }
