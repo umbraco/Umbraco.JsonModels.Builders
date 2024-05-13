@@ -54,7 +54,7 @@ export class DocumentBuilder {
 
     return {
       values: this.documentValueBuilder.map((builder) => {
-        return builder.build()
+        return builder.build();
       }),
       variants: this.documentVariantBuilder.map((builder) => {
         return builder.build();

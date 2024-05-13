@@ -48,7 +48,7 @@ export class DocumentBlueprintsBuilder {
 
     return {
       values: this.documentBlueprintsValueBuilder.map((builder) => {
-        return builder.build()
+        return builder.build();
       }),
       variants: this.documentBlueprintsVariantBuilder.map((builder) => {
         return builder.build();

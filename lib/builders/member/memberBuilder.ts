@@ -73,7 +73,7 @@ export class MemberBuilder {
 
     return {
       values: this.memberValueBuilder.map((builder) => {
-        return builder.build()
+        return builder.build();
       }) || [],
       variants: this.memberVariantBuilder.map((builder) => {
         return builder.build();

@@ -41,6 +41,6 @@ export class MediaValueBuilder {
       segment: this.segment || null,
       alias: this.alias || null,
       value: this.value || null
-    }
-  };
+    };
+  }
 }

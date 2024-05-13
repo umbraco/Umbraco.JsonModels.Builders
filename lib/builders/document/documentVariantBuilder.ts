@@ -34,6 +34,6 @@ export class DocumentVariantBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       name: this.name || null,
-    }
-  };
+    };
+  }
 }
