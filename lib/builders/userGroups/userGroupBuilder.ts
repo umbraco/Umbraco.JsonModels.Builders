@@ -1,4 +1,5 @@
 ﻿import {UserGroupPermissionBuilder} from "./userGroupPermissionBuilder";
+import {AliasHelper} from "../../helpers/AliasHelper";
 
 export class UserGroupBuilder {
   name: string;
@@ -79,6 +80,7 @@ export class UserGroupBuilder {
   build() {
     return {
       name: this.name || "",
+      alias: AliasHelper.toAlias(this.name || ""),
       icon: this.icon || "icon-bug",
       sections: this.sections || [],
       languages: this.languages || [],
