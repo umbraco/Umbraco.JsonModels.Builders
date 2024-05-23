@@ -53,39 +53,87 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
   }
 
   getValues() {
-    let values: any = [];
+    let values: any[] = [];
 
-    if (this.minValue > this.maxValue) {
+    // Ensure minValue is not greater than maxValue
+    if (this.minValue !== undefined && this.maxValue !== undefined && this.minValue > this.maxValue) {
       this.minValue = this.maxValue;
     }
 
-    values.push({
-      alias: "validationLimit",
-      value: {
-        min: this.minValue || "",
-        max: this.maxValue || ""
-      }
-    });
-    values.push({
-      alias: "maxPropertyWidth",
-      value: this.maxPropertyWidth || ""
-    });
-    values.push({
-      alias: "useSingleBlockMode",
-      value: this.useSingleBlockMode || false
-    });
-    values.push({
-      alias: "useLiveEditing",
-      value: this.useLiveEditing || false
-    });
-    values.push({
-      alias: "useInlineEditingAsDefault",
-      value: this.useInlineEditingAsDefault || false
-    });
-    values.push({
-      alias: "blocks",
-      value: this.blockListBlockBuilder.map(block => block.getValues()) || null
-    });
+    // Add validationLimit alias and value if present
+    if (this.minValue !== undefined || this.maxValue !== undefined) {
+      values.push({
+        alias: "validationLimit",
+        value: {
+          min: this.minValue !== undefined ? this.minValue : "",
+          max: this.maxValue !== undefined ? this.maxValue : ""
+        }
+      });
+    } else {
+      values.push({
+        alias: "validationLimit"
+      });
+    }
+
+    // Add maxPropertyWidth alias and value if present
+    if (this.maxPropertyWidth !== undefined) {
+      values.push({
+        alias: "maxPropertyWidth",
+        value: this.maxPropertyWidth
+      });
+    } else {
+      values.push({
+        alias: "maxPropertyWidth" 
+      });
+    }
+
+    // Add useSingleBlockMode alias and value if present
+    if (this.useSingleBlockMode !== undefined) {
+      values.push({
+        alias: "useSingleBlockMode",
+        value: this.useSingleBlockMode
+      });
+    } else {
+      values.push({
+        alias: "useSingleBlockMode"
+      });
+    }
+
+    // Add useLiveEditing alias and value if present
+    if (this.useLiveEditing !== undefined) {
+      values.push({
+        alias: "useLiveEditing",
+        value: this.useLiveEditing
+      });
+    } else {
+      values.push({
+        alias: "useLiveEditing"
+      });
+    }
+
+    // Add useInlineEditingAsDefault alias and value if present
+    if (this.useInlineEditingAsDefault !== undefined) {
+      values.push({
+        alias: "useInlineEditingAsDefault",
+        value: this.useInlineEditingAsDefault
+      });
+    } else {
+      values.push({
+        alias: "useInlineEditingAsDefault"
+      });
+    }
+
+    // Add blocks alias and value if present
+    if (this.blockListBlockBuilder && this.blockListBlockBuilder.length > 0) {
+      values.push({
+        alias: "blocks",
+        value: this.blockListBlockBuilder.map(block => block.getValues())
+      });
+    } else {
+      values.push({
+        alias: "blocks"
+      });
+    }
 
     return values;
   }
