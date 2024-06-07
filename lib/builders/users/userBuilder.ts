@@ -1,7 +1,7 @@
 ﻿export class UserBuilder {
   email: string;
   name: string;
-  userGroupIds: { id: string }[];
+  userGroupIds: {id: string}[];
   id: string;
 
   constructor() {
