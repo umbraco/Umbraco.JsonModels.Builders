@@ -1,7 +1,7 @@
 ﻿export class UserBuilder {
   email: string;
   name: string;
-  userGroupIds: string[];
+  userGroupIds: {id: string}[];
   id: string;
 
   constructor() {
@@ -19,7 +19,7 @@
   }
 
   addUserGroupId(userGroupId: string) {
-    this.userGroupIds.push(userGroupId);
+    this.userGroupIds.push({id: userGroupId});
     return this;
   }
 
@@ -36,9 +36,9 @@
 
     return {
       email: this.email || "",
-      userName: this.email,
-      name: this.name || "",
+      name: this.name || this.email,
       userGroupIds: this.userGroupIds,
+      userName: this.email,
       id: this.id
     };
   }
