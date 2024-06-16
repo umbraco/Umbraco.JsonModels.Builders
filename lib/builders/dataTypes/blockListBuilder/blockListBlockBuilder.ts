@@ -1,17 +1,10 @@
 ﻿import {BlockListDataTypeBuilder} from "../blockListDataTypeBuilder";
 
-export enum EditorSize {
-  Small = "Small",
-  Medium = "Medium",
-  Large = "Large",
-  Full = "Full"
-}
-
 export class BlockListBlockBuilder {
   parentBuilder: BlockListDataTypeBuilder;
   contentElementTypeKey: string;
   label: string;
-  editorSize : EditorSize;
+  editorSize : string;
   settingsElementTypeKey: string;
   backgroundColor: string;
   iconColor: string;
@@ -32,7 +25,7 @@ export class BlockListBlockBuilder {
     return this;
   }
 
-  withEditorSize(editorSize: EditorSize) {
+  withEditorSize(editorSize: string) {
     this.editorSize = editorSize;
     return this;
   }
@@ -62,53 +55,34 @@ export class BlockListBlockBuilder {
   }
 
   getValues() {
-    let values: any = [];
+    let values: any = {};
 
-      values.push({
-        alias: "contentElementTypeKey",
-        value: this.contentElementTypeKey || ""
-      });
+    if (this.contentElementTypeKey) {
+      values.contentElementTypeKey = this.contentElementTypeKey;
+    }
 
     if (this.label) {
-      values.push({
-        alias: "label",
-        value: this.label
-      });
+      values.label = this.label;
     }
 
     if (this.editorSize) {
-      values.push({
-        alias: "editorSize",
-        value: this.editorSize
-      });
+      values.editorSize = this.editorSize;
     }
 
     if (this.settingsElementTypeKey) {
-      values.push({
-        alias: "settingsElementTypeKey",
-        value: this.settingsElementTypeKey
-      });
+      values.settingsElementTypeKey = this.settingsElementTypeKey;
     }
 
     if (this.backgroundColor) {
-      values.push({
-        alias: "backgroundColor",
-        value: this.backgroundColor
-      });
+      values.backgroundColor = this.backgroundColor;
     }
 
     if (this.iconColor) {
-      values.push({
-        alias: "iconColor",
-        value: this.iconColor
-      });
+      values.iconColor = this.iconColor;
     }
 
     if (this.stylesheet.length > 0) {
-      values.push({
-        alias: "stylesheet",
-        value: this.stylesheet
-      });
+      values.stylesheet = this.stylesheet;
     }
 
     return values;

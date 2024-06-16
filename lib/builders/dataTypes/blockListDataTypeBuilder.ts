@@ -4,7 +4,7 @@ import {BlockListBlockBuilder} from "./blockListBuilder";
 export class BlockListDataTypeBuilder extends DataTypeBuilder {
   minValue: number;
   maxValue: number;
-  maxPropertyWidth: number;
+  maxPropertyWidth: string;
   useSingleBlockMode: boolean;
   useLiveEditing: boolean;
   useInlineEditingAsDefault: boolean;
@@ -27,7 +27,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withMaxPropertyWidth(maxPropertyWidth: number) {
+  withMaxPropertyWidth(maxPropertyWidth: string) {
     this.maxPropertyWidth = maxPropertyWidth;
     return this;
   }
@@ -47,18 +47,14 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  addBlock(blockListBlockBuilder: BlockListBlockBuilder) {
-    this.blockListBlockBuilder.push(blockListBlockBuilder);
-    return this;
+  addBlock() {
+    const builder = new BlockListBlockBuilder(this);
+    this.blockListBlockBuilder.push(builder);
+    return builder;
   }
 
   getValues() {
     let values: any[] = [];
-
-    // Ensure minValue is not greater than maxValue
-    if (this.minValue !== undefined && this.maxValue !== undefined && this.minValue > this.maxValue) {
-      this.minValue = this.maxValue;
-    }
 
     // Add validationLimit alias and value if present
     if (this.minValue !== undefined || this.maxValue !== undefined) {
@@ -69,10 +65,6 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
           max: this.maxValue !== undefined ? this.maxValue : ""
         }
       });
-    } else {
-      values.push({
-        alias: "validationLimit"
-      });
     }
 
     // Add maxPropertyWidth alias and value if present
@@ -80,10 +72,6 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
       values.push({
         alias: "maxPropertyWidth",
         value: this.maxPropertyWidth
-      });
-    } else {
-      values.push({
-        alias: "maxPropertyWidth" 
       });
     }
 
@@ -93,10 +81,6 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
         alias: "useSingleBlockMode",
         value: this.useSingleBlockMode
       });
-    } else {
-      values.push({
-        alias: "useSingleBlockMode"
-      });
     }
 
     // Add useLiveEditing alias and value if present
@@ -104,10 +88,6 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
       values.push({
         alias: "useLiveEditing",
         value: this.useLiveEditing
-      });
-    } else {
-      values.push({
-        alias: "useLiveEditing"
       });
     }
 
@@ -117,10 +97,6 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
         alias: "useInlineEditingAsDefault",
         value: this.useInlineEditingAsDefault
       });
-    } else {
-      values.push({
-        alias: "useInlineEditingAsDefault"
-      });
     }
 
     // Add blocks alias and value if present
@@ -129,12 +105,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
         alias: "blocks",
         value: this.blockListBlockBuilder.map(block => block.getValues())
       });
-    } else {
-      values.push({
-        alias: "blocks"
-      });
-    }
-
+    } 
     return values;
   }
 }
