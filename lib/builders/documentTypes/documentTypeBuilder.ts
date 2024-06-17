@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import DocumentTypeGroupBuilder from './documentTypeGroupBuilder';
 import DocumentTypeTabBuilder from './documentTypeTabBuilder';
 import { AliasHelper } from '../../helpers/AliasHelper';
@@ -101,7 +100,8 @@ export class DocumentTypeBuilder {
   }
 
   build() {
-    const key = this.key || faker.random.uuid();
+    const crypto = require('crypto');
+    const key = this.key || crypto.randomUUID();
     const name = this.name || key;
     const alias = this.alias || AliasHelper.toSafeAlias(name);
     const parentId = this.parentId || -1;

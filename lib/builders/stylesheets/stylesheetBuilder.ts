@@ -1,5 +1,4 @@
 import { Stylesheet } from '../../models';
-import * as faker from 'faker';
 
 export class StylesheetBuilder {
   constructor(private stylesheet: Stylesheet = new Stylesheet()) {}
@@ -38,7 +37,8 @@ export class StylesheetBuilder {
       this.stylesheet.virtualPath = "/css/"
     }
     if(this.stylesheet.name === null){
-      this.stylesheet.name = faker.random.uuid();
+      const crypto = require('crypto');
+      this.stylesheet.name = crypto.randomUUID();
     }
     if(this.stylesheet.content === null){
       this.stylesheet.content = "";

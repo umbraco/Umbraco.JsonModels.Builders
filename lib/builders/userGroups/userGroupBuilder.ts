@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import * as camelize from 'camelize';
 import { PermissionsBuilder } from './permissionsBuilder';
 import {NodePermissionCollectionBuilder} from "./nodePermissionCollectionBuilder";
@@ -128,7 +127,8 @@ export class UserGroupBuilder {
 
   build() {
     if(this.name === undefined){
-      this.withName(faker.random.uuid());
+      const crypto = require('crypto');
+      this.withName(crypto.randomUUID());
     }
 
     let defaultPermissions: any = []

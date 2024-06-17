@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import * as camelize from 'camelize';
 
 export class DocumentTypePropertyBuilder {
@@ -40,7 +39,8 @@ export class DocumentTypePropertyBuilder {
   }
 
   build() {
-    const label = this.label || faker.random.uuid();
+    const crypto = require('crypto');
+    const label = this.label || crypto.randomUUID();
     const alias = this.alias || 'a' + camelize(label);
 
     return {

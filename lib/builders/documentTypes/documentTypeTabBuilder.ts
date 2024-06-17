@@ -1,5 +1,4 @@
 import DocumentTypeGroupBuilder from "./documentTypeGroupBuilder";
-import * as faker from 'faker';
 
 export default class DocumentTypeTabBuilder extends DocumentTypeGroupBuilder { 
     documentTypeGroupBuilders;
@@ -27,7 +26,8 @@ export default class DocumentTypeTabBuilder extends DocumentTypeGroupBuilder {
     }
     
     build(){
-      const name = this.name || faker.random.uuid()
+      const crypto = require('crypto');
+      const name = this.name || crypto.randomUUID();
       return {
         id: this.id || -1,
         inherited: this.inherited || false,

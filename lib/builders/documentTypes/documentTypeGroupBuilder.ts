@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import * as camelize from 'camelize';
 import { FormPickerDocumentTypePropertyBuilder } from './properties/formPickerDocumentTypePropertyBuilder';
 import { TextBoxDocumentTypePropertyBuilder } from './properties/textBoxDocumentTypePropertyBuilder';
@@ -94,7 +93,8 @@ export default class DocumentTypeGroupBuilder {
   }
 
   build() {
-    const name = this.name || faker.random.uuid()
+    const crypto = require('crypto');
+    const name = this.name || crypto.randomUUID();
     return {
       id: this.id || -1,
       inherited: this.inherited || false,

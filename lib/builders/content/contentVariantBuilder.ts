@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import {ContentVariantPropertyBuilder} from './contentVariantPropertyBuilder';
 import {ContentBuilder} from "./contentBuilder";
 
@@ -52,7 +51,8 @@ export class ContentVariantBuilder {
   }
 
   build() {
-    const name = this.name || faker.random.uuid();
+    const crypto = require('crypto');
+    const name = this.name || crypto.randomUUID();
 
     return {
       name,
