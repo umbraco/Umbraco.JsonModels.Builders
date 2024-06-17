@@ -1,4 +1,3 @@
-import * as faker from 'faker';
 import * as camelize from 'camelize';
 
 /**
@@ -6,10 +5,12 @@ import * as camelize from 'camelize';
  * Will generate name, key and alias and virtualPath for view as random UUID
  *
  */
+const crypto = require('crypto');
+
 export class Template {
   public id = 0;
-  public name: string = faker.random.uuid();
-  public key: string = faker.random.uuid();
+  public name: string = crypto.randomUUID();
+  public key: string = crypto.randomUUID();
   public alias: string = 'a' + camelize(this.name);
   public virtualPath: string = '/Views/' + this.alias + '.cshtml';
   public content =
