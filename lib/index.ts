@@ -1,2 +1,2 @@
-﻿export {AliasHelper} from "./helpers/AliasHelper";
-export * from "./builders";
+﻿export {AliasHelper} from './helpers/AliasHelper';
+export * from './builders';
