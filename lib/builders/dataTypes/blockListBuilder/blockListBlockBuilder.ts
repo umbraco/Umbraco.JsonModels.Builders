@@ -4,11 +4,12 @@ export class BlockListBlockBuilder {
   parentBuilder: BlockListDataTypeBuilder;
   contentElementTypeKey: string;
   label: string;
-  editorSize : string;
+  editorSize: string;
   settingsElementTypeKey: string;
   backgroundColor: string;
   iconColor: string;
   stylesheet: string[];
+  forceHideContentEditorInOverlay: boolean;
 
   constructor(parentBuilder: BlockListDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -50,6 +51,11 @@ export class BlockListBlockBuilder {
     return this;
   }
 
+  withHideContentEditor(hideContentEditor: boolean) {
+    this.forceHideContentEditorInOverlay = hideContentEditor;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -83,6 +89,10 @@ export class BlockListBlockBuilder {
 
     if (this.stylesheet.length > 0) {
       values.stylesheet = this.stylesheet;
+    }
+
+    if (this.forceHideContentEditorInOverlay) {
+      values.forceHideContentEditorInOverlay = this.forceHideContentEditorInOverlay;
     }
 
     return values;
