@@ -105,7 +105,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
         alias: "blocks",
         value: this.blockListBlockBuilder.map(block => block.getValues())
       });
-    } 
+    }
     return values;
   }
 }

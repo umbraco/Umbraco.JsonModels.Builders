@@ -97,5 +97,4 @@ export class BlockListBlockBuilder {
 
     return values;
   }
-
 }
