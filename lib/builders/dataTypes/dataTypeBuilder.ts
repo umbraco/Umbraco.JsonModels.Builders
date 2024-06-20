@@ -30,7 +30,7 @@
       editorUiAlias: this.editorUiAlias,
       id: this.id,
       name: this.name,
-      parentId: this.parentId,
+      parent: this.parentId ? {id: this.parentId} : null,
       values: this.getValues()
     };
   }

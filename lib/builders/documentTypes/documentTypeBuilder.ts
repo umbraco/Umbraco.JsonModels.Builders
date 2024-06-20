@@ -3,6 +3,7 @@ import {DocumentTypeContainerBuilder} from "./documentTypeContainerBuilder";
 import {DocumentTypeAllowedDocumentTypeBuilder} from "./documentTypeAllowedDocumentTypeBuilder";
 import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
 import {DocumentTypeAllowedTemplateBuilder} from "./documentTypeAllowedTemplateBuilder";
+import {AliasHelper} from "../../helpers/AliasHelper";
 
 export class DocumentTypeBuilder {
   alias: string;
@@ -136,7 +137,7 @@ export class DocumentTypeBuilder {
     }
 
     return {
-      alias: this.alias || "",
+      alias: this.alias || AliasHelper.toAlias(this.name),
       name: this.name || "",
       description: this.description || "",
       icon: this.icon || "icon-document",

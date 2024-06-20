@@ -1,6 +1,6 @@
 {
   "name": "@umbraco/json-models-builders",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Builders and models for Umbraco Sites",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
@@ -26,11 +26,9 @@
   },
   "homepage": "https://github.com/umbraco/Umbraco.JsonModels.Builders#readme",
   "dependencies": {
-    "camelize": "^1.0.1",
-    "faker": "^6.6.6"
+    "camelize": "^1.0.1"
   },
   "devDependencies": {
-    "@types/faker": "^6.6.9",
     "@types/node": "^20.5.3",
     "tslib": "^2.6.2",
     "typescript": "^5.1.6"
