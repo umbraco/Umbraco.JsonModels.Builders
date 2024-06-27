@@ -144,14 +144,15 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
         }),
       });
     }
-
-    // Checks if any groups have been added
-    if (this.blockGridGroupValue == null) {
-      this.blockGridGroupValue = {
-        alias: 'blockGroups',
-        value: null
-      };
+    
+    // Add createLabel alias and value if present
+    if (this.createLabel !== undefined) {
+      values.push({
+        alias: "createLabel",
+        value: this.createLabel,
+      });
     }
+    
     // Pushes the groups
     values.push(this.blockGridGroupValue);
 
