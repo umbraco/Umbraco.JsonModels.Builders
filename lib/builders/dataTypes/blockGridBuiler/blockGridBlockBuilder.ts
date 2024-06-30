@@ -8,7 +8,7 @@ export class BlockGridBlockBuilder {
   settingsElementTypeKey: string;
   allowAtRoot: boolean;
   allowInAreas: boolean;
-  columnsSpanOptions: number[];
+  columnSpanOptions: { columnSpan: number }[];
   minRowSpan: number;
   maxRowSpan: number;
   editorSize: string;
@@ -26,7 +26,7 @@ export class BlockGridBlockBuilder {
   constructor(parentBuilder: BlockGridDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
     this.blockGridAreasBuilder = [];
-    this.columnsSpanOptions = [];
+    this.columnSpanOptions = [];
   }
 
   withContentElementTypeKey(contentElementTypeKey: string) {
@@ -55,7 +55,7 @@ export class BlockGridBlockBuilder {
   }
 
   addColumnSpanOptions(columnSpan: number) {
-    this.columnsSpanOptions.push(columnSpan);
+    this.columnSpanOptions.push({columnSpan});
     return this;
   }
 
@@ -152,8 +152,8 @@ export class BlockGridBlockBuilder {
       values.allowInAreas = this.allowInAreas;
     }
 
-    if (this.columnsSpanOptions.length > 0) {
-      values.columnsSpanOptions = this.columnsSpanOptions;
+    if (this.columnSpanOptions.length > 0) {
+      values.columnSpanOptions = this.columnSpanOptions;
     }
 
     if (this.minRowSpan) {
