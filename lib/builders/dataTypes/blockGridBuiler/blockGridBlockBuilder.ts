@@ -9,8 +9,8 @@ export class BlockGridBlockBuilder {
   allowAtRoot: boolean;
   allowInAreas: boolean;
   columnSpanOptions: { columnSpan: number }[];
-  minRowSpan: number;
-  maxRowSpan: number;
+  rowMinSpan: number;
+  rowMaxSpan: number;
   editorSize: string;
   useInlineEditing: boolean;
   useHideContentEditor: boolean;
@@ -60,12 +60,12 @@ export class BlockGridBlockBuilder {
   }
 
   withMinRowSpan(minRowSpan: number) {
-    this.minRowSpan = minRowSpan;
+    this.rowMinSpan = minRowSpan;
     return this;
   }
 
   withMaxRowSpan(maxRowSpan: number) {
-    this.maxRowSpan = maxRowSpan;
+    this.rowMaxSpan = maxRowSpan;
     return this;
   }
 
@@ -156,12 +156,12 @@ export class BlockGridBlockBuilder {
       values.columnSpanOptions = this.columnSpanOptions;
     }
 
-    if (this.minRowSpan) {
-      values.minRowSpan = this.minRowSpan;
+    if (this.rowMinSpan) {
+      values.rowMinSpan = this.rowMinSpan;
     }
 
-    if (this.maxRowSpan) {
-      values.maxRowSpan = this.maxRowSpan;
+    if (this.rowMaxSpan) {
+      values.rowMaxSpan = this.rowMaxSpan;
     }
 
     if (this.editorSize) {

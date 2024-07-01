@@ -66,44 +66,42 @@ export class BlockGridAreaBuilder {
   }
 
   getValues() {
-    let values: any[] = [];
+    let values: any = {};
 
     if (this.key == null) {
       const crypto = require('crypto');
       this.key = crypto.randomUUID();
     }
-    values.push({key: this.key});
+    values.key =  this.key;
 
     if (this.alias !== undefined) {
-      values.push({alias: this.alias});
+      values.alias = this.alias;
     }
 
     if (this.columnSpan !== undefined) {
-      values.push({columnSpan: this.columnSpan});
+      values.columnSpan = this.columnSpan;
     }
 
     if (this.rowSpan !== undefined) {
-      values.push({rowSpan: this.rowSpan});
+      values.rowSpan = this.rowSpan;
     }
 
     if (this.minAllowed !== undefined) {
-      values.push({minAllowed: this.minAllowed});
+      values.minAllowed = this.minAllowed;
     }
 
     if (this.maxAllowed !== undefined) {
-      values.push({maxAllowed: this.maxAllowed});
+      values.maxAllowed = this.maxAllowed;
     }
 
     if (this.createLabel !== undefined) {
-      values.push({createLabel: this.createLabel});
+      values.createLabel = this.createLabel;
     }
 
     if (this.blockGridSpecifiedAllowanceBuilder.length > 0) {
-      values.push({
-        specifiedAllowances: this.blockGridSpecifiedAllowanceBuilder.map((builder) => {
+      values.specifiedAllowances = this.blockGridSpecifiedAllowanceBuilder.map((builder) => {
           return builder.getValues();
-        })
-      });
+        });
     }
 
     return values;
