@@ -12,8 +12,8 @@ export class BlockGridBlockBuilder {
   rowMinSpan: number;
   rowMaxSpan: number;
   editorSize: string;
-  useInlineEditing: boolean;
-  useHideContentEditor: boolean;
+  inlineEditing: boolean;
+  hideContentEditor: boolean;
   backgroundColor: string;
   iconColor: string;
   thumbnail: string;
@@ -74,13 +74,13 @@ export class BlockGridBlockBuilder {
     return this;
   }
 
-  withUseInlineEditing(useInlineEditing: boolean) {
-    this.useInlineEditing = useInlineEditing;
+  withInlineEditing(InlineEditing: boolean) {
+    this.inlineEditing = InlineEditing;
     return this;
   }
 
-  withUseHideContentEditor(useHideContentEditor: boolean) {
-    this.useHideContentEditor = useHideContentEditor;
+  withHideContentEditor(hideContentEditor: boolean) {
+    this.hideContentEditor = hideContentEditor;
     return this;
   }
 
@@ -168,12 +168,12 @@ export class BlockGridBlockBuilder {
       values.editorSize = this.editorSize;
     }
 
-    if (this.useInlineEditing) {
-      values.useInlineEditing = this.useInlineEditing;
+    if (this.inlineEditing) {
+      values.inlineEditing = this.inlineEditing;
     }
 
-    if (this.useHideContentEditor) {
-      values.useHideContentEditor = this.useHideContentEditor;
+    if (this.hideContentEditor) {
+      values.hideContentEditor = this.hideContentEditor;
     }
 
     if (this.backgroundColor) {
@@ -210,5 +210,4 @@ export class BlockGridBlockBuilder {
 
     return values;
   }
-
 }

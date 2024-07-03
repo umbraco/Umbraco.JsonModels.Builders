@@ -1,6 +1,6 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {BlockGridBlockBuilder} from "./blockGridBuiler/blockGridBlockBuilder";
-import {BlockGridBlockGroupBuilder} from "./blockGridBuiler/blockGridBlockGroupBuilder";
+import {BlockGridBlockBuilder} from "./blockGridBuiler";
+import {BlockGridBlockGroupBuilder} from "./blockGridBuiler";
 
 export class BlockGridDataTypeBuilder extends DataTypeBuilder {
   blockGridBlockBuilder: BlockGridBlockBuilder[];
@@ -12,7 +12,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
   gridColumns: number;
   layoutStylesheet: string[];
   createLabel: string;
-  blockGridGroupValue;
+  blockGridGroupValue: any;
 
   constructor() {
     super();
@@ -96,14 +96,13 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
         }),
       };
     }
-
     // Add validationLimit alias and value if present
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
         alias: "validationLimit",
         value: {
-          min: this.minValue !== undefined ? this.minValue : "",
-          max: this.maxValue !== undefined ? this.maxValue : "",
+          min: this.minValue !== undefined ? this.minValue : undefined,
+          max: this.maxValue !== undefined ? this.maxValue : undefined,
         },
       });
     }
@@ -144,7 +143,6 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
         }),
       });
     }
-    
     // Add createLabel alias and value if present
     if (this.createLabel !== undefined) {
       values.push({
@@ -152,11 +150,9 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
         value: this.createLabel,
       });
     }
-    
     // Pushes the groups
     values.push(this.blockGridGroupValue);
-
-
+    
     return values;
   }
 }

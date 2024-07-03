@@ -47,11 +47,8 @@ export class BlockGridAreaBuilder {
     return this;
   }
 
-  addSpecifiedAllowance(blockGridSpecifiedAllowanceBuilder?: BlockGridSpecifiedAllowanceBuilder) {
-    const builder =
-      blockGridSpecifiedAllowanceBuilder === null || blockGridSpecifiedAllowanceBuilder === undefined
-        ? new BlockGridSpecifiedAllowanceBuilder(this)
-        : blockGridSpecifiedAllowanceBuilder;
+  addSpecifiedAllowance() {
+    const builder = new BlockGridSpecifiedAllowanceBuilder(this);
     this.blockGridSpecifiedAllowanceBuilder.push(builder);
     return builder;
   }
@@ -72,7 +69,7 @@ export class BlockGridAreaBuilder {
       const crypto = require('crypto');
       this.key = crypto.randomUUID();
     }
-    values.key =  this.key;
+    values.key = this.key;
 
     if (this.alias !== undefined) {
       values.alias = this.alias;
@@ -100,8 +97,8 @@ export class BlockGridAreaBuilder {
 
     if (this.blockGridSpecifiedAllowanceBuilder.length > 0) {
       values.specifiedAllowances = this.blockGridSpecifiedAllowanceBuilder.map((builder) => {
-          return builder.getValues();
-        });
+        return builder.getValues();
+      });
     }
 
     return values;

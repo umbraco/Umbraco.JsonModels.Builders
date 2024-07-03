@@ -1,7 +1,7 @@
 ﻿import {BlockGridAreaBuilder} from "./blockGridAreaBuilder";
 
 export class BlockGridSpecifiedAllowanceBuilder {
-  parentBuilder;
+  parentBuilder: BlockGridAreaBuilder;
   minAllowed: number;
   maxAllowed: number;
   elementTypeKey: string;
