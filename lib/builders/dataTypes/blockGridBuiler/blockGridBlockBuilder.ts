@@ -74,8 +74,8 @@ export class BlockGridBlockBuilder {
     return this;
   }
 
-  withInlineEditing(InlineEditing: boolean) {
-    this.inlineEditing = InlineEditing;
+  withInlineEditing(inlineEditing: boolean) {
+    this.inlineEditing = inlineEditing;
     return this;
   }
 
@@ -152,7 +152,7 @@ export class BlockGridBlockBuilder {
       values.allowInAreas = this.allowInAreas;
     }
 
-    if (this.columnSpanOptions.length > 0) {
+    if (this.columnSpanOptions && this.columnSpanOptions.length > 0) {
       values.columnSpanOptions = this.columnSpanOptions;
     }
 
@@ -200,7 +200,7 @@ export class BlockGridBlockBuilder {
       values.groupKey = this.groupKey;
     }
 
-    if (this.blockGridAreasBuilder.length > 0) {
+    if (this.blockGridAreasBuilder && this.blockGridAreasBuilder.length > 0) {
       values.areas = this.blockGridAreasBuilder.map((builder) => builder.getValues());
     }
 

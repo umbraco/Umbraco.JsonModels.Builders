@@ -93,66 +93,66 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
         alias: 'blockGroups',
         value: this.blockGridBlockGroupBuilder.map((builder) => {
           return builder.getValues();
-        }),
+        })
       };
     }
-    // Add validationLimit alias and value if present
+
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
         alias: "validationLimit",
         value: {
           min: this.minValue !== undefined ? this.minValue : undefined,
-          max: this.maxValue !== undefined ? this.maxValue : undefined,
-        },
+          max: this.maxValue !== undefined ? this.maxValue : undefined
+        }
       });
     }
-    // Add gridColumns alias and value if present
+
     if (this.gridColumns !== undefined) {
       values.push({
         alias: "gridColumns",
-        value: this.gridColumns,
+        value: this.gridColumns
       });
     }
-    // Add layoutStylesheet alias and value if present
+
     if (this.layoutStylesheet !== undefined) {
       values.push({
         alias: "layoutStylesheet",
-        value: this.layoutStylesheet,
+        value: this.layoutStylesheet
       });
     }
-    // Add useLiveEditing alias and value if present
+
     if (this.useLiveEditing !== undefined) {
       values.push({
         alias: "useLiveEditing",
-        value: this.useLiveEditing,
+        value: this.useLiveEditing
       });
     }
-    // Add maxPropertyWidth alias and value if present
+
     if (this.maxPropertyWidth !== undefined) {
       values.push({
         alias: "maxPropertyWidth",
-        value: this.maxPropertyWidth,
+        value: this.maxPropertyWidth
       });
     }
-    // Add blockGridBlockBuilder alias and value if present
+
     if (this.blockGridBlockBuilder.length > 0) {
       values.push({
         alias: "blocks",
         value: this.blockGridBlockBuilder.map((builder) => {
           return builder.getValues();
-        }),
+        })
       });
     }
-    // Add createLabel alias and value if present
+
     if (this.createLabel !== undefined) {
       values.push({
         alias: "createLabel",
-        value: this.createLabel,
+        value: this.createLabel
       });
     }
-    // Pushes the groups
+
     values.push(this.blockGridGroupValue);
-    
+
     return values;
   }
 }
