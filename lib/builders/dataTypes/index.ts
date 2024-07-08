@@ -5,4 +5,5 @@ export {NumericDataTypeBuilder} from './numericDataTypeBuilder';
 export {DatePickerDataTypeBuilder} from './datePickerDataTypeBuilder';
 export {BlockListDataTypeBuilder} from './blockListDataTypeBuilder';
 export {CheckboxListDataTypeBuilder} from './checkboxListDataTypeBuilder';
+export {ContentPickerDataTypeBuilder} from './contentPickerDataTypeBuilder';
 export {BlockGridDataTypeBuilder} from './blockGridDataTypeBuilder';
