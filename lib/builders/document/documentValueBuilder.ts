@@ -1,4 +1,5 @@
 ﻿import {DocumentBuilder} from "./documentBuilder";
+import {MediaPickerValueBuilder} from "./mediaPickerValueBuilder";
 
 export class DocumentValueBuilder {
   parentBuilder: DocumentBuilder;
@@ -6,9 +7,11 @@ export class DocumentValueBuilder {
   segment: string;
   alias: string;
   value: string;
+  mediaPickerValueBuilder: MediaPickerValueBuilder[];
 
   constructor(parentBuilder: DocumentBuilder) {
     this.parentBuilder = parentBuilder;
+    this.mediaPickerValueBuilder = [];
   }
 
   withCulture(culture: string) {
@@ -31,16 +34,34 @@ export class DocumentValueBuilder {
     return this;
   }
 
+  addMediaPickerValue() {
+    const builder = new MediaPickerValueBuilder(this);
+    this.mediaPickerValueBuilder.push(builder);
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
 
   build() {
+    let value: any = null;
+
+    if (this.value != null) {
+      value = this.value;
+    } else {
+      if (this.mediaPickerValueBuilder && this.mediaPickerValueBuilder.length > 0) {
+        value = this.mediaPickerValueBuilder.map((builder) => {
+          return builder.getValue();
+        })
+      }
+    }
+
     return {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
-      value: this.value || null
+      value: value || null
     }
   };
 }
