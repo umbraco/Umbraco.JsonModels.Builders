@@ -43,7 +43,7 @@ export class MediaPickerValueBuilder{
     }
     value.mediaTypeAlias = this.mediaTypeAlias || "";
     value.focalPoint = this.focalPoint || null;
-    value.crops = this.crops || []
+    value.crops = this.crops || [];
     return value;
   }
 }
