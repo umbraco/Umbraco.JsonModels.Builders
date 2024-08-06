@@ -1,5 +1,6 @@
 ﻿import {DocumentBuilder} from "./documentBuilder";
 import {MediaPickerValueBuilder} from "./mediaPickerValueBuilder";
+import {URLPickerValueBuilder} from "./urlPickerValueBuilder";
 
 export class DocumentValueBuilder {
   parentBuilder: DocumentBuilder;
@@ -8,10 +9,12 @@ export class DocumentValueBuilder {
   alias: string;
   value: string;
   mediaPickerValueBuilder: MediaPickerValueBuilder[];
+  urlPickerValueBuilder: URLPickerValueBuilder[];
 
   constructor(parentBuilder: DocumentBuilder) {
     this.parentBuilder = parentBuilder;
     this.mediaPickerValueBuilder = [];
+    this.urlPickerValueBuilder = [];
   }
 
   withCulture(culture: string) {
@@ -40,6 +43,12 @@ export class DocumentValueBuilder {
     return builder;
   }
 
+  addURLPickerValue() {
+    const builder = new URLPickerValueBuilder(this);
+    this.urlPickerValueBuilder.push(builder);
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -52,6 +61,11 @@ export class DocumentValueBuilder {
     } else {
       if (this.mediaPickerValueBuilder && this.mediaPickerValueBuilder.length > 0) {
         value = this.mediaPickerValueBuilder.map((builder) => {
+          return builder.getValue();
+        })
+      }
+      if (this.urlPickerValueBuilder && this.urlPickerValueBuilder.length > 0) {
+        value = this.urlPickerValueBuilder.map((builder) => {
           return builder.getValue();
         })
       }
