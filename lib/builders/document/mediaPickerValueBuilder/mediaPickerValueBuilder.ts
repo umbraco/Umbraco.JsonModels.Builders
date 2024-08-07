@@ -1,11 +1,11 @@
 ﻿import {DocumentValueBuilder} from "../documentValueBuilder";
 
-export class MediaPickerValueBuilder{
+export class MediaPickerValueBuilder {
   parentBuilder: DocumentValueBuilder;
   key: string;
   mediaKey: string;
   mediaTypeAlias: string;
-  focalPoint: any;
+  focalPoint: { left: number, top: number };
   crops: string[];
 
   constructor(parentBuilder: DocumentValueBuilder) {
@@ -24,6 +24,11 @@ export class MediaPickerValueBuilder{
 
   withMediaTypeAlias(mediaTypeAlias: string) {
     this.mediaTypeAlias = mediaTypeAlias;
+    return this;
+  }
+
+  withFocalPoint(focalPoint: { left: number, top: number }) {
+    this.focalPoint = focalPoint;
     return this;
   }
 
