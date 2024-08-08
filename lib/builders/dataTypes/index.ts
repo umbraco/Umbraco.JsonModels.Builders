@@ -10,3 +10,4 @@ export {BlockGridDataTypeBuilder} from './blockGridDataTypeBuilder';
 export {DropdownDataTypeBuilder} from './dropdownDataTypeBuilder';
 export {ImageCropperDataTypeBuilder} from './imageCropperDataTypeBuilder';
 export {MediaPickerDataTypeBuilder} from './mediaPickerDataTypeBuilder';
+export {LabelDataTypeBuilder} from './LabelDataTypeBuilder';
