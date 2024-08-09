@@ -59,18 +59,15 @@ export class DocumentValueBuilder {
     if (this.value != null) {
       value = this.value;
     } else {
-      if (
-        this.mediaPickerValueBuilder &&
-        this.mediaPickerValueBuilder.length > 0
-      ) {
+      if (this.mediaPickerValueBuilder && this.mediaPickerValueBuilder.length > 0) {
         value = this.mediaPickerValueBuilder.map((builder) => {
           return builder.getValue();
-        });
+        })
       }
       if (this.urlPickerValueBuilder && this.urlPickerValueBuilder.length > 0) {
         value = this.urlPickerValueBuilder.map((builder) => {
           return builder.getValue();
-        });
+        })
       }
     }
 
@@ -78,7 +75,7 @@ export class DocumentValueBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
-      value: value || null,
-    };
-  }
+      value: value || null
+    }
+  };
 }
