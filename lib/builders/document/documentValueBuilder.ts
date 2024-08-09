@@ -7,7 +7,7 @@ export class DocumentValueBuilder {
   culture: string;
   segment: string;
   alias: string;
-  value: string;
+  value: string | string[];
   mediaPickerValueBuilder: MediaPickerValueBuilder[];
   urlPickerValueBuilder: URLPickerValueBuilder[];
 
@@ -32,7 +32,7 @@ export class DocumentValueBuilder {
     return this;
   }
 
-  withValue(value: string) {
+  withValue(value: string | string[]) {
     this.value = value;
     return this;
   }
