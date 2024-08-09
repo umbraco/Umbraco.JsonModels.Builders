@@ -9,8 +9,8 @@ export class RadioboxDataTypeBuilder extends DataTypeBuilder {
     this.editorUiAlias = "Umb.PropertyEditorUi.RadioButtonList";
   }
 
-  withItems(values: string[]) {
-    this.items = values;
+  withItems(items: string[]) {
+    this.items = items;
     return this;
   }
 
