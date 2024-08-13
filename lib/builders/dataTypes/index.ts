@@ -11,3 +11,4 @@ export {DropdownDataTypeBuilder} from './dropdownDataTypeBuilder';
 export {ImageCropperDataTypeBuilder} from './imageCropperDataTypeBuilder';
 export {MediaPickerDataTypeBuilder} from './mediaPickerDataTypeBuilder';
 export {RadioboxDataTypeBuilder} from './radioboxDataTypeBuilder';
+export {TextStringDataTypeBuilder} from './textStringDataTypeBuilder';
