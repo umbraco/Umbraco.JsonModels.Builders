@@ -55,7 +55,7 @@ export class TrueFalseDataTypeBuilder extends DataTypeBuilder {
     if (this.showLabels !== undefined) {
       values.push({
         alias: 'labelOff',
-        value: this.labelOff,
+        value: this.labelOff
       });
     }
     return values;
