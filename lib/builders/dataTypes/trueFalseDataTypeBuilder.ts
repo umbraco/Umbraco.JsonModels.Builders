@@ -12,7 +12,7 @@ export class TrueFalseDataTypeBuilder extends DataTypeBuilder {
     this.editorUiAlias = "Umb.PropertyEditorUi.Toggle";
   }
 
-  withDefault(isDefault: boolean) {
+  withIsDefault(isDefault: boolean) {
     this.isDefault = isDefault;
     return this;
   }
