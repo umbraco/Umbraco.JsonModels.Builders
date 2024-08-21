@@ -10,6 +10,7 @@ export class DocumentValueBuilder {
   value: string | string[];
   mediaPickerValueBuilder: MediaPickerValueBuilder[];
   urlPickerValueBuilder: URLPickerValueBuilder[];
+  temporaryFileId: string;
 
   constructor(parentBuilder: DocumentBuilder) {
     this.parentBuilder = parentBuilder;
@@ -34,6 +35,11 @@ export class DocumentValueBuilder {
 
   withValue(value: string | string[]) {
     this.value = value;
+    return this;
+  }
+
+  withTemporaryFileId(temporaryFileId: string) {
+    this.temporaryFileId = temporaryFileId;
     return this;
   }
 
@@ -68,6 +74,9 @@ export class DocumentValueBuilder {
         value = this.urlPickerValueBuilder.map((builder) => {
           return builder.getValue();
         })
+      }
+      if (this.temporaryFileId !== undefined) {
+        value = {temporaryFileId: this.temporaryFileId};
       }
     }
 
