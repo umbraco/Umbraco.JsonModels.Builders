@@ -50,27 +50,27 @@ export class SliderDataTypeBuilder extends DataTypeBuilder {
     let values: any = [];
     values.push({
       alias: 'minVal',
-      value: this.minVal || 0,
+      value: this.minVal || 0
     });
     values.push({
       alias: 'maxVal',
-      value: this.maxVal || 0,
+      value: this.maxVal || 0
     });
     values.push({
       alias: 'enableRange',
-      value: this.enableRange || false,
+      value: this.enableRange || false
     });
     values.push({
       alias: 'initVal1',
-      value: this.initVal1 || 0,
+      value: this.initVal1 || 0
     });
     values.push({
       alias: 'initVal2',
-      value: this.initVal2 || 0,
+      value: this.initVal2 || 0
     });
     values.push({
       alias: 'step',
-      value: this.step || 0,
+      value: this.step || 0
     });
     return values;
   }

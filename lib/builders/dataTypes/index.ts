@@ -13,3 +13,8 @@ export {MediaPickerDataTypeBuilder} from './mediaPickerDataTypeBuilder';
 export {RadioboxDataTypeBuilder} from './radioboxDataTypeBuilder';
 export {TextStringDataTypeBuilder} from './textStringDataTypeBuilder';
 export {TrueFalseDataTypeBuilder} from './trueFalseDataTypeBuilder';
+export {EmailAddressDataTypeBuilder} from './emailAddressDataTypeBuilder';
+export {CodeEditorDataTypeBuilder} from './codeEditorDataTypeBuilder';
+export {MarkdownEditorDataTypeBuilder} from './markdownEditorDataTypeBuilder';
+export {DecimalDataTypeBuilder} from './decimalDataTypeBuilder';
+export {MultipleTextStringDataTypeBuilder} from './multipleTextStringDataTypeBuilder';

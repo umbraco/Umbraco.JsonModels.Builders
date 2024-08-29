@@ -18,7 +18,7 @@ export class TextStringDataTypeBuilder extends DataTypeBuilder {
     let values: any = [];
     values.push({
       alias: 'maxChars',
-      value: this.maxChars || 0,
+      value: this.maxChars || 0
     });
     return values;
   }

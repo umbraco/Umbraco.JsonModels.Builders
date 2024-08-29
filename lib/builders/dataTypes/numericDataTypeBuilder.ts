@@ -4,7 +4,6 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
   min: number;
   max: number;
   step: number;
-  allowDecimals: boolean;
 
   constructor() {
     super();
@@ -27,11 +26,6 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withAllowDecimals(allowDecimals: boolean) {
-    this.allowDecimals = allowDecimals;
-    return this;
-  }
-
   getValues() {
     let values: any = [];
     values.push({
@@ -40,15 +34,11 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
     });
     values.push({
       alias: "max",
-      value: this.max ||0
+      value: this.max || 0
     });
     values.push({
       alias: "step",
       value: this.step || 0
-    });
-    values.push({
-      alias: "allowDecimals",
-      value: this.allowDecimals || false
     });
     return values;
   }
