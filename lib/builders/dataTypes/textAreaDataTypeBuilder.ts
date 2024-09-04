@@ -36,19 +36,19 @@ export class TextAreaDataTypeBuilder extends DataTypeBuilder {
     let values: any = [];
     values.push({
       alias: 'maxChars',
-      value: this.maxChars || 0,
+      value: this.maxChars || 0
     });
     values.push({
       alias: 'rows',
-      value: this.rows || 0,
+      value: this.rows || 0
     });
     values.push({
       alias: 'minHeight',
-      value: this.minHeight || 0,
+      value: this.minHeight || 0
     });
     values.push({
       alias: 'maxHeight',
-      value: this.maxHeight || 0,
+      value: this.maxHeight || 0
     });
     return values;
   }
