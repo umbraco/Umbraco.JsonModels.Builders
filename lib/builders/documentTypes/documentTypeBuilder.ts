@@ -130,6 +130,11 @@ export class DocumentTypeBuilder {
     return this;
   }
 
+  withCollectionId(collectionId: string) {
+    this.collectionId = collectionId;
+    return this;
+  }
+
   build() {
     if (!this.id) {
       const crypto = require('crypto');
