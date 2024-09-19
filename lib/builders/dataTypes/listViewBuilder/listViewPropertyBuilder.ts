@@ -9,21 +9,22 @@ export class ListViewPropertyBuilder {
   constructor(parentBuilder: ListViewDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
-  
+
   withAlias(alias: string) {
     this.alias = alias;
     return this;
   }
-  
+
   withHeader(header: string) {
     this.header = header;
     return this;
   }
-  
+
   withNameTemplate(nameTemplate: string) {
     this.nameTemplate = nameTemplate;
     return this;
   }
+
   done() {
     return this.parentBuilder;
   }

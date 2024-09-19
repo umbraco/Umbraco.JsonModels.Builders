@@ -14,12 +14,12 @@ export class ListViewLayoutBuilder {
     this.collectionView = collectionView;
     return this;
   }
-  
+
   withName(name: string) {
     this.name = name;
     return this;
   }
-  
+
   withIcon(icon: string) {
     this.icon = icon;
     return this;

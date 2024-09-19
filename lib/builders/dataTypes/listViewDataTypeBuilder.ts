@@ -11,7 +11,7 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
   icon: string;
   tabName: string;
   showContentFirst: boolean;
-  
+
   constructor() {
     super();
     this.editorAlias = "Umbraco.ListView";
@@ -20,17 +20,17 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
     this.includeProperties = [];
     this.bulkActionPermissions = new ListViewBulkActionPermissionsBuilder(this);
   }
-  
+
   withPageSize(pageSize: number) {
     this.pageSize = pageSize;
     return this;
   }
-  
+
   withOrderBy(orderBy: string) {
     this.orderBy = orderBy;
     return this;
   }
-  
+
   withOrderDirection(orderDirection: string) {
     this.orderDirection = orderDirection;
     return this;
@@ -47,23 +47,23 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
     this.includeProperties.push(builder);
     return builder;
   }
-  
+
   addBulkActionPermissions() {
     const builder = new ListViewBulkActionPermissionsBuilder(this);
     this.bulkActionPermissions = builder;
     return builder;
   }
-  
+
   withIcon(icon: string) {
     this.icon = icon;
     return this;
   }
-  
+
   withTabName(tabName: string) {
     this.tabName = tabName;
     return this;
   }
-  
+
   withShowContentFirst(showContentFirst: boolean) {
     this.showContentFirst = showContentFirst;
     return this;
@@ -71,56 +71,56 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
 
   getValues() {
     let values: any = [];
-    
+
     values.push({
       alias: 'pageSize',
       value: this.pageSize || 10
     });
-    
+
     values.push({
       alias: 'orderBy',
       value: this.orderBy || "updateDate"
     });
-    
+
     values.push({
       alias: 'orderDirection',
       value: this.orderDirection || "desc"
     });
-    
+
     values.push({
       alias: 'layouts',
       value: this.layouts.map((builder) => {
         return builder.getValues();
       })
     });
-    
+
     values.push({
       alias: 'includeProperties',
       value: this.includeProperties.map((builder) => {
         return builder.getValues();
       })
     });
-    
+
     values.push({
       alias: 'bulkActionPermissions',
       value: this.bulkActionPermissions.getValues()
     });
-    
+
     values.push({
       alias: 'icon',
       value: this.icon || null
     });
-    
+
     values.push({
       alias: 'tabName',
       value: this.tabName || null
     });
-    
+
     values.push({
       alias: 'showContentFirst',
       value: this.showContentFirst || false
     });
-    
+
     return values;
   }
 }
