@@ -33,7 +33,7 @@ export class DocumentValueBuilder {
     return this;
   }
 
-  withValue(value: string | string[]) {
+  withValue(value: any) {
     this.value = value;
     return this;
   }
