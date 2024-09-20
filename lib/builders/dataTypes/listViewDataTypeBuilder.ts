@@ -18,7 +18,7 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
     this.editorUiAlias = "Umb.PropertyEditorUi.Collection";
     this.layouts = [];
     this.includeProperties = [];
-    this.bulkActionPermissions = new ListViewBulkActionPermissionsBuilder(this);
+    // this.bulkActionPermissions = new ListViewBulkActionPermissionsBuilder(this);
   }
 
   withPageSize(pageSize: number) {
@@ -59,7 +59,7 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withTabName(tabName: string) {
+  WithContentAppName(tabName: string) {
     this.tabName = tabName;
     return this;
   }
@@ -101,26 +101,31 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
       })
     });
 
-    values.push({
-      alias: 'bulkActionPermissions',
-      value: this.bulkActionPermissions.getValues()
-    });
+    if (this.bulkActionPermissions !== undefined) {
+      values.push({
+        alias: 'bulkActionPermissions',
+        value: this.bulkActionPermissions.getValues()
+      });
+    }
 
     values.push({
       alias: 'icon',
       value: this.icon || null
     });
 
-    values.push({
-      alias: 'tabName',
-      value: this.tabName || null
-    });
+    if (this.tabName !== undefined) {
+      values.push({
+        alias: 'tabName',
+        value: this.tabName
+      });
+    }
 
-    values.push({
-      alias: 'showContentFirst',
-      value: this.showContentFirst || false
-    });
-
+    if (this.showContentFirst !== undefined) {
+      values.push({
+        alias: 'showContentFirst',
+        value: this.showContentFirst
+      });
+    }
     return values;
   }
 }

@@ -5,6 +5,7 @@ export class ListViewPropertyBuilder {
   alias: string;
   header: string;
   nameTemplate: string;
+  isSystem: boolean;
 
   constructor(parentBuilder: ListViewDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -25,6 +26,11 @@ export class ListViewPropertyBuilder {
     return this;
   }
 
+  withIsSystem(isSystem: boolean) {
+    this.isSystem = isSystem;
+    return
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -33,7 +39,8 @@ export class ListViewPropertyBuilder {
     return {
       alias: this.alias || "sortOrder",
       header: this.header || "Sort",
-      nameTemplate: this.nameTemplate || null
+      nameTemplate: this.nameTemplate || null,
+      isSystem: this.isSystem || false
     };
   }
 }
