@@ -18,7 +18,7 @@ export class DocumentValueBuilder {
     this.urlPickerValueBuilder = [];
   }
 
-  withCulture(culture: string) {
+  withCulture(culture: any) {
     this.culture = culture;
     return this;
   }
@@ -33,7 +33,7 @@ export class DocumentValueBuilder {
     return this;
   }
 
-  withValue(value: string | string[]) {
+  withValue(value: any) {
     this.value = value;
     return this;
   }
