@@ -18,3 +18,4 @@ export {CodeEditorDataTypeBuilder} from './codeEditorDataTypeBuilder';
 export {MarkdownEditorDataTypeBuilder} from './markdownEditorDataTypeBuilder';
 export {DecimalDataTypeBuilder} from './decimalDataTypeBuilder';
 export {MultipleTextStringDataTypeBuilder} from './multipleTextStringDataTypeBuilder';
+export {ListViewDataTypeBuilder} from './listViewDataTypeBuilder';
