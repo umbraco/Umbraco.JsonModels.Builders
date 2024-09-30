@@ -1,5 +1,6 @@
 ﻿import {UserGroupPermissionBuilder} from "./userGroupPermissionBuilder";
 import {AliasHelper} from "../../helpers/AliasHelper";
+import {UserGroupsPermissionsBaseBuilder} from "./userGroupsPermissionsBaseBuilder";
 
 export class UserGroupBuilder {
   name: string;
@@ -11,13 +12,12 @@ export class UserGroupBuilder {
   documentRootAccess: boolean;
   mediaStartNodeId: string;
   mediaRootAccess: boolean;
-  fallbackPermissions: string[];
+  fallbackPermissionsBuilder: UserGroupsPermissionsBaseBuilder;
   userGroupPermissionBuilders: UserGroupPermissionBuilder[];
 
   constructor() {
     this.sections = [];
     this.languages = [];
-    this.fallbackPermissions = [];
     this.userGroupPermissionBuilders = [];
   }
 
@@ -66,9 +66,10 @@ export class UserGroupBuilder {
     return this;
   }
 
-  addFallbackPermission(fallbackPermission: string) {
-    this.fallbackPermissions.push(fallbackPermission);
-    return this;
+  addFallbackPermission() {
+    const builder = new UserGroupsPermissionsBaseBuilder(this);
+    this.fallbackPermissionsBuilder = builder;
+    return builder
   }
 
   addPermission() {
@@ -89,7 +90,9 @@ export class UserGroupBuilder {
       documentRootAccess: this.documentRootAccess || false,
       mediaStartNode: this.mediaStartNodeId ? {id: this.mediaStartNodeId} : null,
       mediaRootAccess: this.mediaRootAccess || false,
-      fallbackPermissions: this.fallbackPermissions || [],
+      fallbackPermissions: this.fallbackPermissionsBuilder
+        ? this.fallbackPermissionsBuilder.build()
+        : [],
       permissions: this.userGroupPermissionBuilders.map((builder) => builder.build() || [])
     };
   }
