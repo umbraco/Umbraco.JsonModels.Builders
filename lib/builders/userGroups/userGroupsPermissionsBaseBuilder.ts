@@ -1,5 +1,4 @@
-﻿
-export class UserGroupsPermissionsBaseBuilder {
+﻿export class UserGroupsPermissionsBaseBuilder {
   parentBuilder;
   browseNode: boolean = false;
   createDocumentBlueprint: boolean = false;
@@ -112,86 +111,84 @@ export class UserGroupsPermissionsBaseBuilder {
         'Umb.DocumentType.CreateBlueprint'
       );
     }
-    
+
     if (this.delete) {
       values.push(
         'Umb.Document.Delete'
       );
     }
-    
+
     if (this.create) {
       values.push(
         'Umb.Document.Create'
       );
     }
-    
+
     if (this.notifications) {
       values.push(
         'Umb.Document.Notifications'
       );
     }
-    
+
     if (this.publish) {
       values.push(
         'Umb.Document.Publish'
       );
     }
-    
+
     if (this.setPermissions) {
       values.push(
         'Umb.Document.SetPermissions'
       );
     }
-    
+
     if (this.unpublish) {
       values.push(
         'Umb.Document.Unpublish'
       );
     }
-    
+
     if (this.update) {
       values.push(
         'Umb.Document.Update'
       );
     }
-    
+
     if (this.duplicate) {
       values.push(
         'Umb.Document.Duplicate'
       );
     }
-    
+
     if (this.moveTo) {
       values.push(
         'Umb.Document.Move'
       );
     }
-    
+
     if (this.sortChildren) {
       values.push(
         'Umb.Document.Sort'
       );
     }
-    
+
     if (this.cultureAndHostnames) {
       values.push(
         'Umb.Document.CultureAndHostnames'
       );
     }
-    
+
     if (this.publicAccess) {
       values.push(
         'Umb.Document.PublicAccess'
       );
     }
-    
+
     if (this.rollback) {
       values.push(
         'Umb.Document.Rollback'
       );
     }
-    
     return values;
-    
   }
 }

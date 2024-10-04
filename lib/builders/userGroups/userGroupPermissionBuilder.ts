@@ -18,7 +18,7 @@ export class UserGroupPermissionBuilder {
   addVerbs() {
     const builder = new UserGroupsPermissionsBaseBuilder(this);
     this.userGroupsPermissionsBaseBuilder = builder;
-    return builder
+    return builder;
   }
 
   done() {
@@ -28,9 +28,7 @@ export class UserGroupPermissionBuilder {
   build() {
     return {
       document: this.documentId ? {id: this.documentId} : null,
-      verbs: this.userGroupsPermissionsBaseBuilder
-      ? this.userGroupsPermissionsBaseBuilder.build()
-      : [],
+      verbs: this.userGroupsPermissionsBaseBuilder ? this.userGroupsPermissionsBaseBuilder.build() : [],
     };
   }
 }

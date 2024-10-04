@@ -69,7 +69,7 @@ export class UserGroupBuilder {
   addFallbackPermission() {
     const builder = new UserGroupsPermissionsBaseBuilder(this);
     this.fallbackPermissionsBuilder = builder;
-    return builder
+    return builder;
   }
 
   addPermission() {
@@ -90,9 +90,7 @@ export class UserGroupBuilder {
       documentRootAccess: this.documentRootAccess || false,
       mediaStartNode: this.mediaStartNodeId ? {id: this.mediaStartNodeId} : null,
       mediaRootAccess: this.mediaRootAccess || false,
-      fallbackPermissions: this.fallbackPermissionsBuilder
-        ? this.fallbackPermissionsBuilder.build()
-        : [],
+      fallbackPermissions: this.fallbackPermissionsBuilder ? this.fallbackPermissionsBuilder.build() : [],
       permissions: this.userGroupPermissionBuilders.map((builder) => builder.build() || [])
     };
   }
