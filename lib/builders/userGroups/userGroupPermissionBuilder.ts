@@ -1,9 +1,10 @@
 ﻿import {UserGroupBuilder} from "./userGroupBuilder";
+import {UserGroupsPermissionsBaseBuilder} from "./userGroupsPermissionsBaseBuilder";
 
 export class UserGroupPermissionBuilder {
   parentBuilder: UserGroupBuilder;
   documentId: string;
-  verbs: string[];
+  userGroupsPermissionsBaseBuilder: UserGroupsPermissionsBaseBuilder;
 
   constructor(parentBuilder: UserGroupBuilder) {
     this.parentBuilder = parentBuilder;
@@ -14,9 +15,10 @@ export class UserGroupPermissionBuilder {
     return this;
   }
 
-  addVerbs(verbs: string) {
-    this.verbs.push(verbs);
-    return this;
+  addVerbs() {
+    const builder = new UserGroupsPermissionsBaseBuilder(this);
+    this.userGroupsPermissionsBaseBuilder = builder;
+    return builder;
   }
 
   done() {
@@ -26,7 +28,7 @@ export class UserGroupPermissionBuilder {
   build() {
     return {
       document: this.documentId ? {id: this.documentId} : null,
-      verbs: this.verbs || []
+      verbs: this.userGroupsPermissionsBaseBuilder ? this.userGroupsPermissionsBaseBuilder.build() : [],
     };
   }
 }
