@@ -27,6 +27,7 @@ export class UserGroupPermissionBuilder {
 
   build() {
     return {
+      "$type": "DocumentPermissionPresentationModel",
       document: this.documentId ? {id: this.documentId} : null,
       verbs: this.userGroupsPermissionsBaseBuilder ? this.userGroupsPermissionsBaseBuilder.build() : [],
     };
