@@ -1,6 +1,7 @@
 ﻿import {DocumentBuilder} from "./documentBuilder";
 import {MediaPickerValueBuilder} from "./mediaPickerValueBuilder";
 import {URLPickerValueBuilder} from "./urlPickerValueBuilder";
+import {ImageCropperValueBuilder} from './imageCropperValueBuilder';
 
 export class DocumentValueBuilder {
   parentBuilder: DocumentBuilder;
@@ -10,6 +11,7 @@ export class DocumentValueBuilder {
   value: string | string[];
   mediaPickerValueBuilder: MediaPickerValueBuilder[];
   urlPickerValueBuilder: URLPickerValueBuilder[];
+  imageCropperValueBuilder: ImageCropperValueBuilder;
   temporaryFileId: string;
 
   constructor(parentBuilder: DocumentBuilder) {
@@ -55,6 +57,12 @@ export class DocumentValueBuilder {
     return builder;
   }
 
+  addImageCropperValue() {
+    const builder = new ImageCropperValueBuilder(this);
+    this.imageCropperValueBuilder = builder;
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -74,6 +82,9 @@ export class DocumentValueBuilder {
         value = this.urlPickerValueBuilder.map((builder) => {
           return builder.getValue();
         })
+      }
+      if (this.imageCropperValueBuilder !== undefined) {
+        value = this.imageCropperValueBuilder.getValue();
       }
       if (this.temporaryFileId !== undefined) {
         value = {temporaryFileId: this.temporaryFileId};
