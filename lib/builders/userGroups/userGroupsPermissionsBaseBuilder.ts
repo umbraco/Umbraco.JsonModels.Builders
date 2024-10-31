@@ -108,7 +108,7 @@
     }
     if (this.createDocumentBlueprint) {
       values.push(
-        'Umb.DocumentType.CreateBlueprint'
+        'Umb.Document.CreateBlueprint'
       );
     }
 
@@ -138,7 +138,7 @@
 
     if (this.setPermissions) {
       values.push(
-        'Umb.Document.SetPermissions'
+        'Umb.Document.Permissions'
       );
     }
 
