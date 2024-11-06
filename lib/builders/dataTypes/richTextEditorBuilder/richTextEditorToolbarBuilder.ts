@@ -2,236 +2,199 @@
 
 export class RichTextEditorToolbarBuilder {
   parentBuilder;
-  undo: boolean;
-  redo: boolean;
-  cut: boolean;
-  copy: boolean;
-  paste: boolean;
-  styles: boolean;
-  fontname: boolean;
-  fontsize: boolean;
-  backcolor: boolean
-  blockquote: boolean;
-  formatquote: boolean;
-  removeformat: boolean;
-  bold: boolean;
-  italic: boolean;
-  underline: boolean;
-  strikethrough: boolean;
-  alignleft: boolean;
-  aligncenter: boolean;
-  alignright: boolean;
-  alignjustify: boolean;
-  bullist: boolean;
-  numlist: boolean;
-  outdent: boolean;
-  indent: boolean;
-  anchor: boolean;
-  table: boolean;
-  hr: boolean;
-  subscript: boolean;
-  superscript: boolean;
-  charmap: boolean;
-  rtl: boolean;
-  ltr: boolean;
-  sourcecode: boolean;
-  umbmediapicker: boolean;
-  umbembeddialog: boolean;
-  link: boolean;
-  unlink: boolean;
-  umbblockpicker: boolean;
+  toolbarValues: { [key: string]: boolean } = {};
 
   constructor(parentBuilder: RichTextEditorDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
   withUndo(undo: boolean) {
-    this.undo = undo;
+    this.toolbarValues['undo'] = undo;
     return this;
   }
 
   withRedo(redo: boolean) {
-    this.redo = redo;
+    this.toolbarValues['redo'] = redo;
     return this;
   }
 
   withCut(cut: boolean) {
-    this.cut = cut;
+    this.toolbarValues['cut'] = cut;
     return this;
   }
 
   withCopy(copy: boolean) {
-    this.copy = copy;
+    this.toolbarValues['copy'] = copy;
     return this;
   }
 
   withPaste(paste: boolean) {
-    this.paste = paste;
+    this.toolbarValues['paste'] = paste;
     return this;
   }
 
   withStyles(styles: boolean) {
-    this.styles = styles;
+    this.toolbarValues['styles'] = styles;
     return this;
   }
 
   withFontname(fontname: boolean) {
-    this.fontname = fontname;
+    this.toolbarValues['fontname'] = fontname;
     return this;
   }
 
   withFontsize(fontsize: boolean) {
-    this.fontsize = fontsize;
+    this.toolbarValues['fontsize'] = fontsize;
     return this;
   }
 
   withBackcolor(backcolor: boolean) {
-    this.backcolor = backcolor;
+    this.toolbarValues['backcolor'] = backcolor;
     return this;
   }
 
   withBlockQuote(blockquote: boolean) {
-    this.blockquote = blockquote;
+    this.toolbarValues['blockquote'] = blockquote;
     return this;
   }
 
   withFormatQuote(formatquote: boolean) {
-    this.formatquote = formatquote;
+    this.toolbarValues['formatquote'] = formatquote;
     return this;
   }
 
   withRemoveFormat(removeformat: boolean) {
-    this.removeformat = removeformat;
+    this.toolbarValues['removeformat'] = removeformat;
     return this;
   }
 
   withBold(bold: boolean) {
-    this.bold = bold;
+    this.toolbarValues['bold'] = bold;
     return this;
   }
 
   withItalic(italic: boolean) {
-    this.italic = italic;
+    this.toolbarValues['italic'] = italic;
     return this;
   }
 
   withUnderline(underline: boolean) {
-    this.underline = underline;
+    this.toolbarValues['underline'] = underline;
     return this;
   }
 
   withStrikeThrough(strikethrough: boolean) {
-    this.strikethrough = strikethrough;
+    this.toolbarValues['strikethrough'] = strikethrough;
     return this;
   }
 
   withAlignLeft(alignleft: boolean) {
-    this.alignleft = alignleft;
+    this.toolbarValues['alignleft'] = alignleft;
     return this;
   }
 
   withAlignCenter(aligncenter: boolean) {
-    this.aligncenter = aligncenter;
+    this.toolbarValues['aligncenter'] = aligncenter;
     return this;
   }
 
   withAlignRight(alignright: boolean) {
-    this.alignright = alignright;
+    this.toolbarValues['alignright'] = alignright;
     return this;
   }
 
   withAlignJustify(alignjustify: boolean) {
-    this.alignjustify = alignjustify;
+    this.toolbarValues['alignjustify'] = alignjustify;
     return this;
   }
 
   withBulList(bullist: boolean) {
-    this.bullist = bullist;
+    this.toolbarValues['bullist'] = bullist;
     return this;
   }
 
   withNumList(numlist: boolean) {
-    this.numlist = numlist;
+    this.toolbarValues['numlist'] = numlist;
     return this;
   }
 
   withOutdent(outdent: boolean) {
-    this.outdent = outdent;
+    this.toolbarValues['outdent'] = outdent;
     return this;
   }
 
   withIndent(indent: boolean) {
-    this.indent = indent;
+    this.toolbarValues['indent'] = indent;
     return this;
   }
 
   withAnchor(anchor: boolean) {
-    this.anchor = anchor;
+    this.toolbarValues['anchor'] = anchor;
     return this;
   }
 
   withTable(table: boolean) {
-    this.table = table;
+    this.toolbarValues['table'] = table;
     return this;
   }
 
   withHr(hr: boolean) {
-    this.hr = hr;
+    this.toolbarValues['hr'] = hr;
     return this;
   }
 
   withSubscript(subscript: boolean) {
-    this.subscript = subscript;
+    this.toolbarValues['subscript'] = subscript;
     return this;
   }
 
   withSuperScript(superscript: boolean) {
-    this.superscript = superscript;
+    this.toolbarValues['superscript'] = superscript;
     return this;
   }
 
   withCharMap(charmap: boolean) {
-    this.charmap = charmap;
+    this.toolbarValues['charmap'] = charmap;
     return this;
   }
 
   withRTL(rtl: boolean) {
-    this.rtl = rtl;
+    this.toolbarValues['rtl'] = rtl;
     return this;
   }
 
   withLTR(ltr: boolean) {
-    this.ltr = ltr;
+    this.toolbarValues['ltr'] = ltr;
     return this;
   }
 
   withSourceCode(sourcecode: boolean) {
-    this.sourcecode = sourcecode;
+    this.toolbarValues['sourcecode'] = sourcecode;
     return this;
   }
 
   withUmbMediaPicker(umbmediapicker: boolean) {
-    this.umbmediapicker = umbmediapicker;
+    this.toolbarValues['umbmediapicker'] = umbmediapicker;
     return this;
   }
 
   withUmbEmbedDialog(umbembeddialog: boolean) {
-    this.umbembeddialog = umbembeddialog;
+    this.toolbarValues['umbembeddialog'] = umbembeddialog;
     return this;
   }
 
   withLink(link: boolean) {
-    this.link = link;
+    this.toolbarValues['link'] = link;
     return this;
   }
 
   withUnlink(unlink: boolean) {
-    this.unlink = unlink;
+    this.toolbarValues['unlink'] = unlink;
     return this;
   }
 
   withUmbBlockPicker(umbblockpicker: boolean) {
-    this.umbblockpicker = umbblockpicker;
+    this.toolbarValues['umbblockpicker'] = umbblockpicker;
     return this;
   }
 
@@ -240,45 +203,6 @@ export class RichTextEditorToolbarBuilder {
   }
 
   build() {
-    let values: any[] = [];
-    if (this.undo) values.push('undo');
-    if (this.redo) values.push('redo');
-    if (this.cut) values.push('cut');
-    if (this.copy) values.push('copy');
-    if (this.paste) values.push('paste');
-    if (this.styles) values.push('styles');
-    if (this.fontname) values.push('fontname');
-    if (this.fontsize) values.push('fontsize');
-    if (this.backcolor) values.push('backcolor');
-    if (this.blockquote) values.push('blockquote');
-    if (this.formatquote) values.push('formatquote');
-    if (this.removeformat) values.push('removeformat');
-    if (this.bold) values.push('bold');
-    if (this.italic) values.push('italic');
-    if (this.underline) values.push('underline');
-    if (this.strikethrough) values.push('strikethrough');
-    if (this.alignleft) values.push('alignleft');
-    if (this.aligncenter) values.push('aligncenter');
-    if (this.alignright) values.push('alignright');
-    if (this.alignjustify) values.push('alignjustify');
-    if (this.bullist) values.push('bullist');
-    if (this.numlist) values.push('numlist');
-    if (this.outdent) values.push('outdent');
-    if (this.indent) values.push('indent');
-    if (this.anchor) values.push('anchor');
-    if (this.table) values.push('table');
-    if (this.hr) values.push('hr');
-    if (this.subscript) values.push('subscript');
-    if (this.superscript) values.push('superscript');
-    if (this.charmap) values.push('charmap');
-    if (this.rtl) values.push('rtl');
-    if (this.ltr) values.push('ltr');
-    if (this.sourcecode) values.push('sourcecode');
-    if (this.umbmediapicker) values.push('umbmediapicker');
-    if (this.umbembeddialog) values.push('umbembeddialog');
-    if (this.link) values.push('link');
-    if (this.unlink) values.push('unlink');
-    if (this.umbblockpicker) values.push('umbblockpicker');
-    return values;
+    return Object.keys(this.toolbarValues).filter(key => this.toolbarValues[key]);
   }
 }
