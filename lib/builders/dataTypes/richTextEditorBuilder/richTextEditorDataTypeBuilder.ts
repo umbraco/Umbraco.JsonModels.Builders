@@ -31,8 +31,8 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withEditorMode(editorModel: any) {
-    this.editorMode = editorModel;
+  withEditorMode(editorMode: any) {
+    this.editorMode = editorMode;
     return this;
   }
 
