@@ -4,7 +4,7 @@ import {RichTextEditorToolbarBuilder} from "./richTextEditorToolbarBuilder";
 export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
   richTextEditorToolbarBuilder: RichTextEditorToolbarBuilder;
   maxImageSize: number;
-  editorModel: any;
+  editorModel: string;
   stylesheets: string[] = [];
   dimensionsWidth: number;
   dimensionsHeight: number;
@@ -12,7 +12,7 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
   hideLabel: boolean;
   mediaParentId: string;
   ignoreUserStartNodes: boolean;
-  blocks: { contentElementTypeKey: string }[] = [];
+  blocks: {contentElementTypeKey: string}[] = [];
 
   constructor() {
     super();
@@ -78,7 +78,7 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
     if (this.richTextEditorToolbarBuilder) {
       values.push({
         alias: "toolbar",
-        value: this.richTextEditorToolbarBuilder ? this.richTextEditorToolbarBuilder.build() : []
+        value: this.richTextEditorToolbarBuilder.build()
       });
     }
 
@@ -112,7 +112,6 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
         }
       });
     }
-
 
     if (this.overlaySize) {
       values.push({

@@ -1,8 +1,8 @@
 ﻿import {RichTextEditorDataTypeBuilder} from "./richTextEditorDataTypeBuilder";
 
 export class RichTextEditorToolbarBuilder {
-  parentBuilder;
-  toolbarValues: { [key: string]: boolean } = {};
+  parentBuilder: RichTextEditorDataTypeBuilder;
+  toolbarValues: {[key: string]: boolean} = {};
 
   constructor(parentBuilder: RichTextEditorDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -38,13 +38,18 @@ export class RichTextEditorToolbarBuilder {
     return this;
   }
 
-  withFontname(fontname: boolean) {
+  withFontName(fontname: boolean) {
     this.toolbarValues['fontname'] = fontname;
     return this;
   }
 
   withFontsize(fontsize: boolean) {
     this.toolbarValues['fontsize'] = fontsize;
+    return this;
+  }
+  
+  withForeColor(forecolor: boolean) {
+    this.toolbarValues['forecolor'] = forecolor;
     return this;
   }
 
