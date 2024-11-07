@@ -4,7 +4,7 @@ import {RichTextEditorToolbarBuilder} from "./richTextEditorToolbarBuilder";
 export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
   richTextEditorToolbarBuilder: RichTextEditorToolbarBuilder;
   maxImageSize: number;
-  editorModel: string;
+  editorMode: string;
   stylesheets: string[] = [];
   dimensionsWidth: number;
   dimensionsHeight: number;
@@ -31,8 +31,8 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withEditorModel(editorModel: any) {
-    this.editorModel = editorModel;
+  withEditorMode(editorModel: any) {
+    this.editorMode = editorModel;
     return this;
   }
 
@@ -89,10 +89,10 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
       });
     }
 
-    if (this.editorModel) {
+    if (this.editorMode) {
       values.push({
         alias: "editor",
-        value: this.editorModel
+        value: this.editorMode
       });
     }
 
