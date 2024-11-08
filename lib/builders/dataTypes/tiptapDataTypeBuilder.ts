@@ -9,7 +9,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   blocks: {contentElementTypeKey: string}[] = [];
   mediaParentId: string;
   extensions: string[];
-  toolbar: any[];
+  toolbar: string[][][];
 
   constructor() {
     super();
