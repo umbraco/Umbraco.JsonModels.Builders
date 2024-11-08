@@ -1,8 +1,8 @@
 ﻿import {DataTypeBuilder} from "../dataTypeBuilder";
-import {RichTextEditorToolbarBuilder} from "./richTextEditorToolbarBuilder";
+import {TinyMCEToolbarBuilder} from "./tinyMCEToolbarBuilder";
 
-export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
-  richTextEditorToolbarBuilder: RichTextEditorToolbarBuilder;
+export class TinyMCEDataTypeBuilder extends DataTypeBuilder {
+  tinyMCEToolbarBuilder: TinyMCEToolbarBuilder;
   maxImageSize: number;
   editorMode: string;
   stylesheets: string[] = [];
@@ -21,8 +21,8 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
   }
 
   addToolbar() {
-    const builder = new RichTextEditorToolbarBuilder(this);
-    this.richTextEditorToolbarBuilder = builder;
+    const builder = new TinyMCEToolbarBuilder(this);
+    this.tinyMCEToolbarBuilder = builder;
     return builder;
   }
 
@@ -75,10 +75,10 @@ export class RichTextEditorDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any[] = [];
 
-    if (this.richTextEditorToolbarBuilder) {
+    if (this.tinyMCEToolbarBuilder) {
       values.push({
         alias: "toolbar",
-        value: this.richTextEditorToolbarBuilder.build()
+        value: this.tinyMCEToolbarBuilder.build()
       });
     }
 

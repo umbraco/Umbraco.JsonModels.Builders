@@ -20,5 +20,5 @@ export {DecimalDataTypeBuilder} from './decimalDataTypeBuilder';
 export {MultipleTextStringDataTypeBuilder} from './multipleTextStringDataTypeBuilder';
 export {ListViewDataTypeBuilder} from './listViewDataTypeBuilder';
 export {ApprovedColorDataTypeBuilder} from './approvedColorDataTypeBuilder';
-export {RichTextEditorDataTypeBuilder} from './richTextEditorBuilder';
+export {TinyMCEDataTypeBuilder} from './tinyMCEBuilder';
 export {TiptapDataTypeBuilder} from './tiptapDataTypeBuilder';

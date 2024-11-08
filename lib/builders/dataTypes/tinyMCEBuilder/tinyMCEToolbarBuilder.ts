@@ -1,10 +1,10 @@
-﻿import {RichTextEditorDataTypeBuilder} from "./richTextEditorDataTypeBuilder";
+﻿import {TinyMCEDataTypeBuilder} from "./tinyMCEDataTypeBuilder";
 
-export class RichTextEditorToolbarBuilder {
-  parentBuilder: RichTextEditorDataTypeBuilder;
+export class TinyMCEToolbarBuilder {
+  parentBuilder: TinyMCEDataTypeBuilder;
   toolbarValues: {[key: string]: boolean} = {};
 
-  constructor(parentBuilder: RichTextEditorDataTypeBuilder) {
+  constructor(parentBuilder: TinyMCEDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
