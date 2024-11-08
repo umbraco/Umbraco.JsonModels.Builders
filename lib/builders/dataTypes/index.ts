@@ -21,3 +21,4 @@ export {MultipleTextStringDataTypeBuilder} from './multipleTextStringDataTypeBui
 export {ListViewDataTypeBuilder} from './listViewDataTypeBuilder';
 export {ApprovedColorDataTypeBuilder} from './approvedColorDataTypeBuilder';
 export {RichTextEditorDataTypeBuilder} from './richTextEditorBuilder';
+export {TiptapDataTypeBuilder} from './tiptapDataTypeBuilder';
