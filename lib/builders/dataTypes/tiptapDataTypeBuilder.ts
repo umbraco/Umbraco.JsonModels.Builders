@@ -53,7 +53,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  addToolbar(toolbar: any) {
+  addToolbar(toolbar: string[][]) {
     this.toolbar.push(toolbar);
     return this;
   }
