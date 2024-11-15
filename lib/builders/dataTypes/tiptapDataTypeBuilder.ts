@@ -1,5 +1,5 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {TiptapExtensionBuilder, TiptapToolbarBuilder} from "./tiptapBuilder";
+import {TiptapExtensionBuilder, TiptapToolbarRowBuilder} from "./tiptapBuilder";
 
 export class TiptapDataTypeBuilder extends DataTypeBuilder {
   maxImageSize: number;
@@ -10,12 +10,13 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   blocks: {contentElementTypeKey: string}[] = [];
   mediaParentId: string;
   tiptapExtensionBuilder: TiptapExtensionBuilder;
-  tiptapToolbarBuilder: TiptapToolbarBuilder;
+  tiptapToolbarRowBuilder: TiptapToolbarRowBuilder[];
 
   constructor() {
     super();
     this.editorAlias = "Umbraco.RichText";
     this.editorUiAlias = "Umb.PropertyEditorUi.Tiptap";
+    this.tiptapToolbarRowBuilder = [];
   }
 
   withMaxImageSize(maxImageSize: number) {
@@ -55,10 +56,10 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     return builder;
   }
 
-  addToolbar() {
-    const builder = new TiptapToolbarBuilder(this);
-    this.tiptapToolbarBuilder = builder;
-    return builder;
+  addToolbarRow() { 
+    const builder = new TiptapToolbarRowBuilder(this); 
+    this.tiptapToolbarRowBuilder.push(builder); 
+    return builder; 
   }
 
   getValues() {
@@ -151,7 +152,10 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     ];
     values.push({
       alias: "toolbar",
-      value: this.tiptapToolbarBuilder ? this.tiptapToolbarBuilder.build(): defaultToolbar,
+      value:
+        this.tiptapToolbarRowBuilder.length > 0
+          ? this.tiptapToolbarRowBuilder.map(builder => builder.build())
+          : defaultToolbar,
     });
 
     return values;

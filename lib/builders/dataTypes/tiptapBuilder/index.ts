@@ -1,2 +1,3 @@
 ﻿export {TiptapExtensionBuilder} from './tiptapExtensionBuilder';
-export {TiptapToolbarBuilder} from './tiptapToolbarBuilder';
+export {TiptapToolbarRowBuilder} from './tiptapToolbarRowBuilder';
+export {TiptapToolbarGroupBuilder} from './tiptapToolbarGroupBuilder';
