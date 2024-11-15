@@ -128,7 +128,9 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     ];
     values.push({
       alias: "extensions",
-      value: this.tiptapExtensionBuilder ? this.tiptapExtensionBuilder.build() : defaultExtensions
+      value: this.tiptapExtensionBuilder
+        ? this.tiptapExtensionBuilder.build()
+        : defaultExtensions,
     });
 
     const defaultToolbar = [
