@@ -1,4 +1,5 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {TiptapExtensionBuilder, TiptapToolbarBuilder} from "./tiptapBuilder";
 
 export class TiptapDataTypeBuilder extends DataTypeBuilder {
   maxImageSize: number;
@@ -8,8 +9,8 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   ignoreUserStartNodes: boolean;
   blocks: {contentElementTypeKey: string}[] = [];
   mediaParentId: string;
-  extensions: string[];
-  toolbar: string[][][];
+  tiptapExtensionBuilder: TiptapExtensionBuilder;
+  tiptapToolbarBuilder: TiptapToolbarBuilder;
 
   constructor() {
     super();
@@ -48,14 +49,16 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  addExtension(extension: string) {
-    this.extensions.push(extension);
-    return this;
+  addExtension() {
+    const builder = new TiptapExtensionBuilder(this);
+    this.tiptapExtensionBuilder = builder;
+    return builder;
   }
 
-  addToolbar(toolbar: string[][]) {
-    this.toolbar.push(toolbar);
-    return this;
+  addToolbar() {
+    const builder = new TiptapToolbarBuilder(this);
+    this.tiptapToolbarBuilder = builder;
+    return builder;
   }
 
   getValues() {
@@ -103,21 +106,28 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     }
 
     const defaultExtensions = [
-      "Umb.Tiptap.Block",
+      "Umb.Tiptap.Blockquote",
+      "Umb.Tiptap.Bold",
+      "Umb.Tiptap.CodeBlock",
       "Umb.Tiptap.Embed",
       "Umb.Tiptap.Figure",
+      "Umb.Tiptap.Heading",
+      "Umb.Tiptap.HorizontalRule",
       "Umb.Tiptap.Image",
+      "Umb.Tiptap.Italic",
       "Umb.Tiptap.Link",
+      "Umb.Tiptap.List",
       "Umb.Tiptap.MediaUpload",
+      "Umb.Tiptap.Strike",
       "Umb.Tiptap.Subscript",
       "Umb.Tiptap.Superscript",
       "Umb.Tiptap.Table",
       "Umb.Tiptap.TextAlign",
-      "Umb.Tiptap.Underline",
+      "Umb.Tiptap.Underline"
     ];
     values.push({
       alias: "extensions",
-      value: this.extensions ? this.extensions : defaultExtensions
+      value: this.tiptapExtensionBuilder ? this.tiptapExtensionBuilder.build() : defaultExtensions
     });
 
     const defaultToolbar = [
@@ -141,7 +151,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     ];
     values.push({
       alias: "toolbar",
-      value: this.toolbar ? this.toolbar : defaultToolbar
+      value: this.tiptapToolbarBuilder ? this.tiptapToolbarBuilder.build(): defaultToolbar,
     });
 
     return values;
