@@ -2,6 +2,8 @@
 import {MediaPickerValueBuilder} from "./mediaPickerValueBuilder";
 import {URLPickerValueBuilder} from "./urlPickerValueBuilder";
 import {ImageCropperValueBuilder} from './imageCropperValueBuilder';
+import {BlockGridValueBuilder} from "./blockGridValueBuilder";
+import {BlockListValueBuilder} from "./blockListValueBuilder";
 
 export class DocumentValueBuilder {
   parentBuilder: DocumentBuilder;
@@ -13,6 +15,8 @@ export class DocumentValueBuilder {
   urlPickerValueBuilder: URLPickerValueBuilder[];
   imageCropperValueBuilder: ImageCropperValueBuilder;
   temporaryFileId: string;
+  blockGridValueBuilder: BlockGridValueBuilder;
+  blockListValueBuilder: BlockListValueBuilder;
 
   constructor(parentBuilder: DocumentBuilder) {
     this.parentBuilder = parentBuilder;
@@ -63,6 +67,18 @@ export class DocumentValueBuilder {
     return builder;
   }
 
+  addBlockGridValue() {
+    const builder = new BlockGridValueBuilder(this);
+    this.blockGridValueBuilder = builder;
+    return builder;
+  }
+
+  addBlockListValue() {
+    const builder = new BlockListValueBuilder(this);
+    this.blockListValueBuilder = builder;
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -88,6 +104,12 @@ export class DocumentValueBuilder {
       }
       if (this.temporaryFileId !== undefined) {
         value = {temporaryFileId: this.temporaryFileId};
+      }
+      if (this.blockGridValueBuilder !== undefined) {
+        value = this.blockGridValueBuilder.getValue();
+      }
+      if (this.blockListValueBuilder !== undefined) {
+        value = this.blockListValueBuilder.getValue();
       }
     }
 
