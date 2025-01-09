@@ -10,7 +10,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
   useLiveEditing: boolean;
   maxPropertyWidth: string;
   gridColumns: number;
-  layoutStylesheet: string[];
+  layoutStylesheet: string;
   createLabel: string;
   blockGridGroupValue: any;
 
@@ -74,7 +74,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withLayoutStylesheet(layoutStylesheet: string[]) {
+  withLayoutStylesheet(layoutStylesheet: string) {
     this.layoutStylesheet = layoutStylesheet;
     return this;
   }
