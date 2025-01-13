@@ -1,8 +1,9 @@
 ﻿export class UserBuilder {
   email: string;
+  kind: string;
   name: string;
   userGroupIds: {id: string}[];
-  id: string;
+  userName: string;
 
   constructor() {
     this.userGroupIds = [];
@@ -18,28 +19,28 @@
     return this;
   }
 
+  withKind(kind: string) {
+    this.kind = kind;
+    return this;
+  }
+
   addUserGroupId(userGroupId: string) {
     this.userGroupIds.push({id: userGroupId});
     return this;
   }
 
-  withId(id: string) {
-    this.id = id;
+  withUsername(userName: string) {
+    this.userName = userName;
     return this;
   }
 
   build() {
-    if (!this.id) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
-
     return {
       email: this.email || "",
       name: this.name || this.email,
+      kind: this.kind || 'Default',
       userGroupIds: this.userGroupIds,
       userName: this.email,
-      id: this.id
     };
   }
 }
