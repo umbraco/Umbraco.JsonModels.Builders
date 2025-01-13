@@ -1,16 +1,9 @@
-﻿import {BlockGridContentDataBuilder} from "./blockGridContentDataBuilder";
-
-export class ContentDataValueBuilder {
-  parentBuilder: BlockGridContentDataBuilder;
+﻿export class BaseContentDataValueBuilder {
   alias: string;
   culture: string;
   editorAlias: string;
   segment: string;
   value: string;
-
-  constructor(parentBuilder: BlockGridContentDataBuilder) {
-    this.parentBuilder = parentBuilder;
-  }
 
   withAlias(alias: string) {
     this.alias = alias;
@@ -35,10 +28,6 @@ export class ContentDataValueBuilder {
   withValue(value: string) {
     this.value = value;
     return this;
-  }
-
-  done() {
-    return this.parentBuilder;
   }
 
   getValue() {

@@ -1,11 +1,11 @@
 ﻿import {BlockListValueBuilder} from "./blockListValueBuilder";
-import {ContentDataValueBuilder} from "./contentDataValueBuilder";
+import {BlockListContentDataValueBuilder} from "./blockListContentDataValueBuilder";
 
 export class BlockListContentDataBuilder {
   parentBuilder: BlockListValueBuilder;
   contentTypeKey: string;
   key: string;
-  contentDataValueBuilder: ContentDataValueBuilder[];
+  contentDataValueBuilder: BlockListContentDataValueBuilder[];
 
   constructor(parentBuilder: BlockListValueBuilder) {
     this.parentBuilder = parentBuilder;
@@ -23,7 +23,7 @@ export class BlockListContentDataBuilder {
   }
 
   addContentDataValue(){
-    const builder = new ContentDataValueBuilder(this);
+    const builder = new BlockListContentDataValueBuilder(this);
     this.contentDataValueBuilder.push(builder);
     return builder;
   }

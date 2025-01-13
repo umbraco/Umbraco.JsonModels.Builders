@@ -1,12 +1,12 @@
 ﻿import {BlockGridValueBuilder} from "./blockGridValueBuilder";
-import {ContentDataValueBuilder} from "./contentDataValueBuilder";
+import {BlockGridContentDataValueBuilder} from "./blockGridContentDataValueBuilder";
 
 export class BlockGridContentDataBuilder {
   parentBuilder: BlockGridValueBuilder;
   contentTypeKey: string;
   key: string;
   udi: string;
-  contentDataValueBuilder: ContentDataValueBuilder[];
+  contentDataValueBuilder: BlockGridContentDataValueBuilder[];
 
   constructor(parentBuilder: BlockGridValueBuilder) {
     this.parentBuilder = parentBuilder;
@@ -29,7 +29,7 @@ export class BlockGridContentDataBuilder {
   }
 
   addContentDataValue(){
-    const builder = new ContentDataValueBuilder(this);
+    const builder = new BlockGridContentDataValueBuilder(this);
     this.contentDataValueBuilder.push(builder);
     return builder;
   }

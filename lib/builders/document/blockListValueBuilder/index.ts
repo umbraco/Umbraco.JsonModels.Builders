@@ -2,4 +2,4 @@
 export {BlockListLayoutBuilder} from './blockListLayoutBuilder'
 export {BlockListContentDataBuilder} from './blockListContentDataBuilder';
 export {BlockListExposeBuilder} from './blockListExposeBuilder';
-export {ContentDataValueBuilder} from './contentDataValueBuilder';
+export {BlockListContentDataValueBuilder} from './blockListContentDataValueBuilder';
