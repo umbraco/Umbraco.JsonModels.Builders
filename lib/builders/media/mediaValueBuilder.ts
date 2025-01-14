@@ -1,11 +1,13 @@
 ﻿import {MediaBuilder} from "./mediaBuilder";
+import {MediaValueEntryBuilder} from "./mediaValueEntryBuilder";
 
 export class MediaValueBuilder {
   parentBuilder: MediaBuilder;
   culture: string;
   segment: string;
   alias: string;
-  value: string;
+  editorAlias: string;
+  mediaValueEntry: MediaValueEntryBuilder;
 
   constructor(parentBuilder: MediaBuilder) {
     this.parentBuilder = parentBuilder;
@@ -26,9 +28,15 @@ export class MediaValueBuilder {
     return this;
   }
 
-  withValue(value: string) {
-    this.value = value;
+  withEditorAlias(editorAlias: string) {
+    this.editorAlias = editorAlias;
     return this;
+  }
+
+  addValueEntry() {
+    const builder = new MediaValueEntryBuilder(this);
+    this.mediaValueEntry = builder;
+    return builder;
   }
 
   done() {
@@ -40,7 +48,8 @@ export class MediaValueBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
-      value: this.value ? {temporaryFileId: this.value} : null
+      editorAlias: this.editorAlias || null,
+      value: this.mediaValueEntry.getValue() || null
     };
   }
 }
