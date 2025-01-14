@@ -1,5 +1,5 @@
 ﻿import {MediaBuilder} from "./mediaBuilder";
-import {MediaValueEntryBuilder} from "./mediaValueEntryBuilder";
+import {MediaValueDataBuilder} from "./mediaValueDataBuilder";
 
 export class MediaValueBuilder {
   parentBuilder: MediaBuilder;
@@ -7,7 +7,7 @@ export class MediaValueBuilder {
   segment: string;
   alias: string;
   editorAlias: string;
-  mediaValueEntry: MediaValueEntryBuilder;
+  mediaValueData: MediaValueDataBuilder;
 
   constructor(parentBuilder: MediaBuilder) {
     this.parentBuilder = parentBuilder;
@@ -34,8 +34,8 @@ export class MediaValueBuilder {
   }
 
   addValueEntry() {
-    const builder = new MediaValueEntryBuilder(this);
-    this.mediaValueEntry = builder;
+    const builder = new MediaValueDataBuilder(this);
+    this.mediaValueData = builder;
     return builder;
   }
 
@@ -49,7 +49,7 @@ export class MediaValueBuilder {
       segment: this.segment || null,
       alias: this.alias || null,
       editorAlias: this.editorAlias || null,
-      value: this.mediaValueEntry.getValue() || null
+      value: this.mediaValueData.getValue() || null
     };
   }
 }

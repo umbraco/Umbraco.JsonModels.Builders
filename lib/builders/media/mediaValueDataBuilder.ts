@@ -1,6 +1,6 @@
 ﻿import {MediaValueBuilder} from "./mediaValueBuilder";
 
-export class MediaValueEntryBuilder {
+export class MediaValueDataBuilder {
   parentBuilder: MediaValueBuilder;
   temporaryFileId: string;
   src: string;
