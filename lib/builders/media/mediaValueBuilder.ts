@@ -33,7 +33,7 @@ export class MediaValueBuilder {
     return this;
   }
 
-  addValueEntry() {
+  addValueData() {
     const builder = new MediaValueDataBuilder(this);
     this.mediaValueData = builder;
     return builder;
