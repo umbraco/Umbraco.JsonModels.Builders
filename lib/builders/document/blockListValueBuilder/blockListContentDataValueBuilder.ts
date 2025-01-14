@@ -1,4 +1,4 @@
-﻿import { BaseContentDataValueBuilder } from "../baseBlockValueBuilder";
+﻿import {BaseContentDataValueBuilder} from "../baseBlockValueBuilder";
 import {BlockListContentDataBuilder} from "./blockListContentDataBuilder";
 
 export class BlockListContentDataValueBuilder extends BaseContentDataValueBuilder{

@@ -1,6 +1,6 @@
 ﻿import {DocumentValueBuilder} from "../documentValueBuilder";
-import { BlockGridContentDataBuilder } from "./blockGridContentDataBuilder";
-import { BlockGridExposeBuilder } from "./blockGridExposeBuilder";
+import {BlockGridContentDataBuilder} from "./blockGridContentDataBuilder";
+import {BlockGridExposeBuilder} from "./blockGridExposeBuilder";
 import {BlockGridLayoutBuilder} from "./blockGridLayoutBuilder";
 
 export class BlockGridValueBuilder {
