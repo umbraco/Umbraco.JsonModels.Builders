@@ -36,7 +36,7 @@ export class BlockListContentDataBuilder {
     return {
       contentTypeKey: this.contentTypeKey,
       key: this.key,
-      value: this.contentDataValueBuilder.map((builder) => {
+      values: this.contentDataValueBuilder.map((builder) => {
         return builder.getValue();
       })
     };
