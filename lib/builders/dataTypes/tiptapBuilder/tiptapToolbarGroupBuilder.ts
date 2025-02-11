@@ -2,7 +2,7 @@
 
 export class TiptapToolbarGroupBuilder {
   parentBuilder: TiptapToolbarRowBuilder;
-  toolbarValues: {[key: string]: boolean} = {};
+  toolbarValues: { [key: string]: boolean } = {};
 
   constructor(parentBuilder: TiptapToolbarRowBuilder) {
     this.parentBuilder = parentBuilder;
@@ -54,6 +54,11 @@ export class TiptapToolbarGroupBuilder {
     return this;
   }
 
+  withBlockPicker(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.BlockPicker'] = value;
+    return this;
+  }
+
   withHorizontalRule(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.HorizontalRule'] = value;
     return this;
@@ -88,7 +93,7 @@ export class TiptapToolbarGroupBuilder {
     this.toolbarValues['Umb.Tiptap.Toolbar.ClearFormatting'] = value;
     return this;
   }
-  
+
   withTextAlignJustify(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.TextAlignJustify'] = value;
     return this;
@@ -113,7 +118,7 @@ export class TiptapToolbarGroupBuilder {
     this.toolbarValues['Umb.Tiptap.Toolbar.CodeBlock'] = value;
     return this;
   }
-  
+
   withSubscript(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.Subscript'] = value;
     return this;
@@ -128,12 +133,12 @@ export class TiptapToolbarGroupBuilder {
     this.toolbarValues['Umb.Tiptap.Toolbar.Undo'] = value;
     return this;
   }
-  
+
   withRedo(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.Redo'] = value;
     return this;
   }
-  
+
   withTable(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.Table'] = value;
     return this;
