@@ -1,5 +1,5 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {TiptapExtensionBuilder, TiptapToolbarRowBuilder} from "./tiptapBuilder";
+import {TiptapExtensionBuilder, TiptapToolbarRowBuilder, TiptapBlockBuilder} from "./tiptapBuilder";
 
 export class TiptapDataTypeBuilder extends DataTypeBuilder {
   maxImageSize: number;
@@ -7,8 +7,8 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   dimensionsWidth: number;
   dimensionsHeight: number;
   ignoreUserStartNodes: boolean;
-  blocks: {contentElementTypeKey: string}[] = [];
   mediaParentId: string;
+  tiptapBlockBuilder: TiptapBlockBuilder[];
   tiptapExtensionBuilder: TiptapExtensionBuilder;
   tiptapToolbarRowBuilder: TiptapToolbarRowBuilder[];
 
@@ -16,6 +16,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     super();
     this.editorAlias = "Umbraco.RichText";
     this.editorUiAlias = "Umb.PropertyEditorUi.Tiptap";
+    this.tiptapBlockBuilder = [];
     this.tiptapToolbarRowBuilder = [];
   }
 
@@ -45,9 +46,11 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  addBlock(contentElementTypeKey: string) {
-    this.blocks.push({contentElementTypeKey});
-    return this;
+  addBlock() {
+    const builder = new TiptapBlockBuilder(this);
+    this.tiptapBlockBuilder.push(builder);
+    return builder;
+
   }
 
   addExtension() {
@@ -56,10 +59,10 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     return builder;
   }
 
-  addToolbarRow() { 
-    const builder = new TiptapToolbarRowBuilder(this); 
-    this.tiptapToolbarRowBuilder.push(builder); 
-    return builder; 
+  addToolbarRow() {
+    const builder = new TiptapToolbarRowBuilder(this);
+    this.tiptapToolbarRowBuilder.push(builder);
+    return builder;
   }
 
   getValues() {
@@ -99,12 +102,13 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
       });
     }
 
-    if (this.blocks.length > 0) {
-      values.push({
-        alias: "blocks",
-        value: this.blocks
-      });
-    }
+    values.push({
+      alias: "blocks",
+      value:
+        this.tiptapBlockBuilder.length > 0
+          ? this.tiptapBlockBuilder.map(builder => builder.build())
+          : [],
+    });
 
     const defaultExtensions = [
       "Umb.Tiptap.Blockquote",
