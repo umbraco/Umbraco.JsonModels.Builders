@@ -22,3 +22,7 @@ export {ListViewDataTypeBuilder} from './listViewDataTypeBuilder';
 export {ApprovedColorDataTypeBuilder} from './approvedColorDataTypeBuilder';
 export {TinyMCEDataTypeBuilder} from './tinyMCEBuilder';
 export {TiptapDataTypeBuilder} from './tiptapDataTypeBuilder';
+export {UploadFieldDataTypeBuilder} from './uploadFieldDataTypeBuilder';
+export {LabelDataTypeBuilder} from './labelDataTypeBuilder';
+export {MultiUrlPickerDataTypeBuilder} from './multiUrlPickerDataTypeBuilder';
+export {TagsDataTypeBuilder} from './tagsDataTypeBuilder';
