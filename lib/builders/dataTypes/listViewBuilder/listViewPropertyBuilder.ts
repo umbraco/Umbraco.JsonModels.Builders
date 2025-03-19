@@ -28,7 +28,7 @@ export class ListViewPropertyBuilder {
 
   withIsSystem(isSystem: boolean) {
     this.isSystem = isSystem;
-    return
+    return this;
   }
 
   done() {
