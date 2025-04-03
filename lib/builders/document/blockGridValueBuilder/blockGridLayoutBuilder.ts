@@ -1,16 +1,18 @@
-﻿import {BlockGridValueBuilder} from "./blockGridValueBuilder";
+﻿import {BlockGridAreaBuilder} from "./blockGridAreaBuilder";
 
 export class BlockGridLayoutBuilder {
-  parentBuilder: BlockGridValueBuilder;
+  parentBuilder;
   columnSpan: number;
   contentKey: string;
   contentUdi: string;
   rowSpan: number;
   settingsKey: string;
   settingsUdi: string;
+  areasBuilder: BlockGridAreaBuilder[];
 
-  constructor(parentBuilder: BlockGridValueBuilder) {
+  constructor(parentBuilder) {
     this.parentBuilder = parentBuilder;
+    this.areasBuilder = [];
   }
 
   withColumnSpan(columnSpan: number) {
@@ -43,6 +45,12 @@ export class BlockGridLayoutBuilder {
     return this;
   }
 
+  addArea() {
+    const builder = new BlockGridAreaBuilder(this);
+    this.areasBuilder.push(builder);
+    return builder;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -50,9 +58,11 @@ export class BlockGridLayoutBuilder {
   getValue() {
     return {
       $type: 'BlockGridLayoutItem',
-      areas: [],
       columnSpan: this.columnSpan || 12,
       contentKey: this.contentKey,
+      areas: this.areasBuilder.map((builder) => {
+        return builder.getValue();
+      }),
       contentUdi: this.contentUdi || null,
       rowSpan: this.rowSpan || 1,
       settingsKey: this.settingsKey || null,
