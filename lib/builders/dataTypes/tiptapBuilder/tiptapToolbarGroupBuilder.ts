@@ -179,12 +179,12 @@ export class TiptapToolbarGroupBuilder {
     return this;
   }
 
-  withTextDirectionLtr(value: boolean) {
+  withTextDirectionLeftToRight(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.TextDirectionLtr'] = value;
     return this;
   }
 
-  withTextDirectionRtl(value: boolean) {
+  withTextDirectionRightToLeft(value: boolean) {
     this.toolbarValues['Umb.Tiptap.Toolbar.TextDirectionRtl'] = value;
     return this;
   }
