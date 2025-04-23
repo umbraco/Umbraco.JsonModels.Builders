@@ -1,5 +1,5 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {TiptapExtensionBuilder, TiptapToolbarRowBuilder, TiptapBlockBuilder} from "./tiptapBuilder";
+import {TiptapExtensionBuilder, TiptapToolbarRowBuilder, TiptapBlockBuilder, TiptapStatusbarBuilder} from "./tiptapBuilder";
 
 export class TiptapDataTypeBuilder extends DataTypeBuilder {
   maxImageSize: number;
@@ -11,6 +11,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   tiptapBlockBuilder: TiptapBlockBuilder[];
   tiptapExtensionBuilder: TiptapExtensionBuilder;
   tiptapToolbarRowBuilder: TiptapToolbarRowBuilder[];
+  tiptapStatusbarBuilder: TiptapStatusbarBuilder[];
 
   constructor() {
     super();
@@ -18,6 +19,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     this.editorUiAlias = "Umb.PropertyEditorUi.Tiptap";
     this.tiptapBlockBuilder = [];
     this.tiptapToolbarRowBuilder = [];
+    this.tiptapStatusbarBuilder = [];
   }
 
   withMaxImageSize(maxImageSize: number) {
@@ -62,6 +64,12 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
   addToolbarRow() {
     const builder = new TiptapToolbarRowBuilder(this);
     this.tiptapToolbarRowBuilder.push(builder);
+    return builder;
+  }
+
+  addStatusbar() {
+    const builder = new TiptapStatusbarBuilder(this);
+    this.tiptapStatusbarBuilder.push(builder);
     return builder;
   }
 
@@ -111,24 +119,20 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     });
 
     const defaultExtensions = [
-      "Umb.Tiptap.Blockquote",
-      "Umb.Tiptap.Bold",
-      "Umb.Tiptap.CodeBlock",
       "Umb.Tiptap.Embed",
       "Umb.Tiptap.Figure",
-      "Umb.Tiptap.Heading",
-      "Umb.Tiptap.HorizontalRule",
       "Umb.Tiptap.Image",
-      "Umb.Tiptap.Italic",
       "Umb.Tiptap.Link",
-      "Umb.Tiptap.List",
       "Umb.Tiptap.MediaUpload",
-      "Umb.Tiptap.Strike",
+      "Umb.Tiptap.RichTextEssentials",
       "Umb.Tiptap.Subscript",
       "Umb.Tiptap.Superscript",
       "Umb.Tiptap.Table",
       "Umb.Tiptap.TextAlign",
-      "Umb.Tiptap.Underline"
+      "Umb.Tiptap.TextDirection",
+      "Umb.Tiptap.TextIndent",
+      "Umb.Tiptap.Underline",
+      "Umb.Tiptap.WordCount"
     ];
     values.push({
       alias: "extensions",
@@ -162,6 +166,14 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
         this.tiptapToolbarRowBuilder.length > 0
           ? this.tiptapToolbarRowBuilder.map(builder => builder.build())
           : defaultToolbar,
+    });
+
+    values.push({
+      alias: "statusbar",
+      value:
+        this.tiptapStatusbarBuilder.length > 0
+          ? this.tiptapStatusbarBuilder.map(builder => builder.build())
+          : [[], []],
     });
 
     return values;

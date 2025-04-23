@@ -144,6 +144,61 @@ export class TiptapToolbarGroupBuilder {
     return this;
   }
 
+  withAnchor(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.Anchor'] = value;
+    return this;
+  }
+
+  withCharacterMap(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.CharacterMap'] = value;
+    return this;
+  }
+
+  withFontFamily(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.FontFamily'] = value;
+    return this;
+  }
+
+  withFontSize(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.FontSize'] = value;
+    return this;
+  }
+
+  withStyleSelect(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.StyleSelect'] = value;
+    return this;
+  }
+
+  withTextColorBackground(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextColorBackground'] = value;
+    return this;
+  }
+
+  withTextColorForeground(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextColorForeground'] = value;
+    return this;
+  }
+
+  withTextDirectionLeftToRight(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextDirectionLtr'] = value;
+    return this;
+  }
+
+  withTextDirectionRightToLeft(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextDirectionRtl'] = value;
+    return this;
+  }
+
+  withTextIndent(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextIndent'] = value;
+    return this;
+  }
+
+  withTextOutdent(value: boolean) {
+    this.toolbarValues['Umb.Tiptap.Toolbar.TextOutdent'] = value;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }

@@ -68,6 +68,21 @@ export class TiptapExtensionBuilder {
     return this;
   }
 
+  withWordCount(value: boolean) {
+    this.extensionValues['Umb.Tiptap.WordCount'] = value;
+    return this;
+  }
+
+  withTextDirection(value: boolean) {
+    this.extensionValues['Umb.Tiptap.TextDirection'] = value;
+    return this;
+  }
+
+  withTextIndent(value: boolean) {
+    this.extensionValues['Umb.Tiptap.TextIndent'] = value;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }
