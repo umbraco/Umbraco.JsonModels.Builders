@@ -1,6 +1,6 @@
 ﻿export class UserGroupsPermissionsBaseBuilder {
   parentBuilder;
-  browseNode: boolean = false;
+  read: boolean = false;
   createDocumentBlueprint: boolean = false;
   delete: boolean = false;
   create: boolean;
@@ -15,13 +15,15 @@
   cultureAndHostnames: boolean = false;
   publicAccess: boolean = false;
   rollback: boolean = false;
+  readPropertyValue: boolean = false;
+  writePropertyValue: boolean = false;
 
   constructor(parentBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
-  withBrowseNodePermission(browseNode: boolean) {
-    this.browseNode = browseNode;
+  withReadPermission(read: boolean) {
+    this.read = read;
     return this;
   }
 
@@ -95,13 +97,23 @@
     return this;
   }
 
+  withReadPropertyValuePermission(readPropertyValue: boolean) {
+    this.readPropertyValue = readPropertyValue;
+    return this;
+  }
+
+  withWritePropertyValuePermission(writePropertyValue: boolean) {
+    this.writePropertyValue = writePropertyValue;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }
 
   build() {
     let values: any[] = [];
-    if (this.browseNode) {
+    if (this.read) {
       values.push(
         'Umb.Document.Read'
       );
@@ -187,6 +199,18 @@
     if (this.rollback) {
       values.push(
         'Umb.Document.Rollback'
+      );
+    }
+
+    if (this.readPropertyValue) {
+      values.push(
+        'Umb.Document.PropertyValue.Read'
+      );
+    }
+
+    if (this.writePropertyValue) {
+      values.push(
+        'Umb.Document.PropertyValue.Write'
       );
     }
     return values;
