@@ -1,23 +1,25 @@
 ﻿import {UserGroupBuilder} from "./userGroupBuilder";
-import {UserGroupsPermissionsBaseBuilder} from "./userGroupsPermissionsBaseBuilder";
+import {UserGroupDocumentPermissionBuilder} from "./userGroupDocumentPermissionBuilder";
+import {UserGroupPropertyValuePermissionBuilder} from "./userGroupPropertyValuePermissionBuilder";
 
 export class UserGroupPermissionBuilder {
   parentBuilder: UserGroupBuilder;
-  documentId: string;
-  userGroupsPermissionsBaseBuilder: UserGroupsPermissionsBaseBuilder;
+  permissionBuilders: (UserGroupDocumentPermissionBuilder | UserGroupPropertyValuePermissionBuilder)[];
 
   constructor(parentBuilder: UserGroupBuilder) {
     this.parentBuilder = parentBuilder;
+    this.permissionBuilders = [];
   }
 
-  withDocumentId(documentId: string) {
-    this.documentId = documentId;
-    return this;
+  addDocumentPermission() {
+    const builder = new UserGroupDocumentPermissionBuilder(this);
+    this.permissionBuilders.push(builder);
+    return builder;
   }
 
-  addVerbs() {
-    const builder = new UserGroupsPermissionsBaseBuilder(this);
-    this.userGroupsPermissionsBaseBuilder = builder;
+  addPropertyValuePermission() {
+    const builder = new UserGroupPropertyValuePermissionBuilder(this);
+    this.permissionBuilders.push(builder);
     return builder;
   }
 
@@ -26,10 +28,6 @@ export class UserGroupPermissionBuilder {
   }
 
   build() {
-    return {
-      "$type": "DocumentPermissionPresentationModel",
-      document: this.documentId ? {id: this.documentId} : null,
-      verbs: this.userGroupsPermissionsBaseBuilder ? this.userGroupsPermissionsBaseBuilder.build() : [],
-    };
+    return this.permissionBuilders.map(builder => builder.build());
   }
 }
