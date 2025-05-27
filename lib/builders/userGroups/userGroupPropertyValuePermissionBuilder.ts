@@ -1,4 +1,4 @@
-﻿import { UserGroupPermissionBuilder } from "./userGroupPermissionBuilder";
+﻿import {UserGroupPermissionBuilder} from "./userGroupPermissionBuilder";
 import {UserGroupsPermissionsBaseBuilder} from "./userGroupsPermissionsBaseBuilder";
 
 export class UserGroupPropertyValuePermissionBuilder {
