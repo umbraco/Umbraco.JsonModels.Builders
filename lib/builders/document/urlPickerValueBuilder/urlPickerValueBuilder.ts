@@ -70,7 +70,7 @@ export class URLPickerValueBuilder{
 
     value.icon = this.icon;
     value.name = this.name || null;
-    value.published = this.published || true;
+    value.published = this.published !== undefined ? this.published : true;
     value.queryString = this.queryString || null;
     value.target = this.target || null;
     value.trashed = this.trashed || false;

@@ -50,15 +50,15 @@ export class CodeEditorDataTypeBuilder extends DataTypeBuilder {
     });
     values.push({
       alias: 'lineNumbers',
-      value: this.lineNumbers || true
+      value: this.lineNumbers !== undefined ? this.lineNumbers : true
     });
     values.push({
       alias: 'minimap',
-      value: this.minimap || true
+      value: this.minimap !== undefined ? this.minimap : true
     });
     values.push({
       alias: 'wordWrap',
-      value: this.wordWrap || false
+      value: this.minimap !== undefined ? this.minimap : false
     });
     return values;
   }
