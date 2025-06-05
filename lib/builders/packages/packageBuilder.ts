@@ -88,9 +88,9 @@
     return {
       name: this.name,
       contentNodeId: this.contentNodeId || "",
-      contentLoadChildNodes: this.contentLoadChildNodes || true,
+      contentLoadChildNodes: this.contentLoadChildNodes !== undefined ? this.contentLoadChildNodes : true,
       mediaIds: this.mediaIds,
-      mediaLoadChildNodes: this.mediaLoadChildNodes || true,
+      mediaLoadChildNodes: this.mediaLoadChildNodes !== undefined ? this.mediaLoadChildNodes : true,
       documentTypes: this.documentTypes,
       mediaTypes: this.mediaTypes,
       dataTypes: this.dataTypes,
