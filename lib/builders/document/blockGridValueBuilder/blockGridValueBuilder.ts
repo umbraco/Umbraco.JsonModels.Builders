@@ -1,16 +1,17 @@
-﻿import {DocumentValueBuilder} from "../documentValueBuilder";
+﻿import {DocumentBlueprintsValueBuilder} from "lib/builders/documentBlueprints";
+import {DocumentValueBuilder} from "../documentValueBuilder";
 import {BlockGridContentDataBuilder} from "./blockGridContentDataBuilder";
 import {BlockGridExposeBuilder} from "./blockGridExposeBuilder";
 import {BlockGridLayoutBuilder} from "./blockGridLayoutBuilder";
 
 export class BlockGridValueBuilder {
-  parentBuilder: DocumentValueBuilder;
+  parentBuilder: DocumentValueBuilder | DocumentBlueprintsValueBuilder;
   blockGridContentDataBuilder: BlockGridContentDataBuilder[];
   blockGridExposeBuilder: BlockGridExposeBuilder[];
   blockGridLayoutBuilder: BlockGridLayoutBuilder[];
   blockGridSettingDataBuilder: [];
 
-  constructor(parentBuilder: DocumentValueBuilder) {
+  constructor(parentBuilder: DocumentValueBuilder | DocumentBlueprintsValueBuilder) {
     this.parentBuilder = parentBuilder;
     this.blockGridContentDataBuilder = [];
     this.blockGridExposeBuilder = [];

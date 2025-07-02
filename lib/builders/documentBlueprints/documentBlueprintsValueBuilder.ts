@@ -1,17 +1,23 @@
-﻿import { DocumentBlueprintsBuilder } from "./documentBlueprintsBuilder";
+﻿import {BlockGridValueBuilder} from "../document/blockGridValueBuilder";
+import {BlockListValueBuilder} from "../document/blockListValueBuilder";
+import {DocumentBlueprintsBuilder} from "./documentBlueprintsBuilder";
 
 export class DocumentBlueprintsValueBuilder {
   parentBuilder: DocumentBlueprintsBuilder;
   culture: string;
   segment: string;
   alias: string;
-  value: string;
+  value: string | string[];
+  editorAlias: string;
+  entityType: string;
+  blockGridValueBuilder: BlockGridValueBuilder;
+  blockListValueBuilder: BlockListValueBuilder;
 
   constructor(parentBuilder: DocumentBlueprintsBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
-  withCulture(culture: string) {
+  withCulture(culture: any) {
     this.culture = culture;
     return this;
   }
@@ -26,9 +32,31 @@ export class DocumentBlueprintsValueBuilder {
     return this;
   }
 
-  withValue(value: string) {
+  withValue(value: any) {
     this.value = value;
     return this;
+  }
+
+  withEditorAlias(editorAlias: string) {
+    this.editorAlias = editorAlias;
+    return this;
+  }
+
+  withEntityType(entityType: string) {
+    this.entityType = entityType;
+    return this;
+  }
+
+  addBlockGridValue() {
+    const builder = new BlockGridValueBuilder(this);
+    this.blockGridValueBuilder = builder;
+    return builder;
+  }
+
+  addBlockListValue() {
+    const builder = new BlockListValueBuilder(this);
+    this.blockListValueBuilder = builder;
+    return builder;
   }
 
   done() {
@@ -36,11 +64,26 @@ export class DocumentBlueprintsValueBuilder {
   }
 
   build() {
+    let value: any = null;
+
+    if (this.value != null) {
+      value = this.value;
+    } else {
+      if (this.blockGridValueBuilder !== undefined) {
+        value = this.blockGridValueBuilder.getValue();
+      }
+      if (this.blockListValueBuilder !== undefined) {
+        value = this.blockListValueBuilder.getValue();
+      }
+    }
+
     return {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
-      value: this.value || null
+      value: value || null,
+      editorAlias: this.editorAlias || null,
+      entityType: this.editorAlias !== undefined ? 'document-blueprint-property-value' : null
     };
   }
 }
