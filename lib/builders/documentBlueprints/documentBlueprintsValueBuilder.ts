@@ -4,7 +4,7 @@ import {DocumentBlueprintsBuilder} from "./documentBlueprintsBuilder";
 
 export class DocumentBlueprintsValueBuilder {
   parentBuilder: DocumentBlueprintsBuilder;
-  culture: string;
+  culture: string | null;
   segment: string;
   alias: string;
   value: string | string[];
@@ -17,7 +17,7 @@ export class DocumentBlueprintsValueBuilder {
     this.parentBuilder = parentBuilder;
   }
 
-  withCulture(culture: any) {
+  withCulture(culture: string | null) {
     this.culture = culture;
     return this;
   }
@@ -32,7 +32,7 @@ export class DocumentBlueprintsValueBuilder {
     return this;
   }
 
-  withValue(value: any) {
+  withValue(value: string | string[]) {
     this.value = value;
     return this;
   }
