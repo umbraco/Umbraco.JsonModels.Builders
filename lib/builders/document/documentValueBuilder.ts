@@ -11,6 +11,8 @@ export class DocumentValueBuilder {
   segment: string;
   alias: string;
   value: string | string[];
+  editorAlias: string;
+  entityType: string;
   mediaPickerValueBuilder: MediaPickerValueBuilder[];
   urlPickerValueBuilder: URLPickerValueBuilder[];
   imageCropperValueBuilder: ImageCropperValueBuilder;
@@ -79,6 +81,16 @@ export class DocumentValueBuilder {
     return builder;
   }
 
+  withEditorAlias(editorAlias: string) {
+    this.editorAlias = editorAlias;
+    return this;
+  }
+
+  withEntityType(entityType: string) {
+    this.entityType = entityType;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -117,7 +129,9 @@ export class DocumentValueBuilder {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
-      value: value || null
+      value: value || null,
+      editorAlias: this.editorAlias || null,
+      entityType: this.editorAlias !== undefined ? 'document-property-value' : null
     }
   };
 }

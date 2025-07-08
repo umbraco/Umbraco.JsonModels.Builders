@@ -1,16 +1,17 @@
-﻿import {DocumentValueBuilder} from "../documentValueBuilder";
+﻿import {DocumentBlueprintsValueBuilder} from "lib/builders/documentBlueprints";
+import {DocumentValueBuilder} from "../documentValueBuilder";
 import {BlockListContentDataBuilder} from "./blockListContentDataBuilder";
 import {BlockListExposeBuilder} from "./blockListExposeBuilder";
 import {BlockListLayoutBuilder} from "./blockListLayoutBuilder";
 
 export class BlockListValueBuilder {
-  parentBuilder: DocumentValueBuilder;
+  parentBuilder: DocumentValueBuilder | DocumentBlueprintsValueBuilder;
   blockListContentDataBuilder: BlockListContentDataBuilder[];
   blockListExposeBuilder: BlockListExposeBuilder[];
   blockListLayoutBuilder: BlockListLayoutBuilder[];
   blockListSettingDataBuilder: [];
 
-  constructor(parentBuilder: DocumentValueBuilder) {
+  constructor(parentBuilder: DocumentValueBuilder | DocumentBlueprintsValueBuilder) {
     this.parentBuilder = parentBuilder;
     this.blockListContentDataBuilder = [];
     this.blockListExposeBuilder = [];
