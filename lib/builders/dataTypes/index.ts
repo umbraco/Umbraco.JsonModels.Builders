@@ -26,3 +26,4 @@ export {UploadFieldDataTypeBuilder} from './uploadFieldDataTypeBuilder';
 export {LabelDataTypeBuilder} from './labelDataTypeBuilder';
 export {MultiUrlPickerDataTypeBuilder} from './multiUrlPickerDataTypeBuilder';
 export {TagsDataTypeBuilder} from './tagsDataTypeBuilder';
+export {MultiNodeTreePickerDataTypeBuilder} from './multiNodeTreePickerDataTypeBuilder';
