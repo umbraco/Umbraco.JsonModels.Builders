@@ -1,5 +1,5 @@
 ﻿import {MultiNodeTreePickerDataTypeBuilder} from "../multiNodeTreePickerDataTypeBuilder";
-import { StartNodeQueryStepsBuilder } from "./startNodeQueryStepsBuilder";
+import {StartNodeQueryStepsBuilder} from "./startNodeQueryStepsBuilder";
 
 export class MultiNodeTreePickerStartNodeBuilder {
   parentBuilder: MultiNodeTreePickerDataTypeBuilder;
@@ -33,7 +33,7 @@ export class MultiNodeTreePickerStartNodeBuilder {
 
   getValues() {
     let values: any = {};
-    
+
     if (this.type) {
       values.type = this.type;
     }

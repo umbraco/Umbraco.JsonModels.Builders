@@ -1,5 +1,5 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import { MultiNodeTreePickerStartNodeBuilder } from "./multiNodeTreePickerBuilder/multiNodeTreePickerStartNodeBuilder";
+import {MultiNodeTreePickerStartNodeBuilder} from "./multiNodeTreePickerBuilder/multiNodeTreePickerStartNodeBuilder";
 
 export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
   minNumber: number;

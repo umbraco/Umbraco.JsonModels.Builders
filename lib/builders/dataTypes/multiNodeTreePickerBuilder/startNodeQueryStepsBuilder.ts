@@ -1,4 +1,4 @@
-﻿import { MultiNodeTreePickerStartNodeBuilder } from "./multiNodeTreePickerStartNodeBuilder";
+﻿import {MultiNodeTreePickerStartNodeBuilder} from "./multiNodeTreePickerStartNodeBuilder";
 
 export class StartNodeQueryStepsBuilder {
   parentBuilder: MultiNodeTreePickerStartNodeBuilder;
