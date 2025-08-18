@@ -1,11 +1,12 @@
 ﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import { MultiNodeTreePickerStartNodeBuilder } from "./multiNodeTreePickerBuilder/multiNodeTreePickerStartNodeBuilder";
 
 export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
   minNumber: number;
   maxNumber: number;
   ignoreUserStartNodes: boolean;
   filterIds: string;
-  startNode: string;
+  multiNodeTreePickerStartNodeBuilder: MultiNodeTreePickerStartNodeBuilder;
 
   constructor() {
     super();
@@ -33,9 +34,10 @@ export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
     return this;
   }
 
-  withStartNode(startNode: string) {  
-    this.startNode = startNode;
-    return this;
+  addStartNode() {  
+    const builder = new MultiNodeTreePickerStartNodeBuilder(this);
+    this.multiNodeTreePickerStartNodeBuilder = builder;
+    return builder;
   }
 
   getValues() {
@@ -65,12 +67,10 @@ export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
       });
     }
 
-    if (this.startNode !== undefined) {
+    if (this.multiNodeTreePickerStartNodeBuilder) {
       values.push({
         alias: "startNode",
-        value: {
-          type: this.startNode
-        }
+        value: this.multiNodeTreePickerStartNodeBuilder.getValues()
       });
     }
 
