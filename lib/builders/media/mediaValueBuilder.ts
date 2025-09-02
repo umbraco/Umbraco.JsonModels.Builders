@@ -7,6 +7,8 @@ export class MediaValueBuilder {
   segment: string;
   alias: string;
   editorAlias: string;
+  entityType: string;
+  value: string;
   mediaValueData: MediaValueDataBuilder;
 
   constructor(parentBuilder: MediaBuilder) {
@@ -33,6 +35,16 @@ export class MediaValueBuilder {
     return this;
   }
 
+  withEntityType(entityType: string) {
+    this.entityType = entityType;
+    return this;
+  }
+
+  withValue(value: string) {
+    this.value = value;
+    return this;
+  }
+
   addValueData() {
     const builder = new MediaValueDataBuilder(this);
     this.mediaValueData = builder;
@@ -44,12 +56,21 @@ export class MediaValueBuilder {
   }
 
   build() {
+    let value: any = null;
+
+    if (this.value != null) {
+      value = this.value;
+    } else {
+      value = this.mediaValueData.getValue();
+    }
+
     return {
       culture: this.culture || null,
       segment: this.segment || null,
       alias: this.alias || null,
       editorAlias: this.editorAlias || null,
-      value: this.mediaValueData.getValue() || null
+      value: value || null,
+      entityType: this.editorAlias !== undefined ? 'media-property-value' : null
     };
   }
 }
