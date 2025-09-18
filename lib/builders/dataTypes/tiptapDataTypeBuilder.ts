@@ -150,7 +150,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
       "Umb.Tiptap.TrailingNode",
       "Umb.Tiptap.Underline",
       "Umb.Tiptap.WordCount"
-    ]
+    ];
     values.push({
       alias: "extensions",
       value: this.tiptapExtensionBuilder
