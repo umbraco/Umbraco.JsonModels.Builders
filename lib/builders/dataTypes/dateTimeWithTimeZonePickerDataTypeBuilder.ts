@@ -19,6 +19,7 @@ export class DateTimeWithTimeZonePickerDataTypeBuilder extends DataTypeBuilder {
 
   withTimeZoneMode(timeZoneMode: string) {
     this.timeZoneMode = timeZoneMode;
+    return this;
   }
 
   withTimeZone(timeZone: string) {
