@@ -1,78 +1,164 @@
 # Umbraco.JsonModels.Builder
-Umbraco.JsonModels.Builder is a package made for use with Umbraco.
-This package is meant to contain all the Umbraco backoffice models, and their corresponding builders. If you see any model/builder missing, please create an issue / open a PR for it yourself, we would love your contribution!
 
-## What even is a builder?
-Before we even get started, lets talk about what a builder is. We are using the [Builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) here.
-The builder is a class that creates a model, but you yourself can then use that builder to tweak the different properties.
-If you take a look at the `DocumentTypeBuilder` you will see all these properties:
+A TypeScript library that provides builders for creating JSON models used with the Umbraco CMS backoffice. This package implements the [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern) to simplify the creation of complex Umbraco configuration objects through a fluent API with sensible defaults.
 
-```
-compositeContentTypes;
-isContainer;
-allowAsRoot;
-allowedTemplates;
-allowedContentTypes;
-alias;
-description;
-thumbnail;
-name;
-id;
-icon;
-trashed;
-key;
-parentId;
-path;
-allowCultureVariant;
-isElement;
-defaultTemplate;
-lockedCompositeContentTypes: any[];
-historyCleanupPreventCleanup;
-historyCleanupKeepAllVersionsNewerThanDays;
-historyCleanupKeepLatestVersionPerDayForDays;
-documentTypeGroupBuilders;
-documentTypeHistoryCleanupBuilder;
-```
-
-This looks very daunting, what types are these properties, what values do you fill out? You could imagine this being a big process, every time you needed to create a document type.
-Well the builder handles setting all of this for you! So all you would need to do, when using a builder to create a document type is: 
-```
-const documentType = new DocumentTypeBuilder()
-      .build();
-```
-The builder will then fill out all the properties with default values!
 ## Prerequisites
-This project was made with Node V16, so the minimum requirement is node `16.17.1`
 
-## Getting started
-You can import a builder in the top of your file like so:
+- Node.js 16.17.1 or higher
+- npm
 
+## Installation
+
+```bash
+npm install @umbraco/json-models-builders
 ```
-import {  DocumentTypeBuilder} from "@umbraco/json-models-builders";
+
+## Quick Start
+
+```typescript
+import { DocumentTypeBuilder } from "@umbraco/json-models-builders";
+
+// Create a document type with default values
+const documentType = new DocumentTypeBuilder().build();
+
+// Create a document type with custom configuration
+const customDocType = new DocumentTypeBuilder()
+  .withName("Blog Post")
+  .withIcon("icon-newspaper")
+  .withAllowedAsRoot(true)
+  .addProperty()
+    .withName("Title")
+    .withDataTypeId("textstring-id")
+    .withMandatory(true)
+    .done()
+  .build();
 ```
 
-You can then use the imported builder to build a model:
+## Available Builders
 
-```
+### Document Types
+
+```typescript
 const documentType = new DocumentTypeBuilder()
-      .build();
+  .withName("Article")
+  .withAlias("article")
+  .withIcon("icon-document")
+  .withAllowedAsRoot(true)
+  .withVariesByCulture(true)
+  .addProperty()
+    .withName("Title")
+    .withDataTypeId("datatype-id")
+    .withMandatory(true)
+    .withMandatoryMessage("Title is required")
+    .done()
+  .addContainer()
+    .withName("Content")
+    .withType("Tab")
+    .done()
+  .build();
 ```
 
-If you want to configure a property, like giving the document type a specific name, there are different methods for that, for changing the name, you can call the `withName()` method like so:
+### Data Types
+
+The library includes 38+ data type builders:
+
+| Category | Builders |
+|----------|----------|
+| **Text** | `TextStringDataTypeBuilder`, `TextAreaDataTypeBuilder`, `MultipleTextStringDataTypeBuilder` |
+| **Numbers** | `NumericDataTypeBuilder`, `DecimalDataTypeBuilder`, `SliderDataTypeBuilder` |
+| **Boolean** | `TrueFalseDataTypeBuilder` |
+| **Date/Time** | `DatePickerDataTypeBuilder`, `DateOnlyPickerDataTypeBuilder`, `TimeOnlyPickerDataTypeBuilder`, `DateTimePickerDataTypeBuilder`, `DateTimeWithTimeZonePickerDataTypeBuilder` |
+| **Selection** | `DropdownDataTypeBuilder`, `CheckboxListDataTypeBuilder`, `RadioboxDataTypeBuilder`, `TagsDataTypeBuilder` |
+| **Pickers** | `ContentPickerDataTypeBuilder`, `MultiNodeTreePickerDataTypeBuilder`, `MediaPickerDataTypeBuilder`, `EntityDataPickerDataTypeBuilder` |
+| **Rich Content** | `TinyMCEDataTypeBuilder`, `TiptapDataTypeBuilder`, `MarkdownEditorDataTypeBuilder`, `CodeEditorDataTypeBuilder` |
+| **Complex** | `BlockListDataTypeBuilder`, `BlockGridDataTypeBuilder`, `ImageCropperDataTypeBuilder`, `ListViewDataTypeBuilder` |
+| **Other** | `LabelDataTypeBuilder`, `EmailAddressDataTypeBuilder`, `MultiUrlPickerDataTypeBuilder`, `UploadFieldDataTypeBuilder`, `ApprovedColorDataTypeBuilder` |
+
+```typescript
+const blockGrid = new BlockGridDataTypeBuilder()
+  .withName("Page Layout")
+  .addBlock()
+    .withContentElementTypeKey("hero-element-key")
+    .withLabel("Hero Section")
+    .withAllowAtRoot(true)
+    .done()
+  .build();
 ```
-const documentType = new DocumentTypeBuilder()
-      .withName("My document type")
-      .build();
+
+### Documents & Value Builders
+
+```typescript
+import { DocumentBuilder, BlockListValueBuilder } from "@umbraco/json-models-builders";
+
+const document = new DocumentBuilder()
+  .withDocumentTypeId("document-type-id")
+  .addValue()
+    .withAlias("title")
+    .withValue("My Page Title")
+    .done()
+  .addVariant()
+    .withCulture("en-US")
+    .withName("English Version")
+    .done()
+  .build();
+
+// For complex property values
+const blockListValue = new BlockListValueBuilder()
+  .addContentData()
+    .withContentTypeKey("element-key")
+    .done()
+  .build();
 ```
 
-# Contributing to Umbraco.JsonModels.Builders
-There are a few things to consider when contributing
+Also available: `BlockGridValueBuilder`, `MediaPickerValueBuilder`, `URLPickerValueBuilder`, `ImageCropperValueBuilder`
 
-## Adding new models/builders
-When adding new models/builders, it is important to register the exports in the correct `index.ts` files!
-Lets say you've added a new builder, remember to export it in the `lib/builders/index.ts` file.
+### Other Builders
 
-## Testing your code
-- Run `npm run build` & `npm link` in the root of this directory.
-- Now the package is ready to be linked where-ever you are using it, without it having to be on npm!
-- Run `npm link @umbraco/json-models-builders` in your directory where you are using this package.
+| Builder | Purpose |
+|---------|---------|
+| `MediaTypeBuilder` / `MediaBuilder` | Media definitions and instances |
+| `MemberTypeBuilder` / `MemberBuilder` | Member definitions and instances |
+| `UserBuilder` / `UserGroupBuilder` | User management with granular permissions |
+| `WebhookBuilder` | Webhook configuration |
+| `PackageBuilder` | Package creation with all asset types |
+| `DocumentBlueprintsBuilder` | Content templates |
+| `DocumentDomainBuilder` | Multi-domain/culture configuration |
+
+## Builder Conventions
+
+| Method | Purpose |
+|--------|---------|
+| `with*()` | Set a property |
+| `add*()` | Create and add a child builder |
+| `build()` | Construct the final JSON object |
+| `done()` | Return to parent builder |
+
+## Contributing
+
+We welcome contributions! If you find any model or builder missing, please create an issue or open a PR.
+
+### Local Development
+
+```bash
+npm install
+npm run build
+```
+
+### Testing Locally
+
+```bash
+npm run build
+npm pack
+# In your project:
+npm install /path/to/umbraco-json-models-builders-2.0.42.tgz
+```
+
+## License
+
+MIT
+
+## Links
+
+- [GitHub Repository](https://github.com/umbraco/Umbraco.JsonModels.Builders)
+- [npm Package](https://www.npmjs.com/package/@umbraco/json-models-builders)
+- [Umbraco CMS](https://umbraco.com)
