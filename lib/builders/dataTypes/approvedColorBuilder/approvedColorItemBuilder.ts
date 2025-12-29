@@ -1,4 +1,4 @@
-﻿import { ApprovedColorDataTypeBuilder } from "../approvedColorDataTypeBuilder";
+﻿import {ApprovedColorDataTypeBuilder} from "../approvedColorDataTypeBuilder";
 
 export class ApprovedColorItemBuilder {
   parentBuilder: ApprovedColorDataTypeBuilder;

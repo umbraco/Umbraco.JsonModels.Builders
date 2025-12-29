@@ -1,4 +1,4 @@
-﻿import { ApprovedColorItemBuilder } from "./approvedColorBuilder";
+﻿import {ApprovedColorItemBuilder} from "./approvedColorBuilder";
 import {DataTypeBuilder} from "./dataTypeBuilder";
 
 export class ApprovedColorDataTypeBuilder extends DataTypeBuilder {

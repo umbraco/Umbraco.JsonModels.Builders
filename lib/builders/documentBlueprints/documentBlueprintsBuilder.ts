@@ -1,6 +1,6 @@
-﻿import { DocumentBlueprintsValueBuilder } from "./documentBlueprintsValueBuilder";
-import { DocumentBlueprintsVariantBuilder } from "./documentBlueprintsVariantBuilder";
-import { ensureId } from "../../helpers/BuilderUtils";
+﻿import {DocumentBlueprintsValueBuilder} from "./documentBlueprintsValueBuilder";
+import {DocumentBlueprintsVariantBuilder} from "./documentBlueprintsVariantBuilder";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class DocumentBlueprintsBuilder {
   documentBlueprintsValueBuilder: DocumentBlueprintsValueBuilder[];
