@@ -1,5 +1,6 @@
 ﻿import {DocumentValueBuilder} from "./documentValueBuilder";
 import {DocumentVariantBuilder} from "./documentVariantBuilder";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class DocumentBuilder {
   documentValueBuilder: DocumentValueBuilder[];
@@ -47,10 +48,7 @@ export class DocumentBuilder {
   }
 
   build() {
-    if (!this.id) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
 
     return {
       values: this.documentValueBuilder.map((builder) => {

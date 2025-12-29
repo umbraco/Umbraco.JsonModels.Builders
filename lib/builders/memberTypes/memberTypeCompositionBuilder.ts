@@ -1,4 +1,5 @@
 ﻿import {MemberTypeBuilder} from "./memberTypeBuilder";
+import {buildComposition} from "../../helpers/BuilderUtils";
 
 export class MemberTypeCompositionBuilder {
   parentBuilder: MemberTypeBuilder;
@@ -24,11 +25,6 @@ export class MemberTypeCompositionBuilder {
   }
 
   build() {
-    return {
-      memberType: {
-        id: this.memberTypeId || null
-      },
-      compositionType: this.compositionType || "Composition"
-    };
+    return buildComposition('memberType', this.memberTypeId, this.compositionType);
   }
 }

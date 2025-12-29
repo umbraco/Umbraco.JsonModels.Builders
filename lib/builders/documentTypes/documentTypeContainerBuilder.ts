@@ -1,4 +1,5 @@
 ﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
+import {buildContainer} from "../../helpers/BuilderUtils";
 
 export class DocumentTypeContainerBuilder {
   parentBuilder: DocumentTypeBuilder;
@@ -42,12 +43,12 @@ export class DocumentTypeContainerBuilder {
   }
 
   build() {
-    return {
-      id: this.id || null,
-      parent: this.parentId ? {id: this.parentId} : null,
-      name: this.name || "",
-      type: this.type || "Group",
-      sortOrder: this.sortOrder || 0
-    };
+    return buildContainer({
+      id: this.id,
+      parentId: this.parentId,
+      name: this.name,
+      type: this.type,
+      sortOrder: this.sortOrder
+    });
   }
 }

@@ -2,6 +2,7 @@
 import {MediaTypeContainerBuilder} from "./mediaTypeContainerBuilder";
 import {MediaTypeAllowedMediaTypeBuilder} from "./mediaTypeAllowedMediaTypeBuilder";
 import {MediaTypeCompositionBuilder} from "./mediaTypeCompositionBuilder";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class MediaTypeBuilder {
   alias: string;
@@ -97,10 +98,7 @@ export class MediaTypeBuilder {
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
 
     return {
       alias: this.alias || "",

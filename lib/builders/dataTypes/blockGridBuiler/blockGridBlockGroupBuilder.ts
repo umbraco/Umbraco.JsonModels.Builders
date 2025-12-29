@@ -1,4 +1,5 @@
 ﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
+import {ensureId} from "../../../helpers/BuilderUtils";
 
 export class BlockGridBlockGroupBuilder {
   parentBuilder: BlockGridDataTypeBuilder;
@@ -19,11 +20,7 @@ export class BlockGridBlockGroupBuilder {
   }
 
   getValues() {
-    const crypto = require('crypto');
-
-    if (this.key == null) {
-      this.key = crypto.randomUUID();
-    }
+    this.key = ensureId(this.key);
 
     return {
       key: this.key,

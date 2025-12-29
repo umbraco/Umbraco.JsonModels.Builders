@@ -1,4 +1,5 @@
 ﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
+import {buildComposition} from "../../helpers/BuilderUtils";
 
 export class DocumentTypeCompositionBuilder {
   parentBuilder: DocumentTypeBuilder;
@@ -24,11 +25,6 @@ export class DocumentTypeCompositionBuilder {
   }
 
   build() {
-    return {
-      documentType: {
-        id: this.documentTypeId || null
-      },
-      compositionType: this.compositionType || "Composition"
-    };
+    return buildComposition('documentType', this.documentTypeId, this.compositionType);
   }
 }

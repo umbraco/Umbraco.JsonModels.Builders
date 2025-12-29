@@ -1,6 +1,7 @@
 ﻿import {MemberTypeCompositionBuilder} from "./memberTypeCompositionBuilder";
 import {MemberTypeContainerBuilder} from "./memberTypeContainerBuilder";
 import {MemberTypePropertyBuilder} from "./memberTypePropertyBuilder";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class MemberTypeBuilder {
   alias: string;
@@ -87,10 +88,7 @@ export class MemberTypeBuilder {
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
 
     return {
       alias: this.alias || "",

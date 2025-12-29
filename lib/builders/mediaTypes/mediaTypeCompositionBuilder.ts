@@ -1,4 +1,5 @@
 ﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
+import {buildComposition} from "../../helpers/BuilderUtils";
 
 export class MediaTypeCompositionBuilder {
   parentBuilder: MediaTypeBuilder;
@@ -24,11 +25,6 @@ export class MediaTypeCompositionBuilder {
   }
 
   build() {
-    return {
-      mediaType: {
-        id: this.mediaTypeId || null
-      },
-      compositionType: this.compositionType || "Composition"
-    };
+    return buildComposition('mediaType', this.mediaTypeId, this.compositionType);
   }
 }

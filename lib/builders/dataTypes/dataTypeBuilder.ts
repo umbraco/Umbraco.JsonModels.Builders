@@ -1,4 +1,6 @@
-﻿export abstract class DataTypeBuilder {
+﻿import { ensureId } from "../../helpers/BuilderUtils";
+
+export abstract class DataTypeBuilder {
   id: string;
   parentId: string;
   name: string;
@@ -21,10 +23,7 @@
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
     return {
       editorAlias: this.editorAlias,
       editorUiAlias: this.editorUiAlias,

@@ -4,6 +4,7 @@ import {DocumentTypeAllowedDocumentTypeBuilder} from "./documentTypeAllowedDocum
 import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
 import {DocumentTypeAllowedTemplateBuilder} from "./documentTypeAllowedTemplateBuilder";
 import {AliasHelper} from "../../helpers/AliasHelper";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class DocumentTypeBuilder {
   alias: string;
@@ -136,10 +137,7 @@ export class DocumentTypeBuilder {
   }
 
   build() {
-    if (!this.id) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
 
     return {
       alias: this.alias || AliasHelper.toAlias(this.name),

@@ -1,5 +1,6 @@
 ﻿import {MemberValueBuilder} from "./memberValueBuilder";
 import {MemberVariantBuilder} from "./memberVariantBuilder";
+import {ensureId} from "../../helpers/BuilderUtils";
 
 export class MemberBuilder {
   memberValueBuilder: MemberValueBuilder[];
@@ -66,10 +67,7 @@ export class MemberBuilder {
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureId(this.id);
 
     return {
       values: this.memberValueBuilder.map((builder) => {
