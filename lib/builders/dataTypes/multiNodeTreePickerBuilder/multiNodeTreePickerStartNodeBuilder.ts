@@ -1,5 +1,5 @@
-﻿import {MultiNodeTreePickerDataTypeBuilder} from "../multiNodeTreePickerDataTypeBuilder";
-import {StartNodeQueryStepsBuilder} from "./startNodeQueryStepsBuilder";
+import {MultiNodeTreePickerDataTypeBuilder} from '../multiNodeTreePickerDataTypeBuilder';
+import {StartNodeQueryStepsBuilder} from './startNodeQueryStepsBuilder';
 
 export class MultiNodeTreePickerStartNodeBuilder {
   parentBuilder: MultiNodeTreePickerDataTypeBuilder;

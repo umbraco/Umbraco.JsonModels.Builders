@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class MultiUrlPickerDataTypeBuilder extends DataTypeBuilder {
   minNumber: number;
@@ -9,8 +9,8 @@ export class MultiUrlPickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.MultiUrlPicker";
-    this.editorUiAlias = "Umb.PropertyEditorUi.MultiUrlPicker";
+    this.editorAlias = 'Umbraco.MultiUrlPicker';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.MultiUrlPicker';
   }
 
   withMinNumber(minNumber: number) {
@@ -42,31 +42,31 @@ export class MultiUrlPickerDataTypeBuilder extends DataTypeBuilder {
     let values: any = [];
     if (this.minNumber !== undefined) {
       values.push({
-        alias: "minNumber",
+        alias: 'minNumber',
         value: this.minNumber
       });
     }
     if (this.maxNumber !== undefined) {
       values.push({
-        alias: "maxNumber",
+        alias: 'maxNumber',
         value: this.maxNumber
       });
     }
     if (this.ignoreUserStartNodes !== undefined) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes
       });
     }
     if (this.overlaySize !== undefined) {
       values.push({
-        alias: "overlaySize",
+        alias: 'overlaySize',
         value: this.overlaySize
       });
     }
     if (this.hideAnchor !== undefined) {
       values.push({
-        alias: "hideAnchor",
+        alias: 'hideAnchor',
         value: this.hideAnchor
       });
     }

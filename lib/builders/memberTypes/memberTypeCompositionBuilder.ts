@@ -1,5 +1,5 @@
-﻿import {MemberTypeBuilder} from "./memberTypeBuilder";
-import {buildComposition} from "../../helpers/BuilderUtils";
+import {MemberTypeBuilder} from './memberTypeBuilder';
+import {buildComposition} from '../../helpers/BuilderUtils';
 
 export class MemberTypeCompositionBuilder {
   parentBuilder: MemberTypeBuilder;

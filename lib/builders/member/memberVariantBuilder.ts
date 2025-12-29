@@ -1,4 +1,4 @@
-﻿import {MemberBuilder} from "./memberBuilder";
+import {MemberBuilder} from './memberBuilder';
 
 export class MemberVariantBuilder {
   parentBuilder: MemberBuilder;
@@ -33,7 +33,7 @@ export class MemberVariantBuilder {
     return {
       culture: this.culture || null,
       segment: this.segment || null,
-      name: this.name || "",
+      name: this.name || '',
     };
   }
 }

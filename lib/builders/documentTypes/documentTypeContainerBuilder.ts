@@ -1,5 +1,5 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
-import {buildContainer} from "../../helpers/BuilderUtils";
+import {DocumentTypeBuilder} from './documentTypeBuilder';
+import {buildContainer} from '../../helpers/BuilderUtils';
 
 export class DocumentTypeContainerBuilder {
   parentBuilder: DocumentTypeBuilder;

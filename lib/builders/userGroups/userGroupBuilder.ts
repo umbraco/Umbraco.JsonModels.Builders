@@ -1,6 +1,6 @@
-﻿import {UserGroupPermissionBuilder} from "./userGroupPermissionBuilder";
-import {AliasHelper} from "../../helpers/AliasHelper";
-import {UserGroupsPermissionsBaseBuilder} from "./userGroupsPermissionsBaseBuilder";
+import {UserGroupPermissionBuilder} from './userGroupPermissionBuilder';
+import {AliasHelper} from '../../helpers/AliasHelper';
+import {UserGroupsPermissionsBaseBuilder} from './userGroupsPermissionsBaseBuilder';
 
 export class UserGroupBuilder {
   name: string;
@@ -79,9 +79,9 @@ export class UserGroupBuilder {
 
   build() {
     return {
-      name: this.name || "",
-      alias: AliasHelper.toAlias(this.name) || "",
-      icon: this.icon || "icon-bug",
+      name: this.name || '',
+      alias: AliasHelper.toAlias(this.name) || '',
+      icon: this.icon || 'icon-bug',
       sections: this.sections || [],
       languages: this.languages || [],
       hasAccessToAllLanguages: this.hasAccessToAllLanguages || false,

@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class NumericDataTypeBuilder extends DataTypeBuilder {
   min: number;
@@ -7,8 +7,8 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Integer";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Integer";
+    this.editorAlias = 'Umbraco.Integer';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Integer';
   }
 
   withMin(min: number) {
@@ -29,15 +29,15 @@ export class NumericDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any = [];
     values.push({
-      alias: "min",
+      alias: 'min',
       value: this.min || 0
     });
     values.push({
-      alias: "max",
+      alias: 'max',
       value: this.max || 0
     });
     values.push({
-      alias: "step",
+      alias: 'step',
       value: this.step || 0
     });
     return values;

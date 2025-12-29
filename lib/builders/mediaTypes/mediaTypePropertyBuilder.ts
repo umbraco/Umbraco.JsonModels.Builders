@@ -1,5 +1,5 @@
-﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
-import {ensureId, buildProperty} from "../../helpers/BuilderUtils";
+import {MediaTypeBuilder} from './mediaTypeBuilder';
+import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
 
 export class MediaTypePropertyBuilder {
   parentBuilder: MediaTypeBuilder;

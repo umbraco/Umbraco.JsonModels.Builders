@@ -1,5 +1,5 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
-import {buildComposition} from "../../helpers/BuilderUtils";
+import {DocumentTypeBuilder} from './documentTypeBuilder';
+import {buildComposition} from '../../helpers/BuilderUtils';
 
 export class DocumentTypeCompositionBuilder {
   parentBuilder: DocumentTypeBuilder;

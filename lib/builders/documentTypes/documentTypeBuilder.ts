@@ -1,10 +1,10 @@
-﻿import {DocumentTypePropertyBuilder} from "./documentTypePropertyBuilder";
-import {DocumentTypeContainerBuilder} from "./documentTypeContainerBuilder";
-import {DocumentTypeAllowedDocumentTypeBuilder} from "./documentTypeAllowedDocumentTypeBuilder";
-import {DocumentTypeCompositionBuilder} from "./documentTypeCompositionBuilder";
-import {DocumentTypeAllowedTemplateBuilder} from "./documentTypeAllowedTemplateBuilder";
-import {AliasHelper} from "../../helpers/AliasHelper";
-import {ensureId} from "../../helpers/BuilderUtils";
+import {DocumentTypePropertyBuilder} from './documentTypePropertyBuilder';
+import {DocumentTypeContainerBuilder} from './documentTypeContainerBuilder';
+import {DocumentTypeAllowedDocumentTypeBuilder} from './documentTypeAllowedDocumentTypeBuilder';
+import {DocumentTypeCompositionBuilder} from './documentTypeCompositionBuilder';
+import {DocumentTypeAllowedTemplateBuilder} from './documentTypeAllowedTemplateBuilder';
+import {AliasHelper} from '../../helpers/AliasHelper';
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export class DocumentTypeBuilder {
   alias: string;
@@ -141,9 +141,9 @@ export class DocumentTypeBuilder {
 
     return {
       alias: this.alias || AliasHelper.toAlias(this.name),
-      name: this.name || "",
-      description: this.description || "",
-      icon: this.icon || "icon-document",
+      name: this.name || '',
+      description: this.description || '',
+      icon: this.icon || 'icon-document',
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,

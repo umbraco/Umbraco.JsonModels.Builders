@@ -1,4 +1,4 @@
-﻿import {DocumentBuilder} from "./documentBuilder";
+import {DocumentBuilder} from './documentBuilder';
 
 export class DocumentVariantBuilder {
   parentBuilder: DocumentBuilder;

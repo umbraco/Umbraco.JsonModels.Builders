@@ -1,4 +1,4 @@
-﻿import {MediaPickerDataTypeBuilder} from "../mediaPickerDataTypeBuilder";
+import {MediaPickerDataTypeBuilder} from '../mediaPickerDataTypeBuilder';
 
 export class MediaPickerCropBuilder {
   parentBuilder: MediaPickerDataTypeBuilder;

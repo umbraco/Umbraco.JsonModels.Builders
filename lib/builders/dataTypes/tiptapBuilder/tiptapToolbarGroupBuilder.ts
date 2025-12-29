@@ -1,4 +1,4 @@
-﻿import {TiptapToolbarRowBuilder} from "./tiptapToolbarRowBuilder";
+import {TiptapToolbarRowBuilder} from './tiptapToolbarRowBuilder';
 
 export class TiptapToolbarGroupBuilder {
   parentBuilder: TiptapToolbarRowBuilder;

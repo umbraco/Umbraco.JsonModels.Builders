@@ -1,6 +1,6 @@
-﻿import {BlockGridValueBuilder} from "../document/blockGridValueBuilder";
-import {BlockListValueBuilder} from "../document/blockListValueBuilder";
-import {DocumentBlueprintsBuilder} from "./documentBlueprintsBuilder";
+import {BlockGridValueBuilder} from '../document/blockGridValueBuilder';
+import {BlockListValueBuilder} from '../document/blockListValueBuilder';
+import {DocumentBlueprintsBuilder} from './documentBlueprintsBuilder';
 
 export class DocumentBlueprintsValueBuilder {
   parentBuilder: DocumentBlueprintsBuilder;

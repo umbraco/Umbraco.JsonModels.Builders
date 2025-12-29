@@ -1,5 +1,5 @@
-﻿import {MemberTypeBuilder} from "./memberTypeBuilder";
-import {ensureId, buildProperty} from "../../helpers/BuilderUtils";
+import {MemberTypeBuilder} from './memberTypeBuilder';
+import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
 
 export class MemberTypePropertyBuilder {
   parentBuilder: MemberTypeBuilder;

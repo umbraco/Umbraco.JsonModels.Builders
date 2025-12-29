@@ -1,5 +1,5 @@
-﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
-import {BlockGridAreaBuilder} from "./blockGridAreaBuilder";
+import {BlockGridDataTypeBuilder} from '../blockGridDataTypeBuilder';
+import {BlockGridAreaBuilder} from './blockGridAreaBuilder';
 
 export class BlockGridBlockBuilder {
   parentBuilder: BlockGridDataTypeBuilder;

@@ -1,5 +1,5 @@
-﻿import {BaseContentDataValueBuilder} from "../baseBlockValueBuilder";
-import {BlockListContentDataBuilder} from "./blockListContentDataBuilder";
+import {BaseContentDataValueBuilder} from '../baseBlockValueBuilder';
+import {BlockListContentDataBuilder} from './blockListContentDataBuilder';
 
 export class BlockListContentDataValueBuilder extends BaseContentDataValueBuilder{
   parentBuilder: BlockListContentDataBuilder;

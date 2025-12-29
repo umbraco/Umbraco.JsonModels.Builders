@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class TrueFalseDataTypeBuilder extends DataTypeBuilder {
   isDefault: boolean;
@@ -8,8 +8,8 @@ export class TrueFalseDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.TrueFalse";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Toggle";
+    this.editorAlias = 'Umbraco.TrueFalse';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Toggle';
   }
 
   withIsDefault(isDefault: boolean) {

@@ -1,4 +1,4 @@
-﻿import {BlockGridAreaBuilder} from "./blockGridAreaBuilder";
+import {BlockGridAreaBuilder} from './blockGridAreaBuilder';
 
 export class BlockGridSpecifiedAllowanceBuilder {
   parentBuilder: BlockGridAreaBuilder;

@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "../dataTypeBuilder";
-import {TinyMCEToolbarBuilder} from "./tinyMCEToolbarBuilder";
+import {DataTypeBuilder} from '../dataTypeBuilder';
+import {TinyMCEToolbarBuilder} from './tinyMCEToolbarBuilder';
 
 export class TinyMCEDataTypeBuilder extends DataTypeBuilder {
   tinyMCEToolbarBuilder: TinyMCEToolbarBuilder;
@@ -16,8 +16,8 @@ export class TinyMCEDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.RichText";
-    this.editorUiAlias = "Umb.PropertyEditorUi.TinyMCE";
+    this.editorAlias = 'Umbraco.RichText';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.TinyMCE';
   }
 
   addToolbar() {
@@ -77,35 +77,35 @@ export class TinyMCEDataTypeBuilder extends DataTypeBuilder {
 
     if (this.tinyMCEToolbarBuilder) {
       values.push({
-        alias: "toolbar",
+        alias: 'toolbar',
         value: this.tinyMCEToolbarBuilder.build()
       });
     }
 
     if (this.maxImageSize) {
       values.push({
-        alias: "maxImageSize",
+        alias: 'maxImageSize',
         value: this.maxImageSize
       });
     }
 
     if (this.editorMode) {
       values.push({
-        alias: "editor",
+        alias: 'editor',
         value: this.editorMode
       });
     }
 
     if (this.stylesheets.length > 0) {
       values.push({
-        alias: "stylesheets",
+        alias: 'stylesheets',
         value: this.stylesheets
       });
     }
 
     if (this.dimensionsWidth && this.dimensionsHeight) {
       values.push({
-        alias: "dimensions",
+        alias: 'dimensions',
         value: {
           width: this.dimensionsWidth,
           height: this.dimensionsHeight
@@ -115,35 +115,35 @@ export class TinyMCEDataTypeBuilder extends DataTypeBuilder {
 
     if (this.overlaySize) {
       values.push({
-        alias: "overlaySize",
+        alias: 'overlaySize',
         value: this.overlaySize
       });
     }
 
     if (this.hideLabel) {
       values.push({
-        alias: "hideLabel",
+        alias: 'hideLabel',
         value: this.hideLabel
       });
     }
 
     if (this.mediaParentId) {
       values.push({
-        alias: "mediaParentId",
+        alias: 'mediaParentId',
         value: this.mediaParentId
       });
     }
 
     if (this.ignoreUserStartNodes) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes
       });
     }
 
     if (this.blocks.length > 0) {
       values.push({
-        alias: "blocks",
+        alias: 'blocks',
         value: this.blocks
       });
     }

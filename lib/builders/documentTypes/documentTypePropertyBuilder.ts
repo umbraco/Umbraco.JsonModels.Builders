@@ -1,5 +1,5 @@
-﻿import {DocumentTypeBuilder} from "./documentTypeBuilder";
-import {ensureId, buildProperty} from "../../helpers/BuilderUtils";
+import {DocumentTypeBuilder} from './documentTypeBuilder';
+import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
 
 export class DocumentTypePropertyBuilder {
   parentBuilder: DocumentTypeBuilder;

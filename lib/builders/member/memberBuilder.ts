@@ -1,6 +1,6 @@
-﻿import {MemberValueBuilder} from "./memberValueBuilder";
-import {MemberVariantBuilder} from "./memberVariantBuilder";
-import {ensureId} from "../../helpers/BuilderUtils";
+import {MemberValueBuilder} from './memberValueBuilder';
+import {MemberVariantBuilder} from './memberVariantBuilder';
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export class MemberBuilder {
   memberValueBuilder: MemberValueBuilder[];
@@ -77,9 +77,9 @@ export class MemberBuilder {
         return builder.build();
       }) || [],
       id: this.id,
-      email: this.email || "",
-      username: this.username || "",
-      password: this.password || "",
+      email: this.email || '',
+      username: this.username || '',
+      password: this.password || '',
       memberType: {id : this.memberTypeId},
       groups: this.groups || [],
       isApproved: this.isApproved || false

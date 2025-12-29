@@ -1,5 +1,5 @@
-﻿import {BlockGridDataTypeBuilder} from "../blockGridDataTypeBuilder";
-import {ensureId} from "../../../helpers/BuilderUtils";
+import {BlockGridDataTypeBuilder} from '../blockGridDataTypeBuilder';
+import {ensureId} from '../../../helpers/BuilderUtils';
 
 export class BlockGridBlockGroupBuilder {
   parentBuilder: BlockGridDataTypeBuilder;

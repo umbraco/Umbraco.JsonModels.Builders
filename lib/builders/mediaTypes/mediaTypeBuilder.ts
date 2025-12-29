@@ -1,8 +1,8 @@
-﻿import {MediaTypePropertyBuilder} from "./mediaTypePropertyBuilder";
-import {MediaTypeContainerBuilder} from "./mediaTypeContainerBuilder";
-import {MediaTypeAllowedMediaTypeBuilder} from "./mediaTypeAllowedMediaTypeBuilder";
-import {MediaTypeCompositionBuilder} from "./mediaTypeCompositionBuilder";
-import {ensureId} from "../../helpers/BuilderUtils";
+import {MediaTypePropertyBuilder} from './mediaTypePropertyBuilder';
+import {MediaTypeContainerBuilder} from './mediaTypeContainerBuilder';
+import {MediaTypeAllowedMediaTypeBuilder} from './mediaTypeAllowedMediaTypeBuilder';
+import {MediaTypeCompositionBuilder} from './mediaTypeCompositionBuilder';
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export class MediaTypeBuilder {
   alias: string;
@@ -101,10 +101,10 @@ export class MediaTypeBuilder {
     this.id = ensureId(this.id);
 
     return {
-      alias: this.alias || "",
-      name: this.name || "",
-      description: this.description || "",
-      icon: this.icon || "icon-document",
+      alias: this.alias || '',
+      name: this.name || '',
+      description: this.description || '',
+      icon: this.icon || 'icon-document',
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,

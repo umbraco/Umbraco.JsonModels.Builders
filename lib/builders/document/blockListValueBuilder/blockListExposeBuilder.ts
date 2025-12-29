@@ -1,5 +1,5 @@
-﻿import {BaseExposeBuilder} from "../baseBlockValueBuilder";
-import {BlockListValueBuilder} from "./blockListValueBuilder";
+import {BaseExposeBuilder} from '../baseBlockValueBuilder';
+import {BlockListValueBuilder} from './blockListValueBuilder';
 
 export class BlockListExposeBuilder extends BaseExposeBuilder {
   parentBuilder: BlockListValueBuilder;

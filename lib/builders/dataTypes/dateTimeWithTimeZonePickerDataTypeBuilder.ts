@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class DateTimeWithTimeZonePickerDataTypeBuilder extends DataTypeBuilder {
   timeFormat: string;
@@ -7,8 +7,8 @@ export class DateTimeWithTimeZonePickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.DateTimeWithTimeZone";
-    this.editorUiAlias = "Umb.PropertyEditorUi.DateTimeWithTimeZonePicker";
+    this.editorAlias = 'Umbraco.DateTimeWithTimeZone';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.DateTimeWithTimeZonePicker';
     this.timeZones = [];
   }
 
@@ -30,12 +30,12 @@ export class DateTimeWithTimeZonePickerDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any = [];
     values.push({
-      alias: "timeFormat",
-      value: this.timeFormat || "HH:mm"
+      alias: 'timeFormat',
+      value: this.timeFormat || 'HH:mm'
     });
 
     values.push({
-      alias: "timeZones",
+      alias: 'timeZones',
       value: {
         mode: this.timeZoneMode || 'all',
         timeZones: this.timeZones

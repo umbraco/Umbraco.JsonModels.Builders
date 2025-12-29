@@ -1,5 +1,5 @@
-﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
-import {buildContainer} from "../../helpers/BuilderUtils";
+import {MediaTypeBuilder} from './mediaTypeBuilder';
+import {buildContainer} from '../../helpers/BuilderUtils';
 
 export class MediaTypeContainerBuilder {
   parentBuilder: MediaTypeBuilder;

@@ -67,8 +67,8 @@ export function buildContainer(container: {
   return {
     id: container.id || null,
     parent: container.parentId ? { id: container.parentId } : null,
-    name: container.name || "",
-    type: container.type || "Group",
+    name: container.name || '',
+    type: container.type || 'Group',
     sortOrder: container.sortOrder || 0
   };
 }
@@ -118,9 +118,9 @@ export function buildProperty(property: {
       id: property.containerId || null
     },
     sortOrder: property.sortOrder || 0,
-    alias: property.alias || "",
-    name: property.name || "",
-    description: property.description || "",
+    alias: property.alias || '',
+    name: property.name || '',
+    description: property.description || '',
     dataType: {
       id: property.dataTypeId || null
     },
@@ -158,6 +158,6 @@ export function buildComposition(
     [typeIdField]: {
       id: typeId || null
     },
-    compositionType: compositionType || "Composition"
+    compositionType: compositionType || 'Composition'
   };
 }

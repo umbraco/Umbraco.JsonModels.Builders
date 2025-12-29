@@ -1,7 +1,7 @@
-﻿import {MemberTypeCompositionBuilder} from "./memberTypeCompositionBuilder";
-import {MemberTypeContainerBuilder} from "./memberTypeContainerBuilder";
-import {MemberTypePropertyBuilder} from "./memberTypePropertyBuilder";
-import {ensureId} from "../../helpers/BuilderUtils";
+import {MemberTypeCompositionBuilder} from './memberTypeCompositionBuilder';
+import {MemberTypeContainerBuilder} from './memberTypeContainerBuilder';
+import {MemberTypePropertyBuilder} from './memberTypePropertyBuilder';
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export class MemberTypeBuilder {
   alias: string;
@@ -91,10 +91,10 @@ export class MemberTypeBuilder {
     this.id = ensureId(this.id);
 
     return {
-      alias: this.alias || "",
-      name: this.name || "",
-      description: this.description || "",
-      icon: this.icon || "icon-user",
+      alias: this.alias || '',
+      name: this.name || '',
+      description: this.description || '',
+      icon: this.icon || 'icon-user',
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,

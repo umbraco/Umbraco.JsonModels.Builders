@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class CheckboxListDataTypeBuilder extends DataTypeBuilder {
   items: string[];
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.CheckBoxList";
-    this.editorUiAlias = "Umb.PropertyEditorUi.CheckBoxList";
+    this.editorAlias = 'Umbraco.CheckBoxList';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.CheckBoxList';
   }
 
   withItems(values: string[]) {
@@ -19,7 +19,7 @@ export class CheckboxListDataTypeBuilder extends DataTypeBuilder {
 
     if (this.items && this.items.length > 0) {
       values.push({
-        alias: "items",
+        alias: 'items',
         value: this.items
       });
     }

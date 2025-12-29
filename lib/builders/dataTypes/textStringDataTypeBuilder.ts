@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class TextStringDataTypeBuilder extends DataTypeBuilder {
   maxChars: number;
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.TextBox";
-    this.editorUiAlias = "Umb.PropertyEditorUi.TextBox";
+    this.editorAlias = 'Umbraco.TextBox';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.TextBox';
   }
 
   withMaxChars(maxChars: number) {

@@ -1,5 +1,5 @@
-﻿import {MemberTypeBuilder} from "./memberTypeBuilder";
-import {buildContainer} from "../../helpers/BuilderUtils";
+import {MemberTypeBuilder} from './memberTypeBuilder';
+import {buildContainer} from '../../helpers/BuilderUtils';
 
 export class MemberTypeContainerBuilder {
   parentBuilder: MemberTypeBuilder;

@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {TiptapExtensionBuilder, TiptapToolbarRowBuilder, TiptapBlockBuilder, TiptapStatusbarBuilder} from "./tiptapBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {TiptapExtensionBuilder, TiptapToolbarRowBuilder, TiptapBlockBuilder, TiptapStatusbarBuilder} from './tiptapBuilder';
 
 export class TiptapDataTypeBuilder extends DataTypeBuilder {
   maxImageSize: number;
@@ -15,8 +15,8 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.RichText";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Tiptap";
+    this.editorAlias = 'Umbraco.RichText';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Tiptap';
     this.tiptapBlockBuilder = [];
     this.tiptapToolbarRowBuilder = [];
     this.tiptapStatusbarBuilder = [];
@@ -77,13 +77,13 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     let values: any[] = [];
 
     values.push({
-      alias: "maxImageSize",
+      alias: 'maxImageSize',
       value: this.maxImageSize ? this.maxImageSize : 500
     });
 
     if (this.dimensionsWidth && this.dimensionsHeight) {
       values.push({
-        alias: "dimensions",
+        alias: 'dimensions',
         value: {
           width: this.dimensionsWidth,
           height: this.dimensionsHeight
@@ -92,26 +92,26 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     }
 
     values.push({
-      alias: "overlaySize",
-      value: this.overlaySize ? this.overlaySize : "medium"
+      alias: 'overlaySize',
+      value: this.overlaySize ? this.overlaySize : 'medium'
     });
 
     if (this.mediaParentId) {
       values.push({
-        alias: "mediaParentId",
+        alias: 'mediaParentId',
         value: this.mediaParentId
       });
     }
 
     if (this.ignoreUserStartNodes) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes
       });
     }
 
     values.push({
-      alias: "blocks",
+      alias: 'blocks',
       value:
         this.tiptapBlockBuilder.length > 0
           ? this.tiptapBlockBuilder.map(builder => builder.build())
@@ -119,40 +119,40 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     });
 
     const defaultExtensions = [
-      "Umb.Tiptap.RichTextEssentials",
-      "Umb.Tiptap.Anchor",
-      "Umb.Tiptap.Blockquote",
-      "Umb.Tiptap.Bold",
-      "Umb.Tiptap.BulletList",
-      "Umb.Tiptap.CodeBlock",
-      "Umb.Tiptap.Embed",
-      "Umb.Tiptap.Figure",
-      "Umb.Tiptap.Heading",
-      "Umb.Tiptap.HorizontalRule",
-      "Umb.Tiptap.HtmlAttributeClass",
-      "Umb.Tiptap.HtmlAttributeDataset",
-      "Umb.Tiptap.HtmlAttributeId",
-      "Umb.Tiptap.HtmlAttributeStyle",
-      "Umb.Tiptap.HtmlTagDiv",
-      "Umb.Tiptap.HtmlTagSpan",
-      "Umb.Tiptap.Image",
-      "Umb.Tiptap.Italic",
-      "Umb.Tiptap.Link",
-      "Umb.Tiptap.MediaUpload",
-      "Umb.Tiptap.OrderedList",
-      "Umb.Tiptap.Strike",
-      "Umb.Tiptap.Subscript",
-      "Umb.Tiptap.Superscript",
-      "Umb.Tiptap.Table",
-      "Umb.Tiptap.TextAlign",
-      "Umb.Tiptap.TextDirection",
-      "Umb.Tiptap.TextIndent",
-      "Umb.Tiptap.TrailingNode",
-      "Umb.Tiptap.Underline",
-      "Umb.Tiptap.WordCount"
+      'Umb.Tiptap.RichTextEssentials',
+      'Umb.Tiptap.Anchor',
+      'Umb.Tiptap.Blockquote',
+      'Umb.Tiptap.Bold',
+      'Umb.Tiptap.BulletList',
+      'Umb.Tiptap.CodeBlock',
+      'Umb.Tiptap.Embed',
+      'Umb.Tiptap.Figure',
+      'Umb.Tiptap.Heading',
+      'Umb.Tiptap.HorizontalRule',
+      'Umb.Tiptap.HtmlAttributeClass',
+      'Umb.Tiptap.HtmlAttributeDataset',
+      'Umb.Tiptap.HtmlAttributeId',
+      'Umb.Tiptap.HtmlAttributeStyle',
+      'Umb.Tiptap.HtmlTagDiv',
+      'Umb.Tiptap.HtmlTagSpan',
+      'Umb.Tiptap.Image',
+      'Umb.Tiptap.Italic',
+      'Umb.Tiptap.Link',
+      'Umb.Tiptap.MediaUpload',
+      'Umb.Tiptap.OrderedList',
+      'Umb.Tiptap.Strike',
+      'Umb.Tiptap.Subscript',
+      'Umb.Tiptap.Superscript',
+      'Umb.Tiptap.Table',
+      'Umb.Tiptap.TextAlign',
+      'Umb.Tiptap.TextDirection',
+      'Umb.Tiptap.TextIndent',
+      'Umb.Tiptap.TrailingNode',
+      'Umb.Tiptap.Underline',
+      'Umb.Tiptap.WordCount'
     ];
     values.push({
-      alias: "extensions",
+      alias: 'extensions',
       value: this.tiptapExtensionBuilder
         ? this.tiptapExtensionBuilder.build()
         : defaultExtensions,
@@ -160,25 +160,25 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
 
     const defaultToolbar = [
       [
-        ["Umb.Tiptap.Toolbar.SourceEditor"],
+        ['Umb.Tiptap.Toolbar.SourceEditor'],
         [
-          "Umb.Tiptap.Toolbar.Bold",
-          "Umb.Tiptap.Toolbar.Italic",
-          "Umb.Tiptap.Toolbar.Underline",
+          'Umb.Tiptap.Toolbar.Bold',
+          'Umb.Tiptap.Toolbar.Italic',
+          'Umb.Tiptap.Toolbar.Underline',
         ],
         [
-          "Umb.Tiptap.Toolbar.TextAlignLeft",
-          "Umb.Tiptap.Toolbar.TextAlignCenter",
-          "Umb.Tiptap.Toolbar.TextAlignRight",
+          'Umb.Tiptap.Toolbar.TextAlignLeft',
+          'Umb.Tiptap.Toolbar.TextAlignCenter',
+          'Umb.Tiptap.Toolbar.TextAlignRight',
         ],
-        ["Umb.Tiptap.Toolbar.BulletList", "Umb.Tiptap.Toolbar.OrderedList"],
-        ["Umb.Tiptap.Toolbar.Blockquote", "Umb.Tiptap.Toolbar.HorizontalRule"],
-        ["Umb.Tiptap.Toolbar.Link", "Umb.Tiptap.Toolbar.Unlink"],
-        ["Umb.Tiptap.Toolbar.MediaPicker", "Umb.Tiptap.Toolbar.EmbeddedMedia"],
+        ['Umb.Tiptap.Toolbar.BulletList', 'Umb.Tiptap.Toolbar.OrderedList'],
+        ['Umb.Tiptap.Toolbar.Blockquote', 'Umb.Tiptap.Toolbar.HorizontalRule'],
+        ['Umb.Tiptap.Toolbar.Link', 'Umb.Tiptap.Toolbar.Unlink'],
+        ['Umb.Tiptap.Toolbar.MediaPicker', 'Umb.Tiptap.Toolbar.EmbeddedMedia'],
       ],
     ];
     values.push({
-      alias: "toolbar",
+      alias: 'toolbar',
       value:
         this.tiptapToolbarRowBuilder.length > 0
           ? this.tiptapToolbarRowBuilder.map(builder => builder.build())
@@ -186,7 +186,7 @@ export class TiptapDataTypeBuilder extends DataTypeBuilder {
     });
 
     values.push({
-      alias: "statusbar",
+      alias: 'statusbar',
       value:
         this.tiptapStatusbarBuilder.length > 0
           ? this.tiptapStatusbarBuilder.map(builder => builder.build())

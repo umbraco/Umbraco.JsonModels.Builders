@@ -1,6 +1,6 @@
-﻿import {DocumentValueBuilder} from "./documentValueBuilder";
-import {DocumentVariantBuilder} from "./documentVariantBuilder";
-import {ensureId} from "../../helpers/BuilderUtils";
+import {DocumentValueBuilder} from './documentValueBuilder';
+import {DocumentVariantBuilder} from './documentVariantBuilder';
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export class DocumentBuilder {
   documentValueBuilder: DocumentValueBuilder[];

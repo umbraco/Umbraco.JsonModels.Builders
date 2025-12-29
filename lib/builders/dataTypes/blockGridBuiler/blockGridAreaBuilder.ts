@@ -1,6 +1,6 @@
-﻿import {BlockGridSpecifiedAllowanceBuilder} from "./blockGridSpecifiedAllowanceBuilder";
-import {BlockGridBlockBuilder} from "./blockGridBlockBuilder";
-import {ensureId} from "../../../helpers/BuilderUtils";
+import {BlockGridSpecifiedAllowanceBuilder} from './blockGridSpecifiedAllowanceBuilder';
+import {BlockGridBlockBuilder} from './blockGridBlockBuilder';
+import {ensureId} from '../../../helpers/BuilderUtils';
 
 export class BlockGridAreaBuilder {
   parentBuilder: BlockGridBlockBuilder;

@@ -1,9 +1,9 @@
-﻿import {DocumentBuilder} from "./documentBuilder";
-import {MediaPickerValueBuilder} from "./mediaPickerValueBuilder";
-import {URLPickerValueBuilder} from "./urlPickerValueBuilder";
+import {DocumentBuilder} from './documentBuilder';
+import {MediaPickerValueBuilder} from './mediaPickerValueBuilder';
+import {URLPickerValueBuilder} from './urlPickerValueBuilder';
 import {ImageCropperValueBuilder} from './imageCropperValueBuilder';
-import {BlockGridValueBuilder} from "./blockGridValueBuilder";
-import {BlockListValueBuilder} from "./blockListValueBuilder";
+import {BlockGridValueBuilder} from './blockGridValueBuilder';
+import {BlockListValueBuilder} from './blockListValueBuilder';
 
 export class DocumentValueBuilder {
   parentBuilder: DocumentBuilder;

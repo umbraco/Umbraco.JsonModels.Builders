@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class DropdownDataTypeBuilder extends DataTypeBuilder {
   multiple: boolean;
@@ -6,8 +6,8 @@ export class DropdownDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.DropDown.Flexible";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Dropdown";
+    this.editorAlias = 'Umbraco.DropDown.Flexible';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Dropdown';
   }
 
   withMultiple(multiple: boolean) {
@@ -23,12 +23,12 @@ export class DropdownDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any[] = [];
     values.push({
-      alias: "multiple",
+      alias: 'multiple',
       value: this.multiple || false
     });
     if (this.items && this.items.length > 0) {
       values.push({
-        alias: "items",
+        alias: 'items',
         value: this.items
       });
     }

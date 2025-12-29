@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class MultipleTextStringDataTypeBuilder extends DataTypeBuilder {
   min: number;
@@ -6,8 +6,8 @@ export class MultipleTextStringDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.MultipleTextstring";
-    this.editorUiAlias = "Umb.PropertyEditorUi.MultipleTextString";
+    this.editorAlias = 'Umbraco.MultipleTextstring';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.MultipleTextString';
   }
 
   withMin(min: number) {

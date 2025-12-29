@@ -1,6 +1,6 @@
-﻿import {UserGroupBuilder} from "./userGroupBuilder";
-import {UserGroupDocumentPermissionBuilder} from "./userGroupDocumentPermissionBuilder";
-import {UserGroupPropertyValuePermissionBuilder} from "./userGroupPropertyValuePermissionBuilder";
+import {UserGroupBuilder} from './userGroupBuilder';
+import {UserGroupDocumentPermissionBuilder} from './userGroupDocumentPermissionBuilder';
+import {UserGroupPropertyValuePermissionBuilder} from './userGroupPropertyValuePermissionBuilder';
 
 export class UserGroupPermissionBuilder {
   parentBuilder: UserGroupBuilder;

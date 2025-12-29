@@ -1,4 +1,4 @@
-﻿import {ensureId} from "../../helpers/BuilderUtils";
+import {ensureId} from '../../helpers/BuilderUtils';
 
 export abstract class DataTypeBuilder {
   id: string;

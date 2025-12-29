@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class SliderDataTypeBuilder extends DataTypeBuilder {
   minVal: number;
@@ -10,8 +10,8 @@ export class SliderDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Slider";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Slider";
+    this.editorAlias = 'Umbraco.Slider';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Slider';
   }
 
   withMinValue(minValue: number) {
