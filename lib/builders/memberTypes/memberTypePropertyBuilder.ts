@@ -1,5 +1,5 @@
 import {MemberTypeBuilder} from './memberTypeBuilder';
-import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
+import {ensureIdExists, buildProperty} from '../../helpers/BuilderUtils';
 
 export class MemberTypePropertyBuilder {
   parentBuilder: MemberTypeBuilder;
@@ -97,7 +97,7 @@ export class MemberTypePropertyBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return buildProperty({
       id: this.id,

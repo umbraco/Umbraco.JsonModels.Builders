@@ -2,7 +2,7 @@ import {MediaTypePropertyBuilder} from './mediaTypePropertyBuilder';
 import {MediaTypeContainerBuilder} from './mediaTypeContainerBuilder';
 import {MediaTypeAllowedMediaTypeBuilder} from './mediaTypeAllowedMediaTypeBuilder';
 import {MediaTypeCompositionBuilder} from './mediaTypeCompositionBuilder';
-import {ensureId} from '../../helpers/BuilderUtils';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export class MediaTypeBuilder {
   alias: string;
@@ -98,7 +98,7 @@ export class MediaTypeBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return {
       alias: this.alias || '',

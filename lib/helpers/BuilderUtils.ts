@@ -11,7 +11,7 @@
  * @param currentValue - The current value of the id/key field
  * @returns The existing value if set, or a new UUID
  */
-export function ensureId(currentValue: string | undefined | null): string {
+export function ensureIdExists(currentValue: string | undefined | null): string {
   if (currentValue == null) {
     const crypto = require('crypto');
     return crypto.randomUUID();

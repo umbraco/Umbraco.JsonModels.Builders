@@ -1,5 +1,5 @@
 import {MediaTypeBuilder} from './mediaTypeBuilder';
-import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
+import {ensureIdExists, buildProperty} from '../../helpers/BuilderUtils';
 
 export class MediaTypePropertyBuilder {
   parentBuilder: MediaTypeBuilder;
@@ -97,7 +97,7 @@ export class MediaTypePropertyBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return buildProperty({
       id: this.id,

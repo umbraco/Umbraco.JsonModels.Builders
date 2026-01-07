@@ -1,5 +1,5 @@
 import {BlockGridDataTypeBuilder} from '../blockGridDataTypeBuilder';
-import {ensureId} from '../../../helpers/BuilderUtils';
+import {ensureIdExists} from '../../../helpers/BuilderUtils';
 
 export class BlockGridBlockGroupBuilder {
   parentBuilder: BlockGridDataTypeBuilder;
@@ -20,7 +20,7 @@ export class BlockGridBlockGroupBuilder {
   }
 
   getValues() {
-    this.key = ensureId(this.key);
+    this.key = ensureIdExists(this.key);
 
     return {
       key: this.key,

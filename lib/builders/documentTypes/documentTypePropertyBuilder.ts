@@ -1,5 +1,5 @@
 import {DocumentTypeBuilder} from './documentTypeBuilder';
-import {ensureId, buildProperty} from '../../helpers/BuilderUtils';
+import {ensureIdExists, buildProperty} from '../../helpers/BuilderUtils';
 
 export class DocumentTypePropertyBuilder {
   parentBuilder: DocumentTypeBuilder;
@@ -97,7 +97,7 @@ export class DocumentTypePropertyBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return buildProperty({
       id: this.id,

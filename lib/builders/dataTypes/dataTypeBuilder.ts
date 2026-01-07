@@ -1,4 +1,4 @@
-import {ensureId} from '../../helpers/BuilderUtils';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export abstract class DataTypeBuilder {
   id: string;
@@ -23,7 +23,7 @@ export abstract class DataTypeBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
     return {
       editorAlias: this.editorAlias,
       editorUiAlias: this.editorUiAlias,

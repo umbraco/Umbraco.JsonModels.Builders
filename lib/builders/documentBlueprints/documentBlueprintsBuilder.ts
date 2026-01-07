@@ -1,6 +1,6 @@
 import {DocumentBlueprintsValueBuilder} from './documentBlueprintsValueBuilder';
 import {DocumentBlueprintsVariantBuilder} from './documentBlueprintsVariantBuilder';
-import {ensureId} from '../../helpers/BuilderUtils';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export class DocumentBlueprintsBuilder {
   documentBlueprintsValueBuilder: DocumentBlueprintsValueBuilder[];
@@ -42,7 +42,7 @@ export class DocumentBlueprintsBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return {
       values: this.documentBlueprintsValueBuilder.map((builder) => {

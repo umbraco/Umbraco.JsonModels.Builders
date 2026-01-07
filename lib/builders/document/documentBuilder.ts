@@ -1,6 +1,6 @@
 import {DocumentValueBuilder} from './documentValueBuilder';
 import {DocumentVariantBuilder} from './documentVariantBuilder';
-import {ensureId} from '../../helpers/BuilderUtils';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export class DocumentBuilder {
   documentValueBuilder: DocumentValueBuilder[];
@@ -48,7 +48,7 @@ export class DocumentBuilder {
   }
 
   build() {
-    this.id = ensureId(this.id);
+    this.id = ensureIdExists(this.id);
 
     return {
       values: this.documentValueBuilder.map((builder) => {
