@@ -10,6 +10,7 @@ export class BlockListBlockBuilder {
   iconColor: string;
   stylesheet: string[];
   forceHideContentEditorInOverlay: boolean;
+  thumbnail: string;
 
   constructor(parentBuilder: BlockListDataTypeBuilder) {
     this.parentBuilder = parentBuilder;
@@ -56,6 +57,11 @@ export class BlockListBlockBuilder {
     return this;
   }
 
+  withThumbnail(thumbnail: string) {
+    this.thumbnail = thumbnail;
+    return this;
+  }
+
   done() {
     return this.parentBuilder;
   }
@@ -93,6 +99,10 @@ export class BlockListBlockBuilder {
 
     if (this.forceHideContentEditorInOverlay) {
       values.forceHideContentEditorInOverlay = this.forceHideContentEditorInOverlay;
+    }
+
+    if (this.thumbnail) {
+      values.thumbnail = this.thumbnail;
     }
 
     return values;
