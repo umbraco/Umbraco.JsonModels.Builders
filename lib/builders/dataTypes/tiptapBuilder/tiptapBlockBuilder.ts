@@ -1,4 +1,4 @@
-﻿import {TiptapDataTypeBuilder} from "../tiptapDataTypeBuilder";
+import {TiptapDataTypeBuilder} from '../tiptapDataTypeBuilder';
 
 export class TiptapBlockBuilder {
   parentBuilder: TiptapDataTypeBuilder;
@@ -62,36 +62,36 @@ export class TiptapBlockBuilder {
   build() {
     let values = {};
 
-    if (this.contentElementTypeKey !== "") {
-      values["contentElementTypeKey"] = this.contentElementTypeKey;
+    if (this.contentElementTypeKey !== '') {
+      values['contentElementTypeKey'] = this.contentElementTypeKey;
     }
 
     if (this.displayInline) {
-      values["displayInline"] = this.displayInline;
+      values['displayInline'] = this.displayInline;
     }
 
-    if (this.backgroundColor !== "") {
-      values["backgroundColor"] = this.backgroundColor;
+    if (this.backgroundColor !== '') {
+      values['backgroundColor'] = this.backgroundColor;
     }
 
-    if (this.iconColor !== "") {
-      values["iconColor"] = this.iconColor;
+    if (this.iconColor !== '') {
+      values['iconColor'] = this.iconColor;
     }
 
-    if (this.thumbnail !== "") {
-      values["thumbnail"] = this.thumbnail;
+    if (this.thumbnail !== '') {
+      values['thumbnail'] = this.thumbnail;
     }
 
-    if (this.editorSize !== "") {
-      values["editorSize"] = this.editorSize;
+    if (this.editorSize !== '') {
+      values['editorSize'] = this.editorSize;
     }
 
-    if (this.label !== "") {
-      values["label"] = this.label;
+    if (this.label !== '') {
+      values['label'] = this.label;
     }
 
-    if (this.settingsElementTypeKey !== "") {
-      values["settingsElementTypeKey"] = this.settingsElementTypeKey;
+    if (this.settingsElementTypeKey !== '') {
+      values['settingsElementTypeKey'] = this.settingsElementTypeKey;
     }
 
     return values;

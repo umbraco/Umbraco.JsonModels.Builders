@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class TimeOnlyPickerDataTypeBuilder extends DataTypeBuilder {
   timeFormat: string;
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.TimeOnly";
-    this.editorUiAlias = "Umb.PropertyEditorUi.TimeOnlyPicker";
+    this.editorAlias = 'Umbraco.TimeOnly';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.TimeOnlyPicker';
   }
 
   withTimeFormat(timeFormat: string) {
@@ -17,8 +17,8 @@ export class TimeOnlyPickerDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any = [];
     values.push({
-      alias: "timeFormat",
-      value: this.timeFormat || "HH:mm"
+      alias: 'timeFormat',
+      value: this.timeFormat || 'HH:mm'
     });
     return values;
   }

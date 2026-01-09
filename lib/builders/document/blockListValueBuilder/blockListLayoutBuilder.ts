@@ -1,4 +1,4 @@
-﻿import {BlockListValueBuilder} from "./blockListValueBuilder";
+import {BlockListValueBuilder} from './blockListValueBuilder';
 
 export class BlockListLayoutBuilder {
   parentBuilder: BlockListValueBuilder;

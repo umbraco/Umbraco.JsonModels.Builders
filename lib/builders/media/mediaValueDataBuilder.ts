@@ -1,4 +1,4 @@
-﻿import {MediaValueBuilder} from "./mediaValueBuilder";
+import {MediaValueBuilder} from './mediaValueBuilder';
 
 export class MediaValueDataBuilder {
   parentBuilder: MediaValueBuilder;
@@ -44,7 +44,7 @@ export class MediaValueDataBuilder {
     if (this.src !== undefined) {
       value.src = this.src;
     }
-    value.temporaryFileId = this.temporaryFileId || "";
+    value.temporaryFileId = this.temporaryFileId || '';
     return value;
   }
 }

@@ -1,5 +1,5 @@
-﻿import {TiptapDataTypeBuilder} from "../tiptapDataTypeBuilder";
-import {TiptapToolbarGroupBuilder} from "./tiptapToolbarGroupBuilder";
+import {TiptapDataTypeBuilder} from '../tiptapDataTypeBuilder';
+import {TiptapToolbarGroupBuilder} from './tiptapToolbarGroupBuilder';
 
 export class TiptapToolbarRowBuilder {
   parentBuilder: TiptapDataTypeBuilder;

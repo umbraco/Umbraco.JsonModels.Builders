@@ -1,4 +1,4 @@
-﻿import {BlockListDataTypeBuilder} from "../blockListDataTypeBuilder";
+import {BlockListDataTypeBuilder} from '../blockListDataTypeBuilder';
 
 export class BlockListBlockBuilder {
   parentBuilder: BlockListDataTypeBuilder;

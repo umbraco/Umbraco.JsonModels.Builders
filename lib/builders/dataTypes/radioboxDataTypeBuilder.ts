@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class RadioboxDataTypeBuilder extends DataTypeBuilder {
   items: string[];
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.RadioButtonList";
-    this.editorUiAlias = "Umb.PropertyEditorUi.RadioButtonList";
+    this.editorAlias = 'Umbraco.RadioButtonList';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.RadioButtonList';
   }
 
   withItems(items: string[]) {
@@ -19,7 +19,7 @@ export class RadioboxDataTypeBuilder extends DataTypeBuilder {
 
     if (this.items && this.items.length > 0) {
       values.push({
-        alias: "items",
+        alias: 'items',
         value: this.items
       });
     }

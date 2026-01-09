@@ -1,5 +1,5 @@
-﻿import {MediaBuilder} from "./mediaBuilder";
-import {MediaValueDataBuilder} from "./mediaValueDataBuilder";
+import {MediaBuilder} from './mediaBuilder';
+import {MediaValueDataBuilder} from './mediaValueDataBuilder';
 
 export class MediaValueBuilder {
   parentBuilder: MediaBuilder;

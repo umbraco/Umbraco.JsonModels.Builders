@@ -1,5 +1,5 @@
-﻿
-import {DocumentDomainBuilder} from "./documentDomainBuilder";
+
+import {DocumentDomainBuilder} from './documentDomainBuilder';
 
 export class DocumentDomainValueBuilder {
   parentBuilder: DocumentDomainBuilder;

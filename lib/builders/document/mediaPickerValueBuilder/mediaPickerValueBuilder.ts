@@ -1,4 +1,4 @@
-﻿import {DocumentValueBuilder} from "../documentValueBuilder";
+import {DocumentValueBuilder} from '../documentValueBuilder';
 
 export class MediaPickerValueBuilder {
   parentBuilder: DocumentValueBuilder;
@@ -46,7 +46,7 @@ export class MediaPickerValueBuilder {
     if (this.mediaKey !== undefined) {
       value.mediaKey = this.mediaKey;
     }
-    value.mediaTypeAlias = this.mediaTypeAlias || "";
+    value.mediaTypeAlias = this.mediaTypeAlias || '';
     value.focalPoint = this.focalPoint || null;
     value.crops = this.crops || [];
     return value;

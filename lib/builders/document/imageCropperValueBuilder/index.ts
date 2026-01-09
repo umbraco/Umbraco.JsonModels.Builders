@@ -1,1 +1,1 @@
-﻿export {ImageCropperValueBuilder} from "./imageCropperValueBuilder";
+export {ImageCropperValueBuilder} from './imageCropperValueBuilder';

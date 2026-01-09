@@ -1,4 +1,4 @@
-﻿import {MemberBuilder} from "./memberBuilder";
+import {MemberBuilder} from './memberBuilder';
 
 export class MemberValueBuilder {
   parentBuilder: MemberBuilder;

@@ -1,4 +1,4 @@
-﻿import {MediaBuilder} from "./mediaBuilder";
+import {MediaBuilder} from './mediaBuilder';
 
 export class MediaVariantBuilder {
   parentBuilder: MediaBuilder

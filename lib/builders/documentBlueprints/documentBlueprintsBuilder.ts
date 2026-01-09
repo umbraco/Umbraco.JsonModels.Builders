@@ -1,5 +1,6 @@
-﻿import { DocumentBlueprintsValueBuilder } from "./documentBlueprintsValueBuilder";
-import { DocumentBlueprintsVariantBuilder } from "./documentBlueprintsVariantBuilder";
+import {DocumentBlueprintsValueBuilder} from './documentBlueprintsValueBuilder';
+import {DocumentBlueprintsVariantBuilder} from './documentBlueprintsVariantBuilder';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export class DocumentBlueprintsBuilder {
   documentBlueprintsValueBuilder: DocumentBlueprintsValueBuilder[];
@@ -41,10 +42,7 @@ export class DocumentBlueprintsBuilder {
   }
 
   build() {
-    if (!this.id) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureIdExists(this.id);
 
     return {
       values: this.documentBlueprintsValueBuilder.map((builder) => {

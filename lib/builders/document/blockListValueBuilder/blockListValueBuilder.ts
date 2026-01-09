@@ -1,8 +1,8 @@
-﻿import {DocumentBlueprintsValueBuilder} from "lib/builders/documentBlueprints";
-import {DocumentValueBuilder} from "../documentValueBuilder";
-import {BlockListContentDataBuilder} from "./blockListContentDataBuilder";
-import {BlockListExposeBuilder} from "./blockListExposeBuilder";
-import {BlockListLayoutBuilder} from "./blockListLayoutBuilder";
+import {DocumentBlueprintsValueBuilder} from 'lib/builders/documentBlueprints';
+import {DocumentValueBuilder} from '../documentValueBuilder';
+import {BlockListContentDataBuilder} from './blockListContentDataBuilder';
+import {BlockListExposeBuilder} from './blockListExposeBuilder';
+import {BlockListLayoutBuilder} from './blockListLayoutBuilder';
 
 export class BlockListValueBuilder {
   parentBuilder: DocumentValueBuilder | DocumentBlueprintsValueBuilder;

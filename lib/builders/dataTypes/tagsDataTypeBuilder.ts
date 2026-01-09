@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class TagsDataTypeBuilder extends DataTypeBuilder {
   group: string;
@@ -6,8 +6,8 @@ export class TagsDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Tags";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Tags";
+    this.editorAlias = 'Umbraco.Tags';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Tags';
   }
 
   withGroup(group: string) {

@@ -1,4 +1,4 @@
-﻿import {ListViewDataTypeBuilder} from "../listViewDataTypeBuilder";
+import {ListViewDataTypeBuilder} from '../listViewDataTypeBuilder';
 
 export class ListViewBulkActionPermissionsBuilder {
   parentBuilder: ListViewDataTypeBuilder;

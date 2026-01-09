@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class DecimalDataTypeBuilder extends DataTypeBuilder {
   step: number;
@@ -8,8 +8,8 @@ export class DecimalDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Decimal";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Decimal";
+    this.editorAlias = 'Umbraco.Decimal';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Decimal';
   }
 
   withMin(min: number) {
@@ -35,24 +35,24 @@ export class DecimalDataTypeBuilder extends DataTypeBuilder {
   getValues() {
     let values: any = [];
     values.push({
-      alias: "step",
+      alias: 'step',
       value: this.step || 0.01
     });
     if (this.min !== undefined) {
       values.push({
-        alias: "min",
+        alias: 'min',
         value: this.min
       });
     }
     if (this.max !== undefined) {
       values.push({
-        alias: "max",
+        alias: 'max',
         value: this.max
       });
     }
     if (this.placeholder !== undefined) {
       values.push({
-        alias: "placeholder",
+        alias: 'placeholder',
         value: this.placeholder
       });
     }

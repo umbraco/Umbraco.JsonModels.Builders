@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {MediaPickerCropBuilder} from "./mediaPickerBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {MediaPickerCropBuilder} from './mediaPickerBuilder';
 
 export class MediaPickerDataTypeBuilder extends DataTypeBuilder {
   filter: string;
@@ -13,8 +13,8 @@ export class MediaPickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.MediaPicker3";
-    this.editorUiAlias = "Umb.PropertyEditorUi.MediaPicker";
+    this.editorAlias = 'Umbraco.MediaPicker3';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.MediaPicker';
     this.mediaPickerCropBuilder = [];
   }
 
@@ -63,46 +63,46 @@ export class MediaPickerDataTypeBuilder extends DataTypeBuilder {
     let values: any[] = [];
     if (this.filter !== undefined) {
       values.push({
-        alias: "filter",
+        alias: 'filter',
         value: this.filter
       });
     }
     if (this.multiple !== undefined) {
       values.push({
-        alias: "multiple",
+        alias: 'multiple',
         value: this.multiple !== undefined ? this.multiple : false
       });
     }
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
-        alias: "validationLimit",
+        alias: 'validationLimit',
         value: {
-          min: this.minValue !== undefined ? this.minValue : "",
-          max: this.maxValue !== undefined ? this.maxValue : ""
+          min: this.minValue !== undefined ? this.minValue : '',
+          max: this.maxValue !== undefined ? this.maxValue : ''
         }
       });
     }
     if (this.enableLocalFocalPoint !== undefined) {
       values.push({
-        alias: "enableLocalFocalPoint",
+        alias: 'enableLocalFocalPoint',
         value: this.enableLocalFocalPoint !== undefined ? this.enableLocalFocalPoint : false
       });
     }
     if (this.ignoreUserStartNodes !== undefined) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes !== undefined ? this.ignoreUserStartNodes : false
       });
     }
     if (this.startNodeId !== undefined) {
       values.push({
-        alias: "startNodeId",
+        alias: 'startNodeId',
         value: this.startNodeId
       });
     }
     if (this.mediaPickerCropBuilder && this.mediaPickerCropBuilder.length > 0) {
       values.push({
-        alias: "crops",
+        alias: 'crops',
         value: this.mediaPickerCropBuilder.map((builder) => {
           return builder.getValues();
         })

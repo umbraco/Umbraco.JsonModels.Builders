@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class CodeEditorDataTypeBuilder extends DataTypeBuilder {
   language: string;
@@ -9,8 +9,8 @@ export class CodeEditorDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Plain.String";
-    this.editorUiAlias = "Umb.PropertyEditorUi.CodeEditor";
+    this.editorAlias = 'Umbraco.Plain.String';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.CodeEditor';
   }
 
   withLanguage(language: string) {
