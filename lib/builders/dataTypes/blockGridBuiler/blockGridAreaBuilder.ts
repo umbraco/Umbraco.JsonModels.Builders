@@ -1,5 +1,6 @@
-﻿import {BlockGridSpecifiedAllowanceBuilder} from "./blockGridSpecifiedAllowanceBuilder";
-import {BlockGridBlockBuilder} from "./blockGridBlockBuilder";
+import {BlockGridSpecifiedAllowanceBuilder} from './blockGridSpecifiedAllowanceBuilder';
+import {BlockGridBlockBuilder} from './blockGridBlockBuilder';
+import {ensureIdExists} from '../../../helpers/BuilderUtils';
 
 export class BlockGridAreaBuilder {
   parentBuilder: BlockGridBlockBuilder;
@@ -65,10 +66,7 @@ export class BlockGridAreaBuilder {
   getValues() {
     let values: any = {};
 
-    if (this.key == null) {
-      const crypto = require('crypto');
-      this.key = crypto.randomUUID();
-    }
+    this.key = ensureIdExists(this.key);
     values.key = this.key;
 
     if (this.alias !== undefined) {

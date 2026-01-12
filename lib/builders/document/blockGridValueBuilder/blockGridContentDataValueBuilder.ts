@@ -1,5 +1,5 @@
-﻿import {BaseContentDataValueBuilder} from "../baseBlockValueBuilder";
-import {BlockGridContentDataBuilder} from "./blockGridContentDataBuilder";
+import {BaseContentDataValueBuilder} from '../baseBlockValueBuilder';
+import {BlockGridContentDataBuilder} from './blockGridContentDataBuilder';
 
 export class BlockGridContentDataValueBuilder extends BaseContentDataValueBuilder {
   parentBuilder: BlockGridContentDataBuilder;

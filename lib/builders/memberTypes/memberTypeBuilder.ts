@@ -1,6 +1,7 @@
-﻿import {MemberTypeCompositionBuilder} from "./memberTypeCompositionBuilder";
-import {MemberTypeContainerBuilder} from "./memberTypeContainerBuilder";
-import {MemberTypePropertyBuilder} from "./memberTypePropertyBuilder";
+import {MemberTypeCompositionBuilder} from './memberTypeCompositionBuilder';
+import {MemberTypeContainerBuilder} from './memberTypeContainerBuilder';
+import {MemberTypePropertyBuilder} from './memberTypePropertyBuilder';
+import {ensureIdExists} from '../../helpers/BuilderUtils';
 
 export class MemberTypeBuilder {
   alias: string;
@@ -87,16 +88,13 @@ export class MemberTypeBuilder {
   }
 
   build() {
-    if (this.id == null) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
+    this.id = ensureIdExists(this.id);
 
     return {
-      alias: this.alias || "",
-      name: this.name || "",
-      description: this.description || "",
-      icon: this.icon || "icon-user",
+      alias: this.alias || '',
+      name: this.name || '',
+      description: this.description || '',
+      icon: this.icon || 'icon-user',
       allowedAsRoot: this.allowedAsRoot || false,
       variesByCulture: this.variesByCulture || false,
       variesBySegment: this.variesBySegment || false,

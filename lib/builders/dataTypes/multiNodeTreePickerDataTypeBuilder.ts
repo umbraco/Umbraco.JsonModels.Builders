@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {MultiNodeTreePickerStartNodeBuilder} from "./multiNodeTreePickerBuilder/multiNodeTreePickerStartNodeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {MultiNodeTreePickerStartNodeBuilder} from './multiNodeTreePickerBuilder/multiNodeTreePickerStartNodeBuilder';
 
 export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
   minNumber: number;
@@ -10,8 +10,8 @@ export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.MultiNodeTreePicker";
-    this.editorUiAlias = "Umb.PropertyEditorUi.ContentPicker";
+    this.editorAlias = 'Umbraco.MultiNodeTreePicker';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.ContentPicker';
   }
 
   withMinNumber(minNumber: number) {
@@ -44,32 +44,32 @@ export class MultiNodeTreePickerDataTypeBuilder extends DataTypeBuilder {
     let values: any[] = [];
 
     values.push({
-      alias: "minNumber",
+      alias: 'minNumber',
       value: this.minNumber !== undefined ? this.minNumber : 0
     });
 
     values.push({
-      alias: "maxNumber",
+      alias: 'maxNumber',
       value: this.maxNumber !== undefined ? this.maxNumber : 0
     });
     
     if (this.ignoreUserStartNodes !== undefined) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes
       });
     }
 
     if (this.filterIds !== undefined) {
       values.push({
-        alias: "filter",
+        alias: 'filter',
         value: this.filterIds
       });
     }
 
     if (this.multiNodeTreePickerStartNodeBuilder) {
       values.push({
-        alias: "startNode",
+        alias: 'startNode',
         value: this.multiNodeTreePickerStartNodeBuilder.getValues()
       });
     }

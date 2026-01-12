@@ -1,5 +1,5 @@
-﻿import { ApprovedColorItemBuilder } from "./approvedColorBuilder";
-import {DataTypeBuilder} from "./dataTypeBuilder";
+import {ApprovedColorItemBuilder} from './approvedColorBuilder';
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class ApprovedColorDataTypeBuilder extends DataTypeBuilder {
   useLabel: boolean;
@@ -7,8 +7,8 @@ export class ApprovedColorDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.ColorPicker";
-    this.editorUiAlias = "Umb.PropertyEditorUi.ColorPicker";
+    this.editorAlias = 'Umbraco.ColorPicker';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.ColorPicker';
     this.approvedColorItemBuilder = [];
   }
 
@@ -31,7 +31,7 @@ export class ApprovedColorDataTypeBuilder extends DataTypeBuilder {
     });
     if (this.approvedColorItemBuilder && this.approvedColorItemBuilder.length > 0) {
       values.push({
-        alias: "items",
+        alias: 'items',
         value: this.approvedColorItemBuilder.map((builder) => {
           return builder.getValues();
         })

@@ -1,4 +1,4 @@
-﻿import {MediaTypeBuilder} from "./mediaTypeBuilder";
+import {MediaTypeBuilder} from './mediaTypeBuilder';
 
 export class MediaTypeAllowedMediaTypeBuilder {
   parentBuilder: MediaTypeBuilder;

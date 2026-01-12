@@ -1,4 +1,4 @@
-﻿import {DocumentDomainValueBuilder} from "./documentDomainValueBuilder";
+import {DocumentDomainValueBuilder} from './documentDomainValueBuilder';
 
 export class DocumentDomainBuilder {
   defaultIsoCode: string;

@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class ContentPickerDataTypeBuilder extends DataTypeBuilder {
   showOpenButton: boolean;
@@ -7,8 +7,8 @@ export class ContentPickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.ContentPicker";
-    this.editorUiAlias = "Umb.PropertyEditorUi.DocumentPicker";
+    this.editorAlias = 'Umbraco.ContentPicker';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.DocumentPicker';
   }
 
   withShowOpenButton(showOpenButton: boolean) {
@@ -31,21 +31,21 @@ export class ContentPickerDataTypeBuilder extends DataTypeBuilder {
 
     if (this.showOpenButton !== undefined) {
       values.push({
-        alias: "showOpenButton",
+        alias: 'showOpenButton',
         value: this.showOpenButton
       });
     }
 
     if (this.ignoreUserStartNodes !== undefined) {
       values.push({
-        alias: "ignoreUserStartNodes",
+        alias: 'ignoreUserStartNodes',
         value: this.ignoreUserStartNodes
       });
     }
 
     if (this.startNodeId !== undefined) {
       values.push({
-        alias: "startNodeId",
+        alias: 'startNodeId',
         value: this.startNodeId
       });
     }

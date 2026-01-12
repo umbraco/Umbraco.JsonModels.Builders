@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class MarkdownEditorDataTypeBuilder extends DataTypeBuilder {
   preview: boolean;
@@ -7,8 +7,8 @@ export class MarkdownEditorDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.MarkdownEditor";
-    this.editorUiAlias = "Umb.PropertyEditorUi.MarkdownEditor";
+    this.editorAlias = 'Umbraco.MarkdownEditor';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.MarkdownEditor';
   }
 
   withPreview(preview: boolean) {
@@ -30,19 +30,19 @@ export class MarkdownEditorDataTypeBuilder extends DataTypeBuilder {
     let values: any = [];
     if (this.preview !== undefined) {
       values.push({
-        alias: "preview",
+        alias: 'preview',
         value: this.preview
       });
     }
     if (this.overlaySize !== undefined) {
       values.push({
-        alias: "overlaySize",
+        alias: 'overlaySize',
         value: this.overlaySize
       });
     }
     if (this.defaultValue !== undefined) {
       values.push({
-        alias: "defaultValue",
+        alias: 'defaultValue',
         value: this.defaultValue
       });
     }

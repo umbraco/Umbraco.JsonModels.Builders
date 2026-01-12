@@ -1,4 +1,4 @@
-﻿import {ImageCropperDataTypeBuilder} from "../imageCropperDataTypeBuilder";
+import {ImageCropperDataTypeBuilder} from '../imageCropperDataTypeBuilder';
 
 export class ImageCropperCropBuilder {
   parentBuilder: ImageCropperDataTypeBuilder;

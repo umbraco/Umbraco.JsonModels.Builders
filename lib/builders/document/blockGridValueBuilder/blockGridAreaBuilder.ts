@@ -1,4 +1,4 @@
-﻿import {BlockGridLayoutBuilder} from "./blockGridLayoutBuilder";
+import {BlockGridLayoutBuilder} from './blockGridLayoutBuilder';
 
 export class BlockGridAreaBuilder {
   parentBuilder: BlockGridLayoutBuilder;

@@ -1,4 +1,4 @@
-﻿export class UserBuilder {
+export class UserBuilder {
   email: string;
   kind: string;
   name: string;
@@ -36,7 +36,7 @@
 
   build() {
     return {
-      email: this.email || "",
+      email: this.email || '',
       name: this.name || this.email,
       kind: this.kind || 'Default',
       userGroupIds: this.userGroupIds,

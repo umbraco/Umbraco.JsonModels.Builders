@@ -1,4 +1,5 @@
-﻿import {MemberTypeBuilder} from "./memberTypeBuilder";
+import {MemberTypeBuilder} from './memberTypeBuilder';
+import {ensureIdExists, buildProperty} from '../../helpers/BuilderUtils';
 
 export class MemberTypePropertyBuilder {
   parentBuilder: MemberTypeBuilder;
@@ -96,34 +97,23 @@ export class MemberTypePropertyBuilder {
   }
 
   build() {
-    if (!this.id) {
-      const crypto = require('crypto');
-      this.id = crypto.randomUUID();
-    }
-    
-    return {
+    this.id = ensureIdExists(this.id);
+
+    return buildProperty({
       id: this.id,
-      container: {
-        id: this.containerId || null
-      },
-      sortOrder: this.sortOrder || 0,
-      alias: this.alias || "",
-      name: this.name || "",
-      description: this.description || "",
-      dataType: { 
-        id: this.dataTypeId || null
-      },
-      variesByCulture: this.variesByCulture || false,
-      variesBySegment: this.variesBySegment || false,
-      validation: {
-        mandatory: this.mandatory || false,
-        mandatoryMessage: this.mandatoryMessage || "",
-        regEx: this.regEx || "",
-        regExMessage: this.regExMessage || ""
-      },
-      appearance: {
-        labelOnTop: this.labelOnTop || false
-      }
-    };
+      containerId: this.containerId,
+      sortOrder: this.sortOrder,
+      alias: this.alias,
+      name: this.name,
+      description: this.description,
+      dataTypeId: this.dataTypeId,
+      variesByCulture: this.variesByCulture,
+      variesBySegment: this.variesBySegment,
+      mandatory: this.mandatory,
+      mandatoryMessage: this.mandatoryMessage,
+      regEx: this.regEx,
+      regExMessage: this.regExMessage,
+      labelOnTop: this.labelOnTop
+    });
   }
 }

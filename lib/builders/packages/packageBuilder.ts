@@ -1,4 +1,4 @@
-﻿export class PackageBuilder {
+export class PackageBuilder {
   name: string;
   contentNodeId: string;
   contentLoadChildNodes: boolean;
@@ -87,7 +87,7 @@
   build() {
     return {
       name: this.name,
-      contentNodeId: this.contentNodeId || "",
+      contentNodeId: this.contentNodeId || '',
       contentLoadChildNodes: this.contentLoadChildNodes !== undefined ? this.contentLoadChildNodes : true,
       mediaIds: this.mediaIds,
       mediaLoadChildNodes: this.mediaLoadChildNodes !== undefined ? this.mediaLoadChildNodes : true,

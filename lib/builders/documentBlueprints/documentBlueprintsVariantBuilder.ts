@@ -1,4 +1,4 @@
-﻿import { DocumentBlueprintsBuilder } from "./documentBlueprintsBuilder";
+import {DocumentBlueprintsBuilder} from './documentBlueprintsBuilder';
 
 export class DocumentBlueprintsVariantBuilder {
   parentBuilder: DocumentBlueprintsBuilder;

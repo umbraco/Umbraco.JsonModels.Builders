@@ -1,4 +1,4 @@
-﻿import {DocumentValueBuilder} from "../documentValueBuilder";
+import {DocumentValueBuilder} from '../documentValueBuilder';
 
 export class URLPickerValueBuilder{
   parentBuilder: DocumentValueBuilder;

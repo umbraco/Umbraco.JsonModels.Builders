@@ -1,4 +1,4 @@
-﻿export class BaseContentDataValueBuilder {
+export class BaseContentDataValueBuilder {
   alias: string;
   culture: string;
   editorAlias: string;
@@ -36,7 +36,7 @@
       culture: this.culture || null,
       editorAlias: this.editorAlias,
       segment: this.segment || null,
-      value: this.value || ""
+      value: this.value || ''
     };
   }
 }

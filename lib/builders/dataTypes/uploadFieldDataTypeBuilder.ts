@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class UploadFieldDataTypeBuilder extends DataTypeBuilder {
   fileExtensions: string[];
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.UploadField";
-    this.editorUiAlias = "Umb.PropertyEditorUi.UploadField";
+    this.editorAlias = 'Umbraco.UploadField';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.UploadField';
   }
 
   withFileExtensions(fileExtensions: string[]) {
@@ -19,7 +19,7 @@ export class UploadFieldDataTypeBuilder extends DataTypeBuilder {
 
     if (this.fileExtensions && this.fileExtensions.length > 0) {
       values.push({
-        alias: "fileExtensions",
+        alias: 'fileExtensions',
         value: this.fileExtensions
       });
     }

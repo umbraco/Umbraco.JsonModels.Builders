@@ -1,12 +1,12 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class LabelDataTypeBuilder extends DataTypeBuilder {
   umbracoDataValueType: string;
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.Label";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Label";
+    this.editorAlias = 'Umbraco.Label';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Label';
   }
 
   withDataValueType(umbracoDataValueType: string) {

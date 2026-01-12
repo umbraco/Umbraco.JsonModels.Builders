@@ -1,4 +1,4 @@
-﻿import {TinyMCEDataTypeBuilder} from "./tinyMCEDataTypeBuilder";
+import {TinyMCEDataTypeBuilder} from './tinyMCEDataTypeBuilder';
 
 export class TinyMCEToolbarBuilder {
   parentBuilder: TinyMCEDataTypeBuilder;

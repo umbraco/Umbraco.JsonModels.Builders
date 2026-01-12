@@ -1,13 +1,13 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {ImageCropperCropBuilder} from "./imageCropperBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {ImageCropperCropBuilder} from './imageCropperBuilder';
 
 export class ImageCropperDataTypeBuilder extends DataTypeBuilder {
   imageCropperCropBuilder: ImageCropperCropBuilder[];
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.ImageCropper";
-    this.editorUiAlias = "Umb.PropertyEditorUi.ImageCropper";
+    this.editorAlias = 'Umbraco.ImageCropper';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.ImageCropper';
     this.imageCropperCropBuilder = [];
   }
 
@@ -21,7 +21,7 @@ export class ImageCropperDataTypeBuilder extends DataTypeBuilder {
     let values: any[] = [];
     if (this.imageCropperCropBuilder && this.imageCropperCropBuilder.length > 0) {
       values.push({
-        alias: "crops",
+        alias: 'crops',
         value: this.imageCropperCropBuilder.map((builder) => {
           return builder.getValues();
         })

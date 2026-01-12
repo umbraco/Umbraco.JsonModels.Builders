@@ -1,4 +1,4 @@
-﻿import {TiptapDataTypeBuilder} from "../tiptapDataTypeBuilder";
+import {TiptapDataTypeBuilder} from '../tiptapDataTypeBuilder';
 
 export class TiptapStatusbarBuilder {
   parentBuilder: TiptapDataTypeBuilder;

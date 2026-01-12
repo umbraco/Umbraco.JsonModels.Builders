@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {ListViewBulkActionPermissionsBuilder, ListViewLayoutBuilder, ListViewPropertyBuilder} from "./listViewBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {ListViewBulkActionPermissionsBuilder, ListViewLayoutBuilder, ListViewPropertyBuilder} from './listViewBuilder';
 
 export class ListViewDataTypeBuilder extends DataTypeBuilder {
   pageSize: number;
@@ -14,8 +14,8 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.ListView";
-    this.editorUiAlias = "Umb.PropertyEditorUi.Collection";
+    this.editorAlias = 'Umbraco.ListView';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.Collection';
     this.layouts = [];
     this.includeProperties = [];
     // this.bulkActionPermissions = new ListViewBulkActionPermissionsBuilder(this);
@@ -79,12 +79,12 @@ export class ListViewDataTypeBuilder extends DataTypeBuilder {
 
     values.push({
       alias: 'orderBy',
-      value: this.orderBy || "updateDate"
+      value: this.orderBy || 'updateDate'
     });
 
     values.push({
       alias: 'orderDirection',
-      value: this.orderDirection || "desc"
+      value: this.orderDirection || 'desc'
     });
 
     values.push({

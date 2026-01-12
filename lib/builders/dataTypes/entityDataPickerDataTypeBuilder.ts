@@ -1,4 +1,4 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
 
 export class EntityDataPickerDataTypeBuilder extends DataTypeBuilder {
   minValue: number;
@@ -7,8 +7,8 @@ export class EntityDataPickerDataTypeBuilder extends DataTypeBuilder {
 
   constructor() {
     super();
-    this.editorAlias = "Umbraco.EntityDataPicker";
-    this.editorUiAlias = "Umb.PropertyEditorUi.EntityDataPicker";
+    this.editorAlias = 'Umbraco.EntityDataPicker';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.EntityDataPicker';
   }
 
   withMinValue(minValue: number) {
@@ -32,10 +32,10 @@ export class EntityDataPickerDataTypeBuilder extends DataTypeBuilder {
     // Add validationLimit alias and value if present
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
-        alias: "validationLimit",
+        alias: 'validationLimit',
         value: {
-          min: this.minValue !== undefined ? this.minValue : "",
-          max: this.maxValue !== undefined ? this.maxValue : ""
+          min: this.minValue !== undefined ? this.minValue : '',
+          max: this.maxValue !== undefined ? this.maxValue : ''
         }
       });
     }

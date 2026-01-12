@@ -1,5 +1,5 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {BlockListBlockBuilder} from "./blockListBuilder";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {BlockListBlockBuilder} from './blockListBuilder';
 
 export class BlockListDataTypeBuilder extends DataTypeBuilder {
   minValue: number;
@@ -13,8 +13,8 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
   constructor() {
     super();
     this.blockListBlockBuilder = [];
-    this.editorAlias = "Umbraco.BlockList";
-    this.editorUiAlias = "Umb.PropertyEditorUi.BlockList";
+    this.editorAlias = 'Umbraco.BlockList';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.BlockList';
   }
 
   withMinValue(minValue: number) {
@@ -59,10 +59,10 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add validationLimit alias and value if present
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
-        alias: "validationLimit",
+        alias: 'validationLimit',
         value: {
-          min: this.minValue !== undefined ? this.minValue : "",
-          max: this.maxValue !== undefined ? this.maxValue : ""
+          min: this.minValue !== undefined ? this.minValue : '',
+          max: this.maxValue !== undefined ? this.maxValue : ''
         }
       });
     }
@@ -70,7 +70,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add maxPropertyWidth alias and value if present
     if (this.maxPropertyWidth !== undefined) {
       values.push({
-        alias: "maxPropertyWidth",
+        alias: 'maxPropertyWidth',
         value: this.maxPropertyWidth
       });
     }
@@ -78,7 +78,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add useSingleBlockMode alias and value if present
     if (this.useSingleBlockMode !== undefined) {
       values.push({
-        alias: "useSingleBlockMode",
+        alias: 'useSingleBlockMode',
         value: this.useSingleBlockMode
       });
     }
@@ -86,7 +86,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add useLiveEditing alias and value if present
     if (this.useLiveEditing !== undefined) {
       values.push({
-        alias: "useLiveEditing",
+        alias: 'useLiveEditing',
         value: this.useLiveEditing
       });
     }
@@ -94,7 +94,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add useInlineEditingAsDefault alias and value if present
     if (this.useInlineEditingAsDefault !== undefined) {
       values.push({
-        alias: "useInlineEditingAsDefault",
+        alias: 'useInlineEditingAsDefault',
         value: this.useInlineEditingAsDefault
       });
     }
@@ -102,7 +102,7 @@ export class BlockListDataTypeBuilder extends DataTypeBuilder {
     // Add blocks alias and value if present
     if (this.blockListBlockBuilder && this.blockListBlockBuilder.length > 0) {
       values.push({
-        alias: "blocks",
+        alias: 'blocks',
         value: this.blockListBlockBuilder.map(block => block.getValues())
       });
     }

@@ -1,4 +1,4 @@
-﻿import {DocumentValueBuilder} from "../documentValueBuilder";
+import {DocumentValueBuilder} from '../documentValueBuilder';
 
 export class ImageCropperValueBuilder {
   parentBuilder: DocumentValueBuilder;
@@ -40,8 +40,8 @@ export class ImageCropperValueBuilder {
     let value: any = {};
     value.crops = this.crops || [];
     value.focalPoint = this.focalPoint || null;
-    value.src = this.src || "";
-    value.temporaryFileId = this.temporaryFileId || "";
+    value.src = this.src || '';
+    value.temporaryFileId = this.temporaryFileId || '';
     return value;
   }
 }

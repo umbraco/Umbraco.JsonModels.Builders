@@ -1,6 +1,6 @@
-﻿import {DataTypeBuilder} from "./dataTypeBuilder";
-import {BlockGridBlockBuilder} from "./blockGridBuiler";
-import {BlockGridBlockGroupBuilder} from "./blockGridBuiler";
+import {DataTypeBuilder} from './dataTypeBuilder';
+import {BlockGridBlockBuilder} from './blockGridBuiler';
+import {BlockGridBlockGroupBuilder} from './blockGridBuiler';
 
 export class BlockGridDataTypeBuilder extends DataTypeBuilder {
   blockGridBlockBuilder: BlockGridBlockBuilder[];
@@ -18,8 +18,8 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
     super();
     this.blockGridBlockBuilder = [];
     this.blockGridBlockGroupBuilder = [];
-    this.editorAlias = "Umbraco.BlockGrid";
-    this.editorUiAlias = "Umb.PropertyEditorUi.BlockGrid";
+    this.editorAlias = 'Umbraco.BlockGrid';
+    this.editorUiAlias = 'Umb.PropertyEditorUi.BlockGrid';
   }
 
   addBlock() {
@@ -99,7 +99,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
     if (this.minValue !== undefined || this.maxValue !== undefined) {
       values.push({
-        alias: "validationLimit",
+        alias: 'validationLimit',
         value: {
           min: this.minValue !== undefined ? this.minValue : undefined,
           max: this.maxValue !== undefined ? this.maxValue : undefined
@@ -109,35 +109,35 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
     if (this.gridColumns !== undefined) {
       values.push({
-        alias: "gridColumns",
+        alias: 'gridColumns',
         value: this.gridColumns
       });
     }
 
     if (this.layoutStylesheet !== undefined) {
       values.push({
-        alias: "layoutStylesheet",
+        alias: 'layoutStylesheet',
         value: this.layoutStylesheet
       });
     }
 
     if (this.useLiveEditing !== undefined) {
       values.push({
-        alias: "useLiveEditing",
+        alias: 'useLiveEditing',
         value: this.useLiveEditing
       });
     }
 
     if (this.maxPropertyWidth !== undefined) {
       values.push({
-        alias: "maxPropertyWidth",
+        alias: 'maxPropertyWidth',
         value: this.maxPropertyWidth
       });
     }
 
     if (this.blockGridBlockBuilder.length > 0) {
       values.push({
-        alias: "blocks",
+        alias: 'blocks',
         value: this.blockGridBlockBuilder.map((builder) => {
           return builder.getValues();
         })
@@ -146,7 +146,7 @@ export class BlockGridDataTypeBuilder extends DataTypeBuilder {
 
     if (this.createLabel !== undefined) {
       values.push({
-        alias: "createLabel",
+        alias: 'createLabel',
         value: this.createLabel
       });
     }
