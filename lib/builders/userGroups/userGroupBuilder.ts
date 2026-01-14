@@ -14,6 +14,7 @@ export class UserGroupBuilder {
   mediaRootAccess: boolean;
   fallbackPermissionsBuilder: UserGroupsPermissionsBaseBuilder;
   userGroupPermissionBuilder: UserGroupPermissionBuilder;
+  description: string;
 
   constructor() {
     this.sections = [];
@@ -77,6 +78,11 @@ export class UserGroupBuilder {
     return builder;
   }
 
+  withDescription(description: string) {
+    this.description = description;
+    return this;
+  }
+
   build() {
     return {
       name: this.name || '',
@@ -90,7 +96,8 @@ export class UserGroupBuilder {
       mediaStartNode: this.mediaStartNodeId ? {id: this.mediaStartNodeId} : null,
       mediaRootAccess: this.mediaRootAccess || false,
       fallbackPermissions: this.fallbackPermissionsBuilder ? this.fallbackPermissionsBuilder.build() : [],
-      permissions: this.userGroupPermissionBuilder ? this.userGroupPermissionBuilder.build() : []
+      permissions: this.userGroupPermissionBuilder ? this.userGroupPermissionBuilder.build() : [],
+      description: this.description || '',
     };
   }
 }
