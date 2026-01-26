@@ -1,109 +1,169 @@
 ﻿export class UserGroupsPermissionsBaseBuilder {
   parentBuilder;
-  read: boolean = false;
-  createDocumentBlueprint: boolean = false;
-  delete: boolean = false;
-  create: boolean;
-  notifications: boolean = false;
-  publish: boolean = false;
-  setPermissions: boolean = false;
-  unpublish: boolean = false;
-  update: boolean = false;
-  duplicate: boolean = false;
-  moveTo: boolean = false;
-  sortChildren: boolean = false;
-  cultureAndHostnames: boolean = false;
-  publicAccess: boolean = false;
-  rollback: boolean = false;
-  readPropertyValue: boolean = false;
-  writePropertyValue: boolean = false;
+
+  // Document permissions
+  documentRead: boolean = false;
+  documentCreateDocumentBlueprint: boolean = false;
+  documentDelete: boolean = false;
+  documentCreate: boolean = false;
+  documentNotifications: boolean = false;
+  documentPublish: boolean = false;
+  documentSetPermissions: boolean = false;
+  documentUnpublish: boolean = false;
+  documentUpdate: boolean = false;
+  documentDuplicate: boolean = false;
+  documentMoveTo: boolean = false;
+  documentSortChildren: boolean = false;
+  documentCultureAndHostnames: boolean = false;
+  documentPublicAccess: boolean = false;
+  documentRollback: boolean = false;
+  documentReadPropertyValue: boolean = false;
+  documentWritePropertyValue: boolean = false;
+
+  // Element permissions
+  elementRead: boolean = false;
+  elementCreate: boolean = false;
+  elementDelete: boolean = false;
+  elementPublish: boolean = false;
+  elementUnpublish: boolean = false;
+  elementUpdate: boolean = false;
+  elementDuplicate: boolean = false;
+  elementMove: boolean = false;
+  elementRollback: boolean = false;
 
   constructor(parentBuilder) {
     this.parentBuilder = parentBuilder;
   }
 
-  withReadPermission(read: boolean) {
-    this.read = read;
+  // Document permission methods
+  withDocumentReadPermission(read: boolean) {
+    this.documentRead = read;
     return this;
   }
 
-  withCreateDocumentBlueprintPermission(createDocumentBlueprint: boolean) {
-    this.createDocumentBlueprint = createDocumentBlueprint;
+  withDocumentCreateDocumentBlueprintPermission(createDocumentBlueprint: boolean) {
+    this.documentCreateDocumentBlueprint = createDocumentBlueprint;
     return this;
   }
 
-  withDeletePermission(deletePermission: boolean) {
-    this.delete = deletePermission;
+  withDocumentDeletePermission(deletePermission: boolean) {
+    this.documentDelete = deletePermission;
     return this;
   }
 
-  withCreatePermission(createPermission: boolean) {
-    this.create = createPermission;
+  withDocumentCreatePermission(createPermission: boolean) {
+    this.documentCreate = createPermission;
     return this;
   }
 
-  withNotificationsPermission(notifications: boolean) {
-    this.notifications = notifications;
+  withDocumentNotificationsPermission(notifications: boolean) {
+    this.documentNotifications = notifications;
     return this;
   }
 
-  withPublishPermission(publish: boolean) {
-    this.publish = publish;
+  withDocumentPublishPermission(publish: boolean) {
+    this.documentPublish = publish;
     return this;
   }
 
-  withSetPermissionsPermission(setPermissions: boolean) {
-    this.setPermissions = setPermissions;
+  withDocumentSetPermissionsPermission(setPermissions: boolean) {
+    this.documentSetPermissions = setPermissions;
     return this;
   }
 
-  withUnpublishPermission(unpublish: boolean) {
-    this.unpublish = unpublish;
+  withDocumentUnpublishPermission(unpublish: boolean) {
+    this.documentUnpublish = unpublish;
     return this;
   }
 
-  withUpdatePermission(update: boolean) {
-    this.update = update;
+  withDocumentUpdatePermission(update: boolean) {
+    this.documentUpdate = update;
     return this;
   }
 
-  withDuplicatePermission(duplicate: boolean) {
-    this.duplicate = duplicate;
+  withDocumentDuplicatePermission(duplicate: boolean) {
+    this.documentDuplicate = duplicate;
     return this;
   }
 
-  withMoveToPermission(moveTo: boolean) {
-    this.moveTo = moveTo;
+  withDocumentMoveToPermission(moveTo: boolean) {
+    this.documentMoveTo = moveTo;
     return this;
   }
 
-  withSortChildrenPermission(sortChildren: boolean) {
-    this.sortChildren = sortChildren;
+  withDocumentSortChildrenPermission(sortChildren: boolean) {
+    this.documentSortChildren = sortChildren;
     return this;
   }
 
-  withCultureAndHostnamesPermission(cultureAndHostnames: boolean) {
-    this.cultureAndHostnames = cultureAndHostnames;
+  withDocumentCultureAndHostnamesPermission(cultureAndHostnames: boolean) {
+    this.documentCultureAndHostnames = cultureAndHostnames;
     return this;
   }
 
-  withPublicAccessPermission(publicAccess: boolean) {
-    this.publicAccess = publicAccess;
+  withDocumentPublicAccessPermission(publicAccess: boolean) {
+    this.documentPublicAccess = publicAccess;
     return this;
   }
 
-  withRollbackPermission(rollback: boolean) {
-    this.rollback = rollback;
+  withDocumentRollbackPermission(rollback: boolean) {
+    this.documentRollback = rollback;
     return this;
   }
 
-  withReadPropertyValuePermission(readPropertyValue: boolean) {
-    this.readPropertyValue = readPropertyValue;
+  withDocumentReadPropertyValuePermission(readPropertyValue: boolean) {
+    this.documentReadPropertyValue = readPropertyValue;
     return this;
   }
 
-  withWritePropertyValuePermission(writePropertyValue: boolean) {
-    this.writePropertyValue = writePropertyValue;
+  withDocumentWritePropertyValuePermission(writePropertyValue: boolean) {
+    this.documentWritePropertyValue = writePropertyValue;
+    return this;
+  }
+
+  // Element permission methods
+  withElementReadPermission(read: boolean) {
+    this.elementRead = read;
+    return this;
+  }
+
+  withElementCreatePermission(create: boolean) {
+    this.elementCreate = create;
+    return this;
+  }
+
+  withElementDeletePermission(deletePermission: boolean) {
+    this.elementDelete = deletePermission;
+    return this;
+  }
+
+  withElementPublishPermission(publish: boolean) {
+    this.elementPublish = publish;
+    return this;
+  }
+
+  withElementUnpublishPermission(unpublish: boolean) {
+    this.elementUnpublish = unpublish;
+    return this;
+  }
+
+  withElementUpdatePermission(update: boolean) {
+    this.elementUpdate = update;
+    return this;
+  }
+
+  withElementDuplicatePermission(duplicate: boolean) {
+    this.elementDuplicate = duplicate;
+    return this;
+  }
+
+  withElementMovePermission(move: boolean) {
+    this.elementMove = move;
+    return this;
+  }
+
+  withElementRollbackPermission(rollback: boolean) {
+    this.elementRollback = rollback;
     return this;
   }
 
@@ -113,106 +173,89 @@
 
   build() {
     let values: any[] = [];
-    if (this.read) {
-      values.push(
-        'Umb.Document.Read'
-      );
+
+    // Document permissions
+    if (this.documentRead) {
+      values.push('Umb.Document.Read');
     }
-    if (this.createDocumentBlueprint) {
-      values.push(
-        'Umb.Document.CreateBlueprint'
-      );
+    if (this.documentCreateDocumentBlueprint) {
+      values.push('Umb.Document.CreateBlueprint');
+    }
+    if (this.documentDelete) {
+      values.push('Umb.Document.Delete');
+    }
+    if (this.documentCreate) {
+      values.push('Umb.Document.Create');
+    }
+    if (this.documentNotifications) {
+      values.push('Umb.Document.Notifications');
+    }
+    if (this.documentPublish) {
+      values.push('Umb.Document.Publish');
+    }
+    if (this.documentSetPermissions) {
+      values.push('Umb.Document.Permissions');
+    }
+    if (this.documentUnpublish) {
+      values.push('Umb.Document.Unpublish');
+    }
+    if (this.documentUpdate) {
+      values.push('Umb.Document.Update');
+    }
+    if (this.documentDuplicate) {
+      values.push('Umb.Document.Duplicate');
+    }
+    if (this.documentMoveTo) {
+      values.push('Umb.Document.Move');
+    }
+    if (this.documentSortChildren) {
+      values.push('Umb.Document.Sort');
+    }
+    if (this.documentCultureAndHostnames) {
+      values.push('Umb.Document.CultureAndHostnames');
+    }
+    if (this.documentPublicAccess) {
+      values.push('Umb.Document.PublicAccess');
+    }
+    if (this.documentRollback) {
+      values.push('Umb.Document.Rollback');
+    }
+    if (this.documentReadPropertyValue) {
+      values.push('Umb.Document.PropertyValue.Read');
+    }
+    if (this.documentWritePropertyValue) {
+      values.push('Umb.Document.PropertyValue.Write');
     }
 
-    if (this.delete) {
-      values.push(
-        'Umb.Document.Delete'
-      );
+    // Element permissions
+    if (this.elementRead) {
+      values.push('Umb.Element.Read');
+    }
+    if (this.elementCreate) {
+      values.push('Umb.Element.Create');
+    }
+    if (this.elementDelete) {
+      values.push('Umb.Element.Delete');
+    }
+    if (this.elementPublish) {
+      values.push('Umb.Element.Publish');
+    }
+    if (this.elementUnpublish) {
+      values.push('Umb.Element.Unpublish');
+    }
+    if (this.elementUpdate) {
+      values.push('Umb.Element.Update');
+    }
+    if (this.elementDuplicate) {
+      values.push('Umb.Element.Duplicate');
+    }
+    if (this.elementMove) {
+      values.push('Umb.Element.Move');
+    }
+    if (this.elementRollback) {
+      values.push('Umb.Element.Rollback');
     }
 
-    if (this.create) {
-      values.push(
-        'Umb.Document.Create'
-      );
-    }
-
-    if (this.notifications) {
-      values.push(
-        'Umb.Document.Notifications'
-      );
-    }
-
-    if (this.publish) {
-      values.push(
-        'Umb.Document.Publish'
-      );
-    }
-
-    if (this.setPermissions) {
-      values.push(
-        'Umb.Document.Permissions'
-      );
-    }
-
-    if (this.unpublish) {
-      values.push(
-        'Umb.Document.Unpublish'
-      );
-    }
-
-    if (this.update) {
-      values.push(
-        'Umb.Document.Update'
-      );
-    }
-
-    if (this.duplicate) {
-      values.push(
-        'Umb.Document.Duplicate'
-      );
-    }
-
-    if (this.moveTo) {
-      values.push(
-        'Umb.Document.Move'
-      );
-    }
-
-    if (this.sortChildren) {
-      values.push(
-        'Umb.Document.Sort'
-      );
-    }
-
-    if (this.cultureAndHostnames) {
-      values.push(
-        'Umb.Document.CultureAndHostnames'
-      );
-    }
-
-    if (this.publicAccess) {
-      values.push(
-        'Umb.Document.PublicAccess'
-      );
-    }
-
-    if (this.rollback) {
-      values.push(
-        'Umb.Document.Rollback'
-      );
-    }
-
-    if (this.readPropertyValue) {
-      values.push(
-        'Umb.Document.PropertyValue.Read'
-      );
-    }
-
-    if (this.writePropertyValue) {
-      values.push(
-        'Umb.Document.PropertyValue.Write'
-      );
-    }
     return values;
   }
 }
