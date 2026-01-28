@@ -8,7 +8,6 @@ export class ElementBuilder {
   id: string;
   parentId: string;
   documentTypeId: string;
-  templateId: string;
 
   constructor() {
     this.elementValueBuilder = [];
@@ -39,11 +38,6 @@ export class ElementBuilder {
   
   withDocumentTypeId(documentTypeId: string) {
     this.documentTypeId = documentTypeId;
-    return this;
-  }
-
-  withTemplateId(templateId: string) {
-    this.templateId = templateId;
     return this;
   }
 
