@@ -60,7 +60,7 @@ export class ElementValueBuilder {
       alias: this.alias || null,
       value: value || null,
       editorAlias: this.editorAlias || null,
-      entityType: this.editorAlias !== undefined ? 'Element-property-value' : null
+      entityType: this.entityType || null
     }
   };
 }
