@@ -35,7 +35,7 @@ export class ElementBuilder {
     this.parentId = parentId;
     return this;
   }
-  
+
   withDocumentTypeId(documentTypeId: string) {
     this.documentTypeId = documentTypeId;
     return this;
@@ -52,8 +52,8 @@ export class ElementBuilder {
         return builder.build();
       }),
       id: this.id,
-      parent: this.parentId ? { id: this.parentId} : null,
-      documentType: { id: this.documentTypeId}
+      parent: this.parentId ? {id: this.parentId} : null,
+      documentType: {id: this.documentTypeId}
     };
   }
 }
