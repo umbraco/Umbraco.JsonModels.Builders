@@ -1,7 +1,7 @@
 {
   "name": "@umbraco/json-models-builders",
-  "version": "18.0.2",
-  "description": "Builders and models for Umbraco Sites",
+  "version": "18.0.3",
+  "description": "DEPRECATED - Use @umbraco-cms/acceptance-test-helpers instead. Builders and models for Umbraco Sites",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
