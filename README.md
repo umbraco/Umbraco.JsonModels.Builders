@@ -1,3 +1,15 @@
+# ⚠️ DEPRECATED
+
+This package has been deprecated. The builders have been moved into the Umbraco CMS acceptance test project.
+
+**Please use [`@umbraco-cms/acceptance-test-helpers`](https://www.npmjs.com/package/@umbraco-cms/acceptance-test-helpers) instead.**
+
+```bash
+npm install @umbraco-cms/acceptance-test-helpers
+```
+
+---
+
 # Umbraco.JsonModels.Builder
 
 A TypeScript library that provides builders for creating JSON models used with the Umbraco CMS backoffice. This package implements the [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern) to simplify the creation of complex Umbraco configuration objects through a fluent API with sensible defaults.
